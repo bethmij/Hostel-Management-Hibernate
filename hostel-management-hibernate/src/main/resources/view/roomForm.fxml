@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -108,58 +109,13 @@
             <Image url="@../assests/icon/icons8-logout-100.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="60.0" prefHeight="722.0" prefWidth="200.0" visible="false">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutY="1.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#5cfdff" layoutX="17.0" layoutY="318.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="20.0" layoutY="175.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="233.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="20.0" layoutY="387.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="515.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
       <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="12.0" layoutY="549.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/icon/icons8-setting-80.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594e" height="651.0" layoutX="95.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" width="469.0" />
-      <Group layoutX="292.0" layoutY="215.0">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594f" height="651.0" layoutX="95.0" layoutY="90.0" stroke="#1a3a575b" strokeType="INSIDE" width="469.0" />
+      <Group layoutX="292.0" layoutY="223.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="34.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="205.0" />
             <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="39.0" prefWidth="206.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Add New ID">
@@ -193,24 +149,24 @@
             </TextField>
          </children>
       </Group>
-      <Text fill="#e1e1e1" layoutX="160.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID">
+      <Text fill="#e1e1e1" layoutX="160.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Group layoutX="291.0" layoutY="144.0">
+      <Group layoutX="291.0" layoutY="158.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="32.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="206.0" />
             <ComboBox fx:id="cmbID" blendMode="OVERLAY" layoutY="-1.0" prefHeight="34.0" prefWidth="208.0" />
          </children>
       </Group>
-      <Group layoutX="291.0" layoutY="292.0">
+      <Group layoutX="291.0" layoutY="308.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="32.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="206.0" />
             <ComboBox fx:id="cmbType" blendMode="OVERLAY" layoutY="-1.0" prefHeight="34.0" prefWidth="208.0" />
          </children>
       </Group>
-      <Text fill="#e1e1e1" layoutX="158.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type">
+      <Text fill="#e1e1e1" layoutX="158.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
@@ -249,17 +205,17 @@
             </TextField>
          </children>
       </Group>
-      <Text fill="#e1e1e1" layoutX="390.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or">
+      <Text fill="#e1e1e1" layoutX="390.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </Text>
-      <Text fill="#e1e1e1" layoutX="389.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or">
+      <Text fill="#e1e1e1" layoutX="389.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </Text>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="500.0" layoutY="218.0" onAction="#IDOnAction">
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="500.0" layoutY="228.0" onAction="#IDOnAction">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -281,12 +237,63 @@
          <font>
             <Font size="19.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton fx:id="btnClear" layoutX="203.0" layoutY="638.0" onAction="#btnClearOnAction" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Clear" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
+      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="60.0" prefHeight="722.0" prefWidth="200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#5cfdff" layoutX="17.0" layoutY="318.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="20.0" layoutY="175.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="230.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="20.0" layoutY="384.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="515.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
       <Group layoutX="648.0" layoutY="152.0">
          <children>
             <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="516.0" layoutX="1.0" opacity="0.28" stroke="WHITE" strokeType="INSIDE" width="706.0" />
