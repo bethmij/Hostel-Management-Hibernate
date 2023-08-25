@@ -53,6 +53,9 @@
          <image>
             <Image url="@../assests/icon/icons8-dashboard-96.png" />
          </image>
+         <effect>
+            <ColorAdjust brightness="0.41" contrast="1.0" hue="-1.0" saturation="1.0" />
+         </effect>
       </ImageView>
       <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="9.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -84,7 +87,7 @@
             <Image url="@../assests/icon/icons8-logout-100.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="65.0" layoutY="60.0" prefHeight="722.0" prefWidth="200.0">
+      <AnchorPane fx:id="menuPane" layoutX="65.0" layoutY="60.0" prefHeight="722.0" prefWidth="200.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="2.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
             <Text fill="#e1e1e1" layoutX="18.0" layoutY="465.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
@@ -97,7 +100,7 @@
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+            <Text fill="#5cfdff" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
@@ -269,10 +272,18 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="-30.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+      <Text fill="#e1e1e1" layoutX="81.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
          <font>
             <Font name="Calibri" size="28.0" />
          </font>
       </Text>
+      <ImageView fitHeight="89.0" fitWidth="88.0" layoutX="-3.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/Green_Minimalist_Simple_House_Logo_Icon__4_-removebg-preview.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" contrast="1.0" saturation="1.0" />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>

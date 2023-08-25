@@ -23,6 +23,7 @@ public class DashboardFormController {
     public Label lblAcAvailble;
     public Label lblAcFoodTotal;
     public Label lblAcFoodAvailble;
+    public AnchorPane menuPane;
 
     public void dashbordOnAction(MouseEvent mouseEvent) {
     }
