@@ -169,14 +169,6 @@
             </TextField>
          </children>
       </Group>
-      <ImageView fitHeight="46.0" fitWidth="65.0" layoutX="386.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assests/icon/icons8-search-100.png" />
-         </image>
-         <effect>
-            <ColorAdjust brightness="-0.36" />
-         </effect>
-      </ImageView>
       <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="9.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/icon/icons8-setting-80.png" />
@@ -214,5 +206,13 @@
             </TableView>
          </children>
       </Group>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="398.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-search-100.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.36" />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>
