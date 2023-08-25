@@ -118,7 +118,7 @@
       <Group layoutX="292.0" layoutY="223.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="34.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="205.0" />
-            <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="39.0" prefWidth="206.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Add New ID">
+            <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="39.0" prefWidth="206.0" promptText="Add New ID" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -135,7 +135,7 @@
       <Group layoutX="291.0" layoutY="368.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="35.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="206.0" />
-            <TextField fx:id="txtType" blendMode="OVERLAY" layoutY="2.0" prefHeight="39.0" prefWidth="208.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Add Room Type ">
+            <TextField fx:id="txtType" blendMode="OVERLAY" layoutY="2.0" prefHeight="39.0" prefWidth="208.0" promptText="Add Room Type " style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -174,7 +174,7 @@
       <Group layoutX="158.0" layoutY="445.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="341.0" />
-            <TextField fx:id="txtQty" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="342.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Rooms QTY">
+            <TextField fx:id="txtQty" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="342.0" promptText="Rooms QTY" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -191,7 +191,7 @@
       <Group layoutX="160.0" layoutY="519.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="341.0" />
-            <TextField fx:id="txtMoney" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="342.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Key Money">
+            <TextField fx:id="txtMoney" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="342.0" promptText="Key Money" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
