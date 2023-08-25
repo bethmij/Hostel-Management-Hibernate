@@ -25,14 +25,14 @@
             <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="237.0" layoutY="77.0" opacity="0.28" stroke="#d5dee7" strokeType="INSIDE" width="952.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="592.0" layoutX="237.0" layoutY="77.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="428.0" />
-      <ImageView fitHeight="328.0" fitWidth="552.0" layoutX="237.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="237.0" layoutY="99.0" opacity="0.28" stroke="#d5dee7" strokeType="INSIDE" width="952.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="592.0" layoutX="237.0" layoutY="99.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="428.0" />
+      <ImageView fitHeight="328.0" fitWidth="552.0" layoutX="237.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Untitled__8_-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="129.0" fitWidth="169.0" layoutX="389.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="129.0" fitWidth="169.0" layoutX="389.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Green_Minimalist_Simple_House_Logo_Icon__4_-removebg-preview.png" />
          </image>
@@ -47,7 +47,7 @@
             </DropShadow>
          </effect>
       </ImageView>
-      <ImageView fitHeight="288.0" fitWidth="372.0" layoutX="307.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="288.0" fitWidth="372.0" layoutX="307.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Simple_Black_and_Turquoise_Welcome_Instagram_Post__1_-removebg-preview%20(1).png" />
          </image>
@@ -55,12 +55,12 @@
             <ColorAdjust brightness="0.75" contrast="-0.28" saturation="0.95" />
          </effect>
       </ImageView>
-      <Text fill="#dcdcdc" layoutX="737.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fill="#dcdcdc" layoutX="737.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
          <font>
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
-      <TextField blendMode="OVERLAY" layoutX="737.0" layoutY="178.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+      <TextField blendMode="OVERLAY" layoutX="737.0" layoutY="200.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -72,22 +72,22 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <PasswordField blendMode="OVERLAY" layoutX="737.0" layoutY="262.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
+      <PasswordField blendMode="OVERLAY" layoutX="737.0" layoutY="284.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <JFXButton layoutX="877.0" layoutY="336.0" onAction="#logInOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="LOG IN" textFill="WHITE">
+      <JFXButton layoutX="877.0" layoutY="358.0" onAction="#logInOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="LOG IN" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <Text fill="#a9a7a7" layoutX="798.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ?">
+      <Text fill="#a9a7a7" layoutX="798.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ?">
          <font>
             <Font name="Bookshelf Symbol 7" size="16.0" />
          </font>
       </Text>
-      <Text fill="#fafafa" layoutX="994.0" layoutY="420.0" onDragDetected="#signUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" wrappingWidth="86.84375">
+      <Text fill="#fafafa" layoutX="994.0" layoutY="442.0" onDragDetected="#signUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" wrappingWidth="86.84375">
          <font>
             <Font name="Bookshelf Symbol 7" size="16.0" />
          </font>
