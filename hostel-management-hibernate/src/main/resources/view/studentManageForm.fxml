@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="managePane" prefHeight="783.0" prefWidth="1395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudentManageFormController">
    <children>
+      <JFXButton layoutX="99.0" layoutY="66.0" prefHeight="26.0" prefWidth="0.0" />
       <ImageView fitHeight="786.0" fitWidth="1398.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
@@ -21,7 +28,7 @@
             <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="59.0" layoutY="2.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="1398.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="59.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="1398.0" />
       <Text fill="#e1e1e1" layoutX="613.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
          <font>
             <Font name="Calibri" size="18.0" />
@@ -61,7 +68,7 @@
             <ColorAdjust brightness="1.0" contrast="1.0" saturation="1.0" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="65.0" layoutX="-331.0" layoutY="390.0" onMouseEntered="#menuOpenOnAction" opacity="0.31" rotate="90.0" stroke="#dcdbdb" strokeType="INSIDE" width="722.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="65.0" layoutX="-334.0" layoutY="390.0" onMouseEntered="#menuOpenOnAction" opacity="0.31" rotate="90.0" stroke="#dcdbdb" strokeType="INSIDE" width="720.0" />
       <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="11.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/icon/icons8-dashboard-96.png" />
@@ -90,9 +97,9 @@
             <Image url="@../assests/icon/icons8-booked-80.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="9.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="9.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assests/icon/icons8-setting-80.png" />
+            <Image url="@../assests/icon/icons8-payment-100.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="42.0" fitWidth="34.0" layoutX="13.0" layoutY="725.0" pickOnBounds="true" preserveRatio="true">
@@ -100,35 +107,35 @@
             <Image url="@../assests/icon/icons8-logout-100.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="menuPane" layoutX="63.0" layoutY="61.0" prefHeight="722.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="menuPane" layoutX="63.0" layoutY="61.0" prefHeight="722.0" prefWidth="200.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutY="1.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="465.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="-4.0" layoutY="1.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
+            <Text fill="#e1e1e1" layoutX="10.0" layoutY="450.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Text fill="#e1e1e1" layoutX="17.0" layoutY="318.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="12.0" layoutY="318.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+            <Text fill="#e1e1e1" layoutX="13.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Text fill="#dcdbdb" layoutX="20.0" layoutY="175.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+            <Text fill="#dcdbdb" layoutX="13.0" layoutY="175.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Text fill="#5cfdff" layoutX="18.0" layoutY="233.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
+            <Text fill="#5cfdff" layoutX="13.0" layoutY="233.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Text fill="#e1e1e1" layoutX="20.0" layoutY="387.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="13.0" layoutY="387.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
@@ -138,7 +145,74 @@
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
+            <Text fill="#e1e1e1" layoutX="13.0" layoutY="509.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
+      <Group layoutX="449.0" layoutY="138.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="586.0" />
+            <TextField fx:id="txtName" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="588.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Student ID">
+               <effect>
+                  <DropShadow height="10.5" radius="2.125" width="0.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+         </children>
+      </Group>
+      <ImageView fitHeight="46.0" fitWidth="65.0" layoutX="386.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-search-100.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.36" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="9.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-setting-80.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="841.0" layoutY="227.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Search" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1091.0" layoutY="227.0" onAction="#btnGetAllOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Get All" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="970.0" layoutY="227.0" onAction="#btnUpdateOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <Group layoutX="187.0" layoutY="299.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="460.0" layoutX="1.0" opacity="0.28" stroke="WHITE" strokeType="INSIDE" width="1098.0" />
+            <TableView fx:id="tbl" blendMode="OVERLAY" layoutY="1.0" prefHeight="460.0" prefWidth="1097.0">
+              <columns>
+                <TableColumn fx:id="colID" prefWidth="84.0" text="Student ID" />
+                <TableColumn fx:id="colName" prefWidth="188.80001831054688" text="Name" />
+                  <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="188.79995727539062" text="Address" />
+                  <TableColumn fx:id="colTel1" minWidth="0.0" prefWidth="159.20001220703125" text="Tel 1" />
+                  <TableColumn fx:id="colTel2" prefWidth="144.0" text="Tel 2" />
+                  <TableColumn fx:id="colDOB" prefWidth="127.99993896484375" text="DOB" />
+                  <TableColumn fx:id="colGender" prefWidth="100.0" text="Gender" />
+                  <TableColumn fx:id="colAction" prefWidth="104.0001220703125" text="Action" />
+              </columns>
+            </TableView>
+         </children>
+      </Group>
    </children>
 </AnchorPane>

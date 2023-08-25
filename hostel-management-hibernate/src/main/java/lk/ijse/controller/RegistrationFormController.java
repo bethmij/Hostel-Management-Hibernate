@@ -61,4 +61,7 @@ public class RegistrationFormController {
 
     public void menuOpenOnAction(MouseEvent mouseEvent) {
     }
+
+    public void payOnAction(MouseEvent mouseEvent) {
+    }
 }

@@ -51,4 +51,7 @@ public class DashboardFormController {
 
     public void menuCloseOnAction(MouseEvent mouseEvent) {
     }
+
+    public void payOnAction(MouseEvent mouseEvent) {
+    }
 }
