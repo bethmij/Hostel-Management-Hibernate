@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="settingPane" prefHeight="783.0" prefWidth="1395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SettingFormController">
+   <children>
+      <JFXButton layoutX="100.0" layoutY="65.0" prefHeight="26.0" prefWidth="1.0" />
+      <ImageView fitHeight="786.0" fitWidth="1398.0" layoutX="-1.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="59.0" layoutX="-1.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="1398.0" />
+      <Text fill="#e1e1e1" layoutX="611.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#e1e1e1" layoutX="882.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : ">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Text>
+      <Circle fx:id="circleUser" fill="#ffffff00" layoutX="1150.0" layoutY="31.0" radius="21.0" stroke="#eaeaea" strokeType="INSIDE" />
+      <Label fx:id="lblDate" layoutX="671.0" layoutY="18.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="937.0" layoutY="18.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUser" layoutX="1181.0" layoutY="18.0" prefHeight="27.0" prefWidth="179.0" textFill="#e1e1e1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Text fill="#e1e1e1" layoutX="80.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting">
+         <font>
+            <Font name="Calibri" size="28.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="88.0" fitWidth="97.0" layoutX="-5.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/Green_Minimalist_Simple_House_Logo_Icon__4_-removebg-preview.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" contrast="1.0" saturation="1.0" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="65.0" layoutX="-329.0" layoutY="390.0" onMouseEntered="#menuOpenOnAction" opacity="0.31" rotate="90.0" stroke="#dcdbdb" strokeType="INSIDE" width="722.0" />
+      <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="12.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-dashboard-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="7.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-register-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="6.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-user-settings-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="10.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-room-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="10.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-booked-80.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="7.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-payment-100.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="34.0" layoutX="14.0" layoutY="722.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-logout-100.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="10.0" layoutY="549.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-setting-80.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.41" hue="-1.0" saturation="1.0" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594f" height="651.0" layoutX="572.0" layoutY="98.0" stroke="#1a3a575b" strokeType="INSIDE" width="618.0" />
+      <AnchorPane fx:id="menuPane" layoutX="64.0" layoutY="61.0" prefHeight="722.0" prefWidth="200.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="456.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="17.0" layoutY="315.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="91.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="20.0" layoutY="170.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="230.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="20.0" layoutY="384.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#5cfdff" layoutX="18.0" layoutY="515.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="718.0" layoutY="176.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
+      <Text fill="#e1e1e1" layoutX="834.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User : ">
+         <font>
+            <Font name="Calibri" size="28.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblUserName" layoutX="880.0" layoutY="184.0" prefHeight="27.0" prefWidth="250.0" textFill="#e1e1e1">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Text fill="#c4c2c2" layoutX="637.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit User Name">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Text>
+      <Group layoutX="720.0" layoutY="387.0">
+         <children>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="341.0" />
+            <TextField fx:id="txtUserName" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="342.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+               <effect>
+                  <DropShadow height="10.5" radius="2.125" width="0.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+         </children>
+      </Group>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1062.0" layoutY="386.0" onAction="#userOnAction">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/icon/icons8-done-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Text fill="#c4c2c2" layoutX="636.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Password">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Text>
+      <Group layoutX="717.0" layoutY="524.0">
+         <children>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="341.0" />
+            <PasswordField fx:id="txtPass" blendMode="OVERLAY" layoutX="1.0" layoutY="2.0" prefHeight="44.0" prefWidth="343.0" promptText="Password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </Group>
+      <Group layoutX="635.0" layoutY="524.0" />
+      <Group layoutX="716.0" layoutY="600.0">
+         <children>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="341.0" />
+            <PasswordField fx:id="txtReEnter" blendMode="OVERLAY" layoutX="1.0" layoutY="2.0" prefHeight="44.0" prefWidth="343.0" promptText="Re-Enter Password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </Group>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1058.0" layoutY="600.0" onAction="#passOnAction">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/icon/icons8-done-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Text fill="#c4c2c2" layoutX="666.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile Pic">
+         <font>
+            <Font name="Calibri" size="21.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="454.0" fitWidth="785.0" layoutX="13.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/Untitled%20(9)-fotor-bg-remover-20230825235017.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
