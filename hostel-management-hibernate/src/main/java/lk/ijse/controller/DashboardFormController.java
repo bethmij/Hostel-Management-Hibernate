@@ -32,7 +32,6 @@ public class DashboardFormController implements Initializable {
     public Label lblAcFoodTotal;
     public Label lblAcFoodAvailble;
     public AnchorPane menuPane;
-    public Session session;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,11 +40,10 @@ public class DashboardFormController implements Initializable {
 
     public DashboardFormController(){
         try {
-            session = SessionFactoryConfig.getInstance().getSession();
+            Session session = SessionFactoryConfig.getInstance().getSession();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(session);
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {

@@ -1,9 +1,6 @@
 package lk.ijse.config;
 
-import lk.ijse.entity.Reservation;
-import lk.ijse.entity.Room;
 import lk.ijse.entity.Student;
-import lk.ijse.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,28 +9,43 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class SessionFactoryConfig {
-    private static SessionFactoryConfig sessionFactoryConfig;
-    private SessionFactory sessionFactory;
 
+    private static SessionFactoryConfig factoryConfig;
+    private final SessionFactory sessionFactory;
+
+    /**
+     * Defines default constructor as private
+     * to avoid object creation of this class from outside
+     */
     private SessionFactoryConfig() throws IOException {
-        Properties properties = new Properties();
-        properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
+        // Creates the Session Factory
+        Configuration configuration = new Configuration();
+        Properties p = new Properties();
+        p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
+        configuration.setProperties(p);
 
-        sessionFactory = new Configuration()
-                .setProperties(properties)
-                .addAnnotatedClass(Student.class)
-//                .addAnnotatedClass(Room.class)
-//                .addAnnotatedClass(Reservation.class)
-//                .addAnnotatedClass(User.class)
-                .buildSessionFactory();
+        configuration.addAnnotatedClass(Student.class);
+
+        sessionFactory = configuration.buildSessionFactory();
     }
 
+    /**
+     * @return lk.ijse.gdse.orm.hibernate.config.SessionFactoryConfig
+     * Singleton the class to avoid object re-creation
+     */
     public static SessionFactoryConfig getInstance() throws IOException {
-        return (sessionFactoryConfig==null) ? sessionFactoryConfig=new SessionFactoryConfig() : sessionFactoryConfig;
+        return (null == factoryConfig)
+                ? factoryConfig = new SessionFactoryConfig()
+                : factoryConfig;
     }
 
-    public Session getSession(){
+    /**
+     * @return org.hibernate.Session
+     * Returns Hibernate session whenever this method is called
+     * by following the steps of Native Bootstrapping
+     */
+    public Session getSession() {
+        // Opens a new Session and Returns
         return sessionFactory.openSession();
     }
-
 }

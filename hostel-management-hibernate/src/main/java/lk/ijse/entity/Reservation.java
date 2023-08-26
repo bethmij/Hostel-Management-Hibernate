@@ -1,29 +1,32 @@
 package lk.ijse.entity;
 
-import jakarta.persistence.*;
+
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 
 import java.util.Date;
 
 @NoArgsConstructor
 @Data
 @Entity
-@Table (name = "reservation")
+@Table(name = "reservation")
 public class Reservation {
 
     @Id
     @Column(name = "res_id")
     private String reserveID;
 
-    @ManyToOne
+/*    @ManyToOne
     @JoinColumn(name = "room_id", referencedColumnName = "room_type_id")
     private Room room;
 
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "stu_id")
-    private Student student;
+    private Student student;*/
 
     @Column (name = "date")
     @CreationTimestamp
