@@ -71,4 +71,7 @@ public class ReservationFormController {
     public void payOnAction(MouseEvent mouseEvent) {
         OpenView.openView("paymentForm",reservePane);
     }
+
+    public void btnSaveOnAction(ActionEvent actionEvent) {
+    }
 }

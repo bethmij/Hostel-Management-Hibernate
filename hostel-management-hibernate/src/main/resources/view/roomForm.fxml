@@ -117,7 +117,7 @@
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594f" height="651.0" layoutX="95.0" layoutY="90.0" stroke="#1a3a575b" strokeType="INSIDE" width="469.0" />
       <Group layoutX="292.0" layoutY="223.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="34.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="205.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="34.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="205.0" />
             <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="39.0" prefWidth="206.0" promptText="Add New ID" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
@@ -134,7 +134,7 @@
       </Group>
       <Group layoutX="291.0" layoutY="368.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="35.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="206.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="35.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="206.0" />
             <TextField fx:id="txtType" blendMode="OVERLAY" layoutY="2.0" prefHeight="39.0" prefWidth="208.0" promptText="Add Room Type " style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
@@ -156,13 +156,13 @@
       </Text>
       <Group layoutX="291.0" layoutY="158.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="32.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="206.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="32.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="206.0" />
             <ComboBox fx:id="cmbID" blendMode="OVERLAY" layoutY="-1.0" prefHeight="34.0" prefWidth="208.0" />
          </children>
       </Group>
       <Group layoutX="291.0" layoutY="308.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="32.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="206.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="32.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="206.0" />
             <ComboBox fx:id="cmbType" blendMode="OVERLAY" layoutY="-1.0" prefHeight="34.0" prefWidth="208.0" />
          </children>
       </Group>
@@ -173,7 +173,7 @@
       </Text>
       <Group layoutX="158.0" layoutY="445.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="341.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="341.0" />
             <TextField fx:id="txtQty" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="342.0" promptText="Rooms QTY" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
@@ -190,7 +190,7 @@
       </Group>
       <Group layoutX="160.0" layoutY="519.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="341.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="341.0" />
             <TextField fx:id="txtMoney" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="342.0" promptText="Key Money" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
@@ -249,9 +249,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="60.0" prefHeight="722.0" prefWidth="200.0">
+      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="60.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
             <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
@@ -296,7 +296,7 @@
       </AnchorPane>
       <Group layoutX="648.0" layoutY="152.0">
          <children>
-            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="516.0" layoutX="1.0" opacity="0.28" stroke="WHITE" strokeType="INSIDE" width="706.0" />
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="516.0" layoutX="1.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="706.0" />
             <TableView fx:id="tbl" blendMode="OVERLAY" layoutY="3.0" prefHeight="516.0" prefWidth="706.0">
                <columns>
                   <TableColumn fx:id="colID" prefWidth="117.60003662109375" text="Room ID" />

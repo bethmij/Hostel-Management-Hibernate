@@ -119,9 +119,9 @@
             <Image url="@../assests/cartoon-woman-read-book-hotel-260nw-1654145608-removebg-preview.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" prefHeight="722.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0" visible="false">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
             <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
@@ -164,7 +164,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <Group layoutX="823.0" layoutY="506.0">
+      <Group fx:id="payGroup" layoutX="823.0" layoutY="506.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="211.0" />
             <TextField fx:id="txtPay" alignment="CENTER" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="210.0" promptText="Paying Amount" style="-fx-border-color: #ffffff;">

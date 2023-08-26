@@ -39,8 +39,6 @@ public class StudentManageFormController {
     public void btnUpdateOnAction(ActionEvent actionEvent) {
     }
 
-
-
     public void dashbordOnAction(MouseEvent mouseEvent) {
         OpenView.openView("dashboardForm",managePane);
     }
