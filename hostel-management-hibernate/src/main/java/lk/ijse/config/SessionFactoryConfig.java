@@ -15,24 +15,20 @@ public class SessionFactoryConfig {
     private static SessionFactoryConfig sessionFactoryConfig;
     private SessionFactory sessionFactory;
 
-    private SessionFactoryConfig(){
+    private SessionFactoryConfig() throws IOException {
         Properties properties = new Properties();
-        try {
-            properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
 
         sessionFactory = new Configuration()
-                .mergeProperties(properties)
+                .setProperties(properties)
                 .addAnnotatedClass(Student.class)
-                .addAnnotatedClass(Room.class)
-                .addAnnotatedClass(Reservation.class)
-                .addAnnotatedClass(User.class)
+//                .addAnnotatedClass(Room.class)
+//                .addAnnotatedClass(Reservation.class)
+//                .addAnnotatedClass(User.class)
                 .buildSessionFactory();
     }
 
-    public static SessionFactoryConfig getInstance(){
+    public static SessionFactoryConfig getInstance() throws IOException {
         return (sessionFactoryConfig==null) ? sessionFactoryConfig=new SessionFactoryConfig() : sessionFactoryConfig;
     }
 

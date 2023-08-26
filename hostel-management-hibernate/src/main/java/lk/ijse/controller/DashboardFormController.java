@@ -9,6 +9,7 @@ import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dao.custom.impl.util.OpenView;
 import org.hibernate.Session;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,7 +40,11 @@ public class DashboardFormController implements Initializable {
     }
 
     public DashboardFormController(){
-        session = SessionFactoryConfig.getInstance().getSession();
+        try {
+            session = SessionFactoryConfig.getInstance().getSession();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println(session);
     }
 
