@@ -1,14 +1,13 @@
 package lk.ijse.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @Data
@@ -41,5 +40,8 @@ public class Student {
 
     @Column (name = "gender")
     private String gender;
+
+    @OneToMany (cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "student")
+    private List<Reservation> reservations = new ArrayList<>();
 
 }

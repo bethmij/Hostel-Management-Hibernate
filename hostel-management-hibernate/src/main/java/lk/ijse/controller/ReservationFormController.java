@@ -25,6 +25,8 @@ public class ReservationFormController {
     public Label lblMoney;
     public RadioButton rdPayNow;
     public RadioButton edPayLater;
+    public RadioButton rdPayHalfNow;
+    public Label lblResID;
 
     public void payOnAction(ActionEvent mouseEvent) {
     }

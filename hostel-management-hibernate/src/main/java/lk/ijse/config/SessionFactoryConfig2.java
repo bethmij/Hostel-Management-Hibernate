@@ -11,11 +11,11 @@ import org.hibernate.cfg.Configuration;
 import java.io.IOException;
 import java.util.Properties;
 
-public class SessionFactoryConfig {
-    private static SessionFactoryConfig sessionFactoryConfig;
+public class SessionFactoryConfig2 {
+    private static SessionFactoryConfig2 sessionFactoryConfig;
     private SessionFactory sessionFactory;
 
-    private SessionFactoryConfig(){
+    private SessionFactoryConfig2(){
         Properties properties = new Properties();
         try {
             properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.properties"));
@@ -32,8 +32,8 @@ public class SessionFactoryConfig {
                 .buildSessionFactory();
     }
 
-    public static SessionFactoryConfig getInstance(){
-        return (sessionFactoryConfig==null) ? sessionFactoryConfig=new SessionFactoryConfig() : sessionFactoryConfig;
+    public static SessionFactoryConfig2 getInstance(){
+        return (sessionFactoryConfig==null) ? sessionFactoryConfig=new SessionFactoryConfig2() : sessionFactoryConfig;
     }
 
     public Session getSession(){

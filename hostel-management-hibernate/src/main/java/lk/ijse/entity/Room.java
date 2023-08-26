@@ -1,11 +1,11 @@
 package lk.ijse.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Data
@@ -25,4 +25,7 @@ public class Room {
 
     @Column(name = "qty")
     private int qty;
+
+    @OneToMany (cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "room")
+    private List<Reservation> reservations = new ArrayList<>();
 }

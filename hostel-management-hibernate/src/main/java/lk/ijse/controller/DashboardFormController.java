@@ -5,7 +5,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dao.custom.impl.util.OpenView;
+import org.hibernate.Session;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,10 +31,16 @@ public class DashboardFormController implements Initializable {
     public Label lblAcFoodTotal;
     public Label lblAcFoodAvailble;
     public AnchorPane menuPane;
+    public Session session;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         menuPane.setVisible(false);
+    }
+
+    public DashboardFormController(){
+        session = SessionFactoryConfig.getInstance().getSession();
+        System.out.println(session);
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {
