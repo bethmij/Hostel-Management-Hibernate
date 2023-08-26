@@ -110,8 +110,8 @@
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594f" height="651.0" layoutX="550.0" layoutY="97.0" stroke="#1a3a575b" strokeType="INSIDE" width="706.0" />
       <Group layoutX="600.0" layoutY="128.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="586.0" />
-            <TextField fx:id="txtName" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="588.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Full Name">
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="586.0" />
+            <TextField fx:id="txtName" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="588.0" promptText="Full Name" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -127,8 +127,8 @@
       </Group>
       <Group layoutX="599.0" layoutY="265.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="587.0" />
-            <TextField fx:id="txtAddress" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="589.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Address">
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="587.0" />
+            <TextField fx:id="txtAddress" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="589.0" promptText="Address" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -144,8 +144,8 @@
       </Group>
       <Group layoutX="600.0" layoutY="342.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="271.0" />
-            <TextField fx:id="txtTel1" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="273.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Tel 1">
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="271.0" />
+            <TextField fx:id="txtTel1" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="273.0" promptText="Tel 1" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -161,8 +161,8 @@
       </Group>
       <Group layoutX="915.0" layoutY="342.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="271.0" />
-            <TextField fx:id="txtTel2" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="273.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Tel 2">
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="271.0" />
+            <TextField fx:id="txtTel2" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="273.0" promptText="Tel 2" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -178,8 +178,8 @@
       </Group>
       <Group layoutX="601.0" layoutY="419.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="587.0" />
-            <TextField fx:id="txtEmail" blendMode="OVERLAY" layoutX="3.0" layoutY="2.0" prefHeight="42.0" prefWidth="589.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Email">
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="587.0" />
+            <TextField fx:id="txtEmail" blendMode="OVERLAY" layoutX="3.0" layoutY="2.0" prefHeight="42.0" prefWidth="589.0" promptText="Email" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -200,7 +200,7 @@
       </Text>
       <Group layoutX="756.0" layoutY="492.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="271.0" />
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="271.0" />
             <DatePicker fx:id="dob" blendMode="OVERLAY" layoutX="1.0" layoutY="4.0" prefHeight="39.0" prefWidth="269.0" />
          </children>
       </Group>
@@ -236,8 +236,8 @@
       </JFXButton>
       <Group layoutX="600.0" layoutY="195.0">
          <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="586.0" />
-            <TextField fx:id="txtNIC" blendMode="OVERLAY" layoutY="3.0" prefHeight="42.0" prefWidth="588.0" promptText="Name" style="-fx-border-color: #ffffff;" text="Student ID">
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="586.0" />
+            <TextField fx:id="txtNIC" blendMode="OVERLAY" layoutY="3.0" prefHeight="42.0" prefWidth="588.0" promptText="Student ID" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
