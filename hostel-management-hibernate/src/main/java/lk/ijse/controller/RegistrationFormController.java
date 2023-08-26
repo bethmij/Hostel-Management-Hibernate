@@ -2,13 +2,12 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import lk.ijse.bo.BOFactory;
+import lk.ijse.bo.custom.RegisterBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
 import lk.ijse.dto.StudentDTO;
 
@@ -32,21 +31,29 @@ public class RegistrationFormController {
     public RadioButton rdOther;
     public JFXButton btnSave;
     public TextField txtNIC;
+    RegisterBO registerBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.REGISTER);
 
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
 
         String gender = "";
 
-        if(rdMale.isPressed())
+        if(rdMale.isSelected())
             gender = "Male";
-        else if(rdFemale.isPressed())
+        else if(rdFemale.isSelected())
             gender = "Female";
-        else if(rdOther.isPressed())
+        else if(rdOther.isSelected())
             gender = "Other";
 
-        StudentDTO studentDTO = new StudentDTO(txtNIC.getText(),txtName.getText(),txtAddress.getText(),Integer.parseInt(txtTel1.getText()),
-                                    Integer.parseInt(txtTel2.getText()),txtEmail.getText(), dob.getValue(),gender);
+        System.out.println("gender"+gender);
+//        StudentDTO studentDTO = new StudentDTO(txtNIC.getText(),txtName.getText(),txtAddress.getText(),Integer.parseInt(txtTel1.getText()),
+//                                    Integer.parseInt(txtTel2.getText()),txtEmail.getText(), dob.getValue(),gender);
+//        boolean isSaved = registerBO.saveStudent(studentDTO);
+//
+//        if(isSaved)
+//            new Alert(Alert.AlertType.CONFIRMATION,"Saved Student Successfully!").show();
+//        else
+//            new Alert(Alert.AlertType.ERROR,"Save Student Failed!").show();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
@@ -103,11 +110,33 @@ public class RegistrationFormController {
     }
 
     public void maleOnAction(ActionEvent actionEvent) {
+
+        if( !rdMale.isSelected()){
+            rdFemale.setDisable(false);
+            rdOther.setDisable(false);
+        }else{
+            rdFemale.setDisable(true);
+            rdOther.setDisable(true);
+        }
     }
 
     public void femaleOnAction(ActionEvent actionEvent) {
+        if( !rdFemale.isSelected()){
+            rdMale.setDisable(false);
+            rdOther.setDisable(false);
+        }else{
+            rdMale.setDisable(true);
+            rdOther.setDisable(true);
+        }
     }
 
     public void otherOnAction(ActionEvent actionEvent) {
+        if(!rdOther.isSelected()){
+            rdFemale.setDisable(false);
+            rdMale.setDisable(false);
+        }else{
+            rdFemale.setDisable(true);
+            rdMale.setDisable(true);
+        }
     }
 }

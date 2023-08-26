@@ -1,5 +1,6 @@
 package lk.ijse.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,8 +36,7 @@ public class Student {
     @Column (name = "email")
     private String email;
 
-    @Column (name = "dob")
-    @CreationTimestamp
+    @Column (name = "dob", columnDefinition = "DATE")
     private LocalDate dob;
 
     @Column (name = "gender")
@@ -45,4 +45,14 @@ public class Student {
     @OneToMany (cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "student")
     private List<Reservation> reservations = new ArrayList<>();
 
+    public Student(String studentID, String name, String address, int tel1, int tel2, String email, LocalDate dob, String gender) {
+        this.studentID = studentID;
+        this.name = name;
+        this.address = address;
+        this.tel1 = tel1;
+        this.tel2 = tel2;
+        this.email = email;
+        this.dob = dob;
+        this.gender = gender;
+    }
 }

@@ -1082,7 +1082,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>2</Position>
     </column>
     <column id="312" parent="293" name="dob">
-      <DataType>datetime(6)|0s</DataType>
+      <DataType>date|0s</DataType>
       <Position>3</Position>
     </column>
     <column id="313" parent="293" name="email">

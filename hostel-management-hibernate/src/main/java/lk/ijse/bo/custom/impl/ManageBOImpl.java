@@ -1,4 +1,6 @@
 package lk.ijse.bo.custom.impl;
 
-public class ManageBOImpl {
+import lk.ijse.bo.custom.ManageBO;
+
+public class ManageBOImpl implements ManageBO {
 }

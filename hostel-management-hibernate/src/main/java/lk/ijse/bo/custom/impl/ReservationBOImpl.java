@@ -1,4 +1,6 @@
 package lk.ijse.bo.custom.impl;
 
-public class ReservationBOImpl {
+import lk.ijse.bo.custom.ReservationBO;
+
+public class ReservationBOImpl implements ReservationBO {
 }

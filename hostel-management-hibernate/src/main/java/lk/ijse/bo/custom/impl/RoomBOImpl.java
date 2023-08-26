@@ -1,4 +1,6 @@
 package lk.ijse.bo.custom.impl;
 
-public class RoomBOImpl {
+import lk.ijse.bo.custom.RoomBO;
+
+public class RoomBOImpl implements RoomBO {
 }

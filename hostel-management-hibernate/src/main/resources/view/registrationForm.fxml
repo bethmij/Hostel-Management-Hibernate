@@ -255,16 +255,16 @@
             </TextField>
          </children>
       </Group>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="18.0" layoutX="477.0" layoutY="279.0" stroke="WHITE" strokeType="INSIDE" width="24.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="18.0" layoutX="207.0" layoutY="270.0" stroke="WHITE" strokeType="INSIDE" width="24.0" />
-      <ImageView fitHeight="481.0" fitWidth="510.0" layoutX="126.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="18.0" layoutX="477.0" layoutY="279.0" opacity="0.35" stroke="WHITE" strokeType="INSIDE" width="24.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="18.0" layoutX="207.0" layoutY="270.0" opacity="0.49" stroke="WHITE" strokeType="INSIDE" width="24.0" />
+      <ImageView fitHeight="481.0" fitWidth="510.0" layoutX="126.0" layoutY="181.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Untitled%20(10)-fotor-bg-remover-2023082602146.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" prefHeight="722.0" prefWidth="200.0">
+      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
             <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />

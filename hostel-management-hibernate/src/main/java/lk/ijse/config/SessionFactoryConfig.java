@@ -16,10 +16,14 @@ public class SessionFactoryConfig {
     private static SessionFactoryConfig factoryConfig;
     private final SessionFactory sessionFactory;
 
-    private SessionFactoryConfig() throws IOException {
+    private SessionFactoryConfig()  {
 
         Properties p = new Properties();
-        p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
+        try {
+            p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         sessionFactory = new Configuration().setProperties(p)
                 .addAnnotatedClass(Student.class)
@@ -29,7 +33,7 @@ public class SessionFactoryConfig {
                 .buildSessionFactory();
     }
 
-    public static SessionFactoryConfig getInstance() throws IOException {
+    public static SessionFactoryConfig getInstance() {
         return (null == factoryConfig)
                 ? factoryConfig = new SessionFactoryConfig()
                 : factoryConfig;

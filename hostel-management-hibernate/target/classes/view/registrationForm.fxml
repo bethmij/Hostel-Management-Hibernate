@@ -209,21 +209,25 @@
             <Font name="Calibri" size="22.0" />
          </font>
       </Text>
-      <RadioButton fx:id="rdMale" layoutX="750.0" layoutY="577.0" mnemonicParsing="false" text="Male" textFill="#dfdfdf">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </RadioButton>
-      <RadioButton fx:id="rdFemale" layoutX="843.0" layoutY="577.0" mnemonicParsing="false" text="Female" textFill="#dfdfdf">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </RadioButton>
-      <RadioButton fx:id="rdOther" layoutX="951.0" layoutY="577.0" mnemonicParsing="false" text="Other" textFill="#dfdfdf">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </RadioButton>
+      <Group layoutX="750.0" layoutY="577.0">
+         <children>
+            <RadioButton fx:id="rdMale" mnemonicParsing="false" onAction="#maleOnAction" text="Male" textFill="#dfdfdf">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rdFemale" layoutX="93.0" mnemonicParsing="false" onAction="#femaleOnAction" text="Female" textFill="#dfdfdf">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rdOther" layoutX="201.0" mnemonicParsing="false" onAction="#otherOnAction" text="Other" textFill="#dfdfdf">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </Group>
       <JFXButton fx:id="btnSave" layoutX="951.0" layoutY="656.0" onAction="#btnSaveOnAction" prefHeight="46.0" prefWidth="144.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Save" textFill="WHITE">
          <font>
             <Font size="20.0" />
@@ -258,9 +262,9 @@
             <Image url="@../assests/Untitled%20(10)-fotor-bg-remover-2023082602146.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" prefHeight="722.0" prefWidth="200.0">
+      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
             <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />

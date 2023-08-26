@@ -1,5 +1,7 @@
 package lk.ijse.bo;
 
+import lk.ijse.bo.custom.impl.*;
+
 public class BOFactory {
     private static BOFactory boFactory;
 
@@ -11,9 +13,28 @@ public class BOFactory {
         return (boFactory==null) ? boFactory = new BOFactory() : boFactory;
     }
 
-    public enum BOType{}
+    public enum BOType{
+        DASHBOARD,LOGIN,MANAGE,PAYMENT,REGISTER,RESERVE,ROOM,SETTING
+    }
 
-//    public <T extends SuperBO> T getBO (BOType boType){
-//
-//    }
+    public <T extends SuperBO> T getBO (BOType boType){
+        switch (boType){
+            case DASHBOARD:
+                return (T) new DashboardBOImpl();
+            case LOGIN:
+                return (T) new LoginBOImpl();
+            case MANAGE:
+                return (T) new ManageBOImpl();
+            case PAYMENT:
+                return (T) new PaymentBOImpl();
+            case REGISTER:
+                return (T) new RegisterBOImpl();
+            case ROOM:
+                return (T) new RoomBOImpl();
+            case SETTING:
+                return (T) new SettingBOImpl();
+            default:
+                return null;
+        }
+    }
 }

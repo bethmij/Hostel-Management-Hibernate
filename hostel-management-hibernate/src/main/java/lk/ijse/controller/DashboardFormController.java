@@ -39,11 +39,8 @@ public class DashboardFormController implements Initializable {
     }
 
     public DashboardFormController(){
-        try {
-            Session session = SessionFactoryConfig.getInstance().getSession();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        Session session = SessionFactoryConfig.getInstance().getSession();
+
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {

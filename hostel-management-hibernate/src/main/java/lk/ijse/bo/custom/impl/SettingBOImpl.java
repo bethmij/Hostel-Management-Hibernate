@@ -1,4 +1,6 @@
 package lk.ijse.bo.custom.impl;
 
-public class SettingBOImpl {
+import lk.ijse.bo.custom.SettingBO;
+
+public class SettingBOImpl implements SettingBO {
 }
