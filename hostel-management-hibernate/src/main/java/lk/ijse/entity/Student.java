@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -36,7 +37,7 @@ public class Student {
 
     @Column (name = "dob")
     @CreationTimestamp
-    private Date dob;
+    private LocalDate dob;
 
     @Column (name = "gender")
     private String gender;
