@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import lk.ijse.dao.custom.impl.util.OpenView;
 
 public class ReservationFormController {
     public AnchorPane reservePane;
@@ -31,33 +32,43 @@ public class ReservationFormController {
     public void payOnAction(ActionEvent mouseEvent) {
     }
 
-    public void roomsOnAction(MouseEvent mouseEvent) {
-    }
-
     public void dashbordOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("dashboardForm",reservePane);
     }
 
     public void registrationOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("registrationForm",reservePane);
     }
 
     public void manageOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("studentManageForm",reservePane);
+    }
+
+    public void roomsOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("roomForm",reservePane);
     }
 
     public void reserveOnAction(MouseEvent mouseEvent) {
-    }
-
-    public void logoutOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("reservationForm",reservePane);
     }
 
     public void settingOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("settingForm",reservePane);
     }
 
-    public void btnSaveOnAction(ActionEvent actionEvent) {
-    }
-
-    public void menuCloseOnAction(MouseEvent mouseEvent) {
+    public void logoutOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("loginForm",reservePane);
     }
 
     public void menuOpenOnAction(MouseEvent mouseEvent) {
+        menuPane.setVisible(true);
+    }
+
+    public void menuCloseOnAction(MouseEvent mouseEvent) {
+        menuPane.setVisible(false);
+    }
+
+    public void payOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("paymentForm",reservePane);
     }
 }

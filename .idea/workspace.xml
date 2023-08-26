@@ -1,7 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e88df55-86a9-415d-83a0-c5cc764e8fd3" name="Changes" comment="" />
+    <list default="true" id="5e88df55-86a9-415d-83a0-c5cc764e8fd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Hostel Management.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hostel Management.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/.idea/libraries/antlr_2_7_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/.idea/libraries/required.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/AppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/config/SessionFactoryConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/config/SessionFactoryConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/DashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/DashboardFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/PaymentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/PaymentFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/RegistrationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/RegistrationFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/ReservationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/ReservationFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/RoomFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/RoomFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/SettingFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/SettingFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/StudentManageFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/StudentManageFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/entity/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/entity/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/entity/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/entity/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Colorlib-Reg-Form-v7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Green Minimalist Simple House Logo Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Green_Minimalist_Simple_House_Logo_Icon__4_-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Institute-Hostel-Management-System-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Login-Design-Example-02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Simple_Black_and_Turquoise_Welcome_Instagram_Post-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Simple_Black_and_Turquoise_Welcome_Instagram_Post__1_-removebg-preview (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Untitled (10)-fotor-bg-remover-2023082602146.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Untitled (9)-fotor-bg-remover-20230825235017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/Untitled__8_-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/cartoon-woman-read-book-hotel-260nw-1654145608-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-add-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-booked-80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-booked-96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-dashboard-96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-done-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-logout-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-logout-90.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-password-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-payment-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-register-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-room-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-room-96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-search-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-setting-128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-setting-80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-user-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icon/icons8-user-settings-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icons8-password-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/icons8-user-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/output-onlinegiftools (3).gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/assests/output-onlinegiftools (5).gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/bo/custom/fgdf.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/bo/fgd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/config/SessionFactoryConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/config/SessionFactoryConfig2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/DashboardFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/LoginFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/PaymentFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/RegistrationFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/ReservationFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/RoomFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/SettingFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/StudentManageFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/gdf.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/impl/fdgd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/impl/util/OpenView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/vfd.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/entity/Reservation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/entity/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/entity/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/dashboardForm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/loginForm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/paymentForm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/registrationForm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/reservationForm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/roomForm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/settingForm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/studentManageForm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hibernate.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lk/ijse/config/SessionFactoryConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lk/ijse/entity/Reservation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lk/ijse/entity/Room.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lk/ijse/entity/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lk/ijse/entity/User.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,17 +115,54 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2UWORdAehV1WKnpMQLlwhRp2Sar" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager">
+    <configuration name="AppInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lk.ijse.AppInitializer" />
+      <module name="hostel-management-hibernate" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-19.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lk.ijse.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AppInitializer" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -33,11 +172,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693051862713</updated>
-      <workItem from="1693051865925" duration="78000" />
+      <workItem from="1693051865925" duration="1076000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

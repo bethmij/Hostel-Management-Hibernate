@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import lk.ijse.dao.custom.impl.util.OpenView;
 
 public class SettingFormController {
     public AnchorPane settingPane;
@@ -21,29 +22,7 @@ public class SettingFormController {
     public PasswordField txtPass;
     public PasswordField txtReEnter;
 
-    public void payOnAction(MouseEvent mouseEvent) {
-    }
 
-    public void roomsOnAction(MouseEvent mouseEvent) {
-    }
-
-    public void dashbordOnAction(MouseEvent mouseEvent) {
-    }
-
-    public void registrationOnAction(MouseEvent mouseEvent) {
-    }
-
-    public void manageOnAction(MouseEvent mouseEvent) {
-    }
-
-    public void reserveOnAction(MouseEvent mouseEvent) {
-    }
-
-    public void logoutOnAction(MouseEvent mouseEvent) {
-    }
-
-    public void settingOnAction(MouseEvent mouseEvent) {
-    }
 
     public void userOnAction(ActionEvent actionEvent) {
     }
@@ -51,9 +30,45 @@ public class SettingFormController {
     public void passOnAction(ActionEvent actionEvent) {
     }
 
-    public void menuCloseOnAction(MouseEvent mouseEvent) {
+
+
+    public void dashbordOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("dashboardForm",settingPane);
+    }
+
+    public void registrationOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("registrationForm",settingPane);
+    }
+
+    public void manageOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("studentManageForm",settingPane);
+    }
+
+    public void roomsOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("roomForm",settingPane);
+    }
+
+    public void reserveOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("reservationForm",settingPane);
+    }
+
+    public void settingOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("settingForm",settingPane);
+    }
+
+    public void logoutOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("loginForm",settingPane);
     }
 
     public void menuOpenOnAction(MouseEvent mouseEvent) {
+        menuPane.setVisible(true);
+    }
+
+    public void menuCloseOnAction(MouseEvent mouseEvent) {
+        menuPane.setVisible(false);
+    }
+
+    public void payOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("paymentForm",settingPane);
     }
 }

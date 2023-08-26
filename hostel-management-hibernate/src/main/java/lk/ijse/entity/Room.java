@@ -26,6 +26,6 @@ public class Room {
     @Column(name = "qty")
     private int qty;
 
-//    @OneToMany (cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "room")
-//    private List<Reservation> reservations = new ArrayList<>();
+    @OneToMany (cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "room")
+    private List<Reservation> reservations = new ArrayList<>();
 }

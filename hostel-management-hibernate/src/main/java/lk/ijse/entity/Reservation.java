@@ -20,13 +20,13 @@ public class Reservation {
     @Column(name = "res_id")
     private String reserveID;
 
-/*    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "room_id", referencedColumnName = "room_type_id")
     private Room room;
 
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "stu_id")
-    private Student student;*/
+    private Student student;
 
     @Column (name = "date")
     @CreationTimestamp

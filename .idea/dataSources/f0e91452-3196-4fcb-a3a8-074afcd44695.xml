@@ -990,5 +990,147 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
+    <table id="291" parent="277" name="reservation">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="292" parent="277" name="rooms">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="293" parent="277" name="student">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="294" parent="277" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="295" parent="291" name="res_id">
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="296" parent="291" name="date">
+      <DataType>datetime(6)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="297" parent="291" name="status">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="298" parent="291" name="room_id">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="299" parent="291" name="student_id">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="300" parent="291" name="FKf599k01v8g254j7px3n6rpj26">
+      <ColNames>room_id</ColNames>
+      <RefColNames>room_type_id</RefColNames>
+      <RefTableName>rooms</RefTableName>
+    </foreign-key>
+    <foreign-key id="301" parent="291" name="FKiuft3416ayrn5538t6bd108fw">
+      <ColNames>student_id</ColNames>
+      <RefColNames>stu_id</RefColNames>
+      <RefTableName>student</RefTableName>
+    </foreign-key>
+    <index id="302" parent="291" name="FKf599k01v8g254j7px3n6rpj26">
+      <ColNames>room_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="303" parent="291" name="FKiuft3416ayrn5538t6bd108fw">
+      <ColNames>student_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="304" parent="291" name="PRIMARY">
+      <ColNames>res_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <column id="305" parent="292" name="room_type_id">
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="306" parent="292" name="key_money">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="307" parent="292" name="qty">
+      <DataType>int|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="308" parent="292" name="room_type">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <key id="309" parent="292" name="PRIMARY">
+      <ColNames>room_type_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <column id="310" parent="293" name="stu_id">
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="311" parent="293" name="stu_address">
+      <DataType>text|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="312" parent="293" name="dob">
+      <DataType>datetime(6)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="313" parent="293" name="email">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="314" parent="293" name="gender">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="315" parent="293" name="stu_name">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="316" parent="293" name="contact_1">
+      <DataType>int|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="317" parent="293" name="contact_2">
+      <DataType>int|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <key id="318" parent="293" name="PRIMARY">
+      <ColNames>stu_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <column id="319" parent="294" name="user_id">
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="320" parent="294" name="email">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="321" parent="294" name="password">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="322" parent="294" name="user_name">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <key id="323" parent="294" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

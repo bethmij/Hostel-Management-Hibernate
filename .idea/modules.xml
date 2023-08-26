@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Hostel Management.iml" filepath="$PROJECT_DIR$/.idea/Hostel Management.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hostel-management-hibernate/hostel-management-hibernate.iml" filepath="$PROJECT_DIR$/hostel-management-hibernate/hostel-management-hibernate.iml" />
     </modules>
   </component>
 </project>
