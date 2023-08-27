@@ -14,10 +14,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.ReservationBO;
+import lk.ijse.bo.custom.RoomBO;
 import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.impl.util.OpenView;
+import lk.ijse.dto.RoomDTO;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReservationFormController implements Initializable {
@@ -39,17 +42,38 @@ public class ReservationFormController implements Initializable {
     public RadioButton rdPayHalfNow;
     public Label lblResID;
     public Group payGroup;
-    ObservableList<String> dataList = FXCollections.observableArrayList();
     ReservationBO reservationBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.RESERVE);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         payGroup.setVisible(false);
         setRoomID();
+        setStudentID();
+    }
+
+    private void setStudentID() {
+        List<String> studentList = reservationBO.getStudentID();
+        ObservableList<String> dataList = FXCollections.observableArrayList();
+
+        for (String ids : studentList) {
+            dataList.add(ids);
+        }
+
+        cmbStuID.setItems(dataList);
     }
 
     private void setRoomID() {
-        reservationBO.getRoomID();
+        List<String> roomList = reservationBO.getRoomID();
+        ObservableList<String> dataList = FXCollections.observableArrayList();
+
+        if(roomList!=null) {
+            for (String ids : roomList) {
+                dataList.add(ids);
+            }
+            cmbRoomID.setItems(dataList);
+        }
+
+
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {
@@ -128,5 +152,18 @@ public class ReservationFormController implements Initializable {
             rdPayHalfNow.setDisable(true);
             edPayLater.setDisable(true);
         }
+    }
+
+    public void cbRoomOnAction(ActionEvent actionEvent) {
+        RoomDTO roomDTO = reservationBO.getRoombyID(String.valueOf(cmbRoomID.getValue()));
+        int usedRooms = reservationBO.getUsedRoom();
+        lblRoomType.setText(roomDTO.getType());
+        lblMoney.setText(roomDTO.getKeyMoney());
+        lblAvailable.setText(String.valueOf(roomDTO.getQty()-usedRooms));
+    }
+
+    public void cbStuOnAction(ActionEvent actionEvent) {
+        String name = reservationBO.getStuName(String.valueOf(cmbStuID.getValue()));
+        lblName.setText(name);
     }
 }

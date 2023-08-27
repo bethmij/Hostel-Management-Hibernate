@@ -29,6 +29,8 @@ public class BOFactory {
                 return (T) new PaymentBOImpl();
             case REGISTER:
                 return (T) new RegisterBOImpl();
+            case RESERVE:
+                return (T) new ReservationBOImpl();
             case ROOM:
                 return (T) new RoomBOImpl();
             case SETTING:
