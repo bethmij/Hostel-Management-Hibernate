@@ -2,7 +2,9 @@ package lk.ijse.dao.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dao.custom.ReserveDAO;
+import lk.ijse.entity.Reservation;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class ReserveDAOImpl implements ReserveDAO {
@@ -12,6 +14,34 @@ public class ReserveDAOImpl implements ReserveDAO {
     public int getUsedRoomCount() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT count(r.room) FROM Reservation as r");
-        return  (int) query.getSingleResult();
+        Long countResult = (Long) query.getSingleResult();
+        return countResult.intValue();
+    }
+
+    @Override
+    public String getNextID() {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT r.id FROM Reservation as r ORDER BY r.id DESC");
+        query.setMaxResults(1);
+        Long id = (Long) query.uniqueResult();
+        return String.valueOf(id);
+
+    }
+
+    @Override
+    public boolean reserveRoom(Reservation reservation) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.save(reservation);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
     }
 }

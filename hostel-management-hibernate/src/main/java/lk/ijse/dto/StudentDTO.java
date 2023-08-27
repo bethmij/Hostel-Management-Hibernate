@@ -26,4 +26,7 @@ public class StudentDTO {
     private LocalDate dob;
     private String gender;
 
+    public StudentDTO(String studentID) {
+        this.studentID = studentID;
+    }
 }

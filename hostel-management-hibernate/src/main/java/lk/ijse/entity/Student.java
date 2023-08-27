@@ -45,6 +45,10 @@ public class Student {
     @OneToMany (cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "student")
     private List<Reservation> reservations = new ArrayList<>();
 
+    public Student(String studentID) {
+        this.studentID = studentID;
+    }
+
     public Student(String studentID, String name, String address, int tel1, int tel2, String email, LocalDate dob, String gender) {
         this.studentID = studentID;
         this.name = name;
@@ -55,4 +59,5 @@ public class Student {
         this.dob = dob;
         this.gender = gender;
     }
+
 }

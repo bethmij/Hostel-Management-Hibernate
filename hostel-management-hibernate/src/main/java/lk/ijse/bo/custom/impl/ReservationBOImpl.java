@@ -6,9 +6,14 @@ import lk.ijse.dao.custom.QueryDAO;
 import lk.ijse.dao.custom.ReserveDAO;
 import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.StudentDAO;
+import lk.ijse.dto.ReservationDTO;
 import lk.ijse.dto.RoomDTO;
+import lk.ijse.entity.Reservation;
 import lk.ijse.entity.Room;
+import lk.ijse.entity.Student;
 
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 public class ReservationBOImpl implements ReservationBO {
@@ -43,5 +48,23 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public String getStuName(String stuID) {
         return studentDAO.getStuName(stuID);
+    }
+
+    @Override
+    public String getReserveID() {
+        return reserveDAO.getNextID();
+    }
+
+    @Override
+    public boolean reserveRoom(ReservationDTO reservationDTO) {
+
+        Room room = new Room(reservationDTO.getRoom().getTypeId());
+        Student student = new Student(reservationDTO.getStudent().getStudentID());
+        Date date = Date.from(reservationDTO.getDate().atZone(ZoneId.systemDefault()).toInstant());
+
+        Reservation reservation = new Reservation(reservationDTO.getReserveID(),room,student,
+                date,reservationDTO.getStatus());
+
+        return reserveDAO.reserveRoom(reservation);
     }
 }

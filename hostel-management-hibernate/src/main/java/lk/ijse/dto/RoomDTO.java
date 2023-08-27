@@ -19,4 +19,7 @@ public class RoomDTO {
     private String keyMoney;
     private int qty;
 
+    public RoomDTO(String typeId) {
+        this.typeId = typeId;
+    }
 }

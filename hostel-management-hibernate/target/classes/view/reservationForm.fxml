@@ -220,7 +220,7 @@
       </Text>
       <Label fx:id="lblName" layoutX="1034.0" layoutY="281.0" prefHeight="35.0" prefWidth="257.0" textFill="#e1e1e1">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Label>
       <Text fill="#e1e1e1" layoutX="599.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Availabity : ">
@@ -228,9 +228,9 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Label fx:id="lblAvailable" layoutX="720.0" layoutY="348.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
+      <Label fx:id="lblAvailable" layoutX="720.0" layoutY="354.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Label>
       <Text fill="#e1e1e1" layoutX="959.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Key Money : ">
@@ -238,9 +238,9 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Label fx:id="lblMoney" layoutX="1091.0" layoutY="353.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
+      <Label fx:id="lblMoney" layoutX="1091.0" layoutY="357.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Label>
       <RadioButton fx:id="rdPayNow" layoutX="613.0" layoutY="457.0" mnemonicParsing="false" onAction="#paymentOnAction" text="Pay Full Payment" textFill="WHITE">

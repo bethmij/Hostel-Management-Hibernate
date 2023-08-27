@@ -31,6 +31,10 @@ public class Room {
     @OneToMany (cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "room")
     private List<Reservation> reservations = new ArrayList<>();
 
+    public Room(String typeId) {
+        this.typeId = typeId;
+    }
+
     public Room(String typeId, String type, String keyMoney, int qty) {
         this.typeId = typeId;
         this.type = type;
