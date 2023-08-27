@@ -80,9 +80,10 @@ public class RegistrationFormController implements Initializable {
                     Integer.parseInt(txtTel2.getText()), txtEmail.getText(), dob.getValue(), gender);
             boolean isSaved = registerBO.saveStudent(studentDTO);
 
-            if (isSaved)
+            if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Student Successfully!").show();
-            else
+                getClear();
+            }else
                 new Alert(Alert.AlertType.ERROR, "Save Student Failed!").show();
 
         }else if(btnSave.getText().equals("Update")){
@@ -107,6 +108,10 @@ public class RegistrationFormController implements Initializable {
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        getClear();
+    }
+
+    private void getClear() {
         txtNIC.clear();
         txtName.clear();
         txtAddress.clear();

@@ -119,7 +119,7 @@
             <Image url="@../assests/cartoon-woman-read-book-hotel-260nw-1654145608-removebg-preview.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
             <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
@@ -243,17 +243,17 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rdPayNow" layoutX="613.0" layoutY="457.0" mnemonicParsing="false" onAction="#payOnAction" text="Pay Full Payment" textFill="WHITE">
+      <RadioButton fx:id="rdPayNow" layoutX="613.0" layoutY="457.0" mnemonicParsing="false" onAction="#paymentOnAction" text="Pay Full Payment" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="edPayLater" layoutX="1084.0" layoutY="454.0" mnemonicParsing="false" text="Pay Later" textFill="WHITE">
+      <RadioButton fx:id="edPayLater" layoutX="1084.0" layoutY="454.0" mnemonicParsing="false" onAction="#payLaterOnAction" text="Pay Later" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </RadioButton>
-      <JFXButton fx:id="btnSave" layoutX="855.0" layoutY="672.0" onAction="#btnSaveOnAction" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Reserve" textFill="WHITE">
+      <JFXButton fx:id="btnSave" layoutX="855.0" layoutY="672.0" onAction="#btnSaveOnAction" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Reserve" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
@@ -261,7 +261,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <RadioButton fx:id="rdPayHalfNow" layoutX="832.0" layoutY="456.0" mnemonicParsing="false" onAction="#payOnAction" text="Pay Half Payment" textFill="WHITE">
+      <RadioButton fx:id="rdPayHalfNow" layoutX="832.0" layoutY="456.0" mnemonicParsing="false" onAction="#payHalfOnAction" text="Pay Half Payment" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>

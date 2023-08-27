@@ -129,17 +129,17 @@
             <Image url="@../assests/icon/icons8-setting-80.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="841.0" layoutY="227.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Search" textFill="WHITE">
+      <JFXButton layoutX="841.0" layoutY="227.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Search" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1091.0" layoutY="227.0" onAction="#btnGetAllOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Get All" textFill="WHITE">
+      <JFXButton layoutX="1091.0" layoutY="227.0" onAction="#btnGetAllOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ff5e91; -fx-border-radius: 10;" text="Get All" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="970.0" layoutY="227.0" onAction="#btnUpdateOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Update" textFill="WHITE">
+      <JFXButton layoutX="970.0" layoutY="227.0" onAction="#btnUpdateOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #5effcf; -fx-border-radius: 10;" text="Update" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

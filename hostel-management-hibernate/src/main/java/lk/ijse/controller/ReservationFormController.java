@@ -1,6 +1,10 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -8,9 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import lk.ijse.bo.BOFactory;
+import lk.ijse.bo.custom.ReservationBO;
+import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.impl.util.OpenView;
 
-public class ReservationFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ReservationFormController implements Initializable {
     public AnchorPane reservePane;
     public Circle circleUser;
     public Label lblDate;
@@ -28,8 +38,18 @@ public class ReservationFormController {
     public RadioButton edPayLater;
     public RadioButton rdPayHalfNow;
     public Label lblResID;
+    public Group payGroup;
+    ObservableList<String> dataList = FXCollections.observableArrayList();
+    ReservationBO reservationBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.RESERVE);
 
-    public void payOnAction(ActionEvent mouseEvent) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        payGroup.setVisible(false);
+        setRoomID();
+    }
+
+    private void setRoomID() {
+        reservationBO.getRoomID();
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {
@@ -73,5 +93,40 @@ public class ReservationFormController {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
+    }
+
+
+
+    public void payLaterOnAction(ActionEvent actionEvent) {
+        if( !edPayLater.isSelected()){
+            rdPayHalfNow.setDisable(false);
+            rdPayNow.setDisable(false);
+        }else{
+            rdPayHalfNow.setDisable(true);
+            rdPayNow.setDisable(true);
+        }
+    }
+
+    public void payHalfOnAction(ActionEvent actionEvent) {
+        if( !rdPayHalfNow.isSelected()){
+            rdPayNow.setDisable(false);
+            edPayLater.setDisable(false);
+            payGroup.setVisible(false);
+        }else{
+            rdPayNow.setDisable(true);
+            edPayLater.setDisable(true);
+            payGroup.setVisible(true);
+        }
+    }
+
+
+    public void paymentOnAction(ActionEvent actionEvent) {
+        if( !rdPayNow.isSelected()){
+            rdPayHalfNow.setDisable(false);
+            edPayLater.setDisable(false);
+        }else{
+            rdPayHalfNow.setDisable(true);
+            edPayLater.setDisable(true);
+        }
     }
 }
