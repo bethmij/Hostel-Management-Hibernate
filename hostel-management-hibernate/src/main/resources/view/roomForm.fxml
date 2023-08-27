@@ -294,10 +294,10 @@
             </Text>
          </children>
       </AnchorPane>
-      <Group layoutX="648.0" layoutY="152.0">
+      <Group layoutX="647.0" layoutY="198.0">
          <children>
             <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="516.0" layoutX="1.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="706.0" />
-            <TableView fx:id="tbl" blendMode="OVERLAY" layoutY="3.0" prefHeight="516.0" prefWidth="706.0">
+            <TableView fx:id="tbl" blendMode="OVERLAY" layoutX="1.0" onMouseClicked="#tblOnAction" prefHeight="516.0" prefWidth="706.0">
                <columns>
                   <TableColumn fx:id="colID" prefWidth="117.60003662109375" text="Room ID" />
                   <TableColumn fx:id="colType" prefWidth="172.0" text="Room Type" />
@@ -308,5 +308,34 @@
             </TableView>
          </children>
       </Group>
+      <Group fx:id="newIDGroup1" layoutX="806.0" layoutY="110.0">
+         <children>
+            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="34.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="347.0" />
+            <TextField fx:id="txtSearch" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="29.0" prefWidth="346.0" promptText="Room Type ID" style="-fx-border-color: #ffffff;">
+               <effect>
+                  <DropShadow height="10.5" radius="2.125" width="0.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+         </children>
+      </Group>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1171.0" layoutY="109.0" onAction="#searchOnAction" opacity="0.92" prefHeight="42.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/icon/icons8-search-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

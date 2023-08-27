@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,14 +14,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.RoomBO;
-import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.impl.util.OpenView;
 import lk.ijse.dto.RoomDTO;
 import lk.ijse.dto.tm.RoomTM;
-import lk.ijse.entity.Room;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -46,6 +44,8 @@ public class RoomFormController implements Initializable {
     public TableColumn colAction;
     public Group newIDGroup;
     public Group newTypeGroup;
+    public JFXButton btnSave;
+    public TextField txtSearch;
     RoomBO roomBo = BOFactory.getBoFactory().getBO(BOFactory.BOType.ROOM);
     ObservableList<RoomTM> obList = FXCollections.observableArrayList();
 
@@ -143,15 +143,27 @@ public class RoomFormController implements Initializable {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
-                                txtMoney.getText(), Integer.parseInt(txtQty.getText()));
-        boolean isSaved = roomBo.saveRoom(roomDTO);
+        if(btnSave.getText().equals("Save")) {
+            RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
+                    txtMoney.getText(), Integer.parseInt(txtQty.getText()));
+            boolean isSaved = roomBo.saveRoom(roomDTO);
 
-        if(isSaved) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Saved Room Detail Successfully!").show();
-            setTable();
-        }else
-            new Alert(Alert.AlertType.ERROR,"Save Room Detail Failed!").show();
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Room Detail Saved Successfully!").show();
+                setTable();
+            } else
+                new Alert(Alert.AlertType.ERROR, "Room Detail Save Failed!").show();
+        }else if(btnSave.getText().equals("Update")){
+            RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
+                    txtMoney.getText(), Integer.parseInt(txtQty.getText()));
+            boolean isUpdated = roomBo.updateRoom(roomDTO);
+
+            if (isUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION, " Room Detail Updated Successfully!").show();
+                setTable();
+            } else
+                new Alert(Alert.AlertType.ERROR, "Room Detail Update Failed!").show();
+        }
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
@@ -205,4 +217,31 @@ public class RoomFormController implements Initializable {
     }
 
 
+    public void tblOnAction(MouseEvent mouseEvent) {
+        if (mouseEvent.getClickCount() == 2){
+            String roomID = String.valueOf(colID.getCellData(tbl.getSelectionModel().getSelectedIndex()));
+
+            if(roomID!=null){
+                RoomTM roomTM = (RoomTM) tbl.getSelectionModel().getSelectedItem();
+                cmbID.setValue(roomTM.getTypeId());
+                cmbType.setValue(roomTM.getType());
+                txtMoney.setText(roomTM.getKeyMoney());
+                txtQty.setText(String.valueOf(roomTM.getQty()));
+                btnSave.setText("Update");
+            }
+        }
+    }
+
+    public void searchOnAction(ActionEvent actionEvent) {
+        tbl.getItems().clear();
+        RoomDTO room = roomBo.getRoom(String.valueOf(colID.getCellData(tbl.getSelectionModel().getSelectedIndex())));
+
+        Button deleteButton = new Button("Delete");
+        deleteButton.setCursor(Cursor.HAND);
+        setDeleteBtnOnAction(deleteButton);
+
+        RoomTM roomTM = new RoomTM(room.getTypeId(),room.getType(),room.getKeyMoney(),room.getQty(), deleteButton);
+        obList.add(roomTM);
+        tbl.setItems(obList);
+    }
 }

@@ -51,4 +51,11 @@ public class RoomBOImpl implements RoomBO {
         Room room = new Room(roomDTO.getTypeId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty());
         return roomDAO.deleteRoom(room);
     }
+
+    @Override
+    public boolean updateRoom(RoomDTO roomDTO) {
+        Room room = new Room(roomDTO.getTypeId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty());
+        return roomDAO.updateRoom(room);
+    }
+
 }

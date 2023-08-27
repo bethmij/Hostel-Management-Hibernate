@@ -17,4 +17,6 @@ public interface RoomDAO extends SuperDAO {
     Room getRoom(String roomID);
 
     boolean deleteRoom(Room room);
+
+    boolean updateRoom(Room room);
 }

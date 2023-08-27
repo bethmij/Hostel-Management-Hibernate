@@ -76,4 +76,21 @@ public class RoomDAOImpl implements RoomDAO {
             session.close();
         }
     }
+
+    @Override
+    public boolean updateRoom(Room room) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.update(room);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
 }
