@@ -16,7 +16,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="settingPane" prefHeight="783.0" prefWidth="1395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SettingFormController">
    <children>
       <JFXButton layoutX="100.0" layoutY="65.0" prefHeight="26.0" prefWidth="1.0" />
@@ -113,51 +112,6 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594f" height="651.0" layoutX="572.0" layoutY="98.0" stroke="#1a3a575b" strokeType="INSIDE" width="618.0" />
-      <AnchorPane fx:id="menuPane" layoutX="64.0" layoutY="61.0" prefHeight="722.0" prefWidth="200.0" visible="false">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" onMouseExited="#menuCloseOnAction" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="456.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="17.0" layoutY="315.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="91.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="20.0" layoutY="170.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="230.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="20.0" layoutY="384.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#5cfdff" layoutX="18.0" layoutY="515.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
       <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="718.0" layoutY="176.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
       <Text fill="#e1e1e1" layoutX="834.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User : ">
          <font>
@@ -240,10 +194,55 @@
             <Font name="Calibri" size="21.0" />
          </font>
       </Text>
-      <ImageView fitHeight="454.0" fitWidth="785.0" layoutX="13.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="412.0" fitWidth="752.0" layoutX="14.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Untitled%20(9)-fotor-bg-remover-20230825235017.png" />
          </image>
       </ImageView>
+      <AnchorPane fx:id="menuPane" layoutX="64.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="456.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="17.0" layoutY="315.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="91.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="20.0" layoutY="170.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="230.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="20.0" layoutY="384.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#5cfdff" layoutX="18.0" layoutY="515.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

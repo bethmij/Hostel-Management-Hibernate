@@ -1,13 +1,21 @@
 package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import lk.ijse.bo.BOFactory;
+import lk.ijse.bo.custom.RoomBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
 
-public class RoomFormController {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class RoomFormController implements Initializable {
     public AnchorPane roomPane;
     public Circle circleUser;
     public Label lblDate;
@@ -26,13 +34,33 @@ public class RoomFormController {
     public TableColumn colQty;
     public TableColumn colMonet;
     public TableColumn colAction;
+    RoomBO roomBo = BOFactory.getBoFactory().getBO(BOFactory.BOType.ROOM);
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setIDList();
+        setTypeList();
+    }
 
+    private void setTypeList() {
+        List<String> typeList = roomBo.getRoomType();
+        typeList = new ArrayList<>() ;
+        typeList.add("cvcxvdfvdf");
+        typeList.add("dvgdfgvdfgd");
+        cmbType.setValue(typeList);
+    }
+
+    private void setIDList() {
+        List<String> idList = roomBo.getRoomID();
+        cmbID.setValue(idList);
+    }
 
     public void IDOnAction(ActionEvent actionEvent) {
+
     }
 
     public void typeOnAction(ActionEvent actionEvent) {
+
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
@@ -81,4 +109,6 @@ public class RoomFormController {
     public void payOnAction(MouseEvent mouseEvent) {
         OpenView.openView("paymentForm",roomPane);
     }
+
+
 }

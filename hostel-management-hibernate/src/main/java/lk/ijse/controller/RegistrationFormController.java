@@ -45,15 +45,14 @@ public class RegistrationFormController {
         else if(rdOther.isSelected())
             gender = "Other";
 
-        System.out.println("gender"+gender);
-//        StudentDTO studentDTO = new StudentDTO(txtNIC.getText(),txtName.getText(),txtAddress.getText(),Integer.parseInt(txtTel1.getText()),
-//                                    Integer.parseInt(txtTel2.getText()),txtEmail.getText(), dob.getValue(),gender);
-//        boolean isSaved = registerBO.saveStudent(studentDTO);
-//
-//        if(isSaved)
-//            new Alert(Alert.AlertType.CONFIRMATION,"Saved Student Successfully!").show();
-//        else
-//            new Alert(Alert.AlertType.ERROR,"Save Student Failed!").show();
+        StudentDTO studentDTO = new StudentDTO(txtNIC.getText(),txtName.getText(),txtAddress.getText(),Integer.parseInt(txtTel1.getText()),
+                                    Integer.parseInt(txtTel2.getText()),txtEmail.getText(), dob.getValue(),gender);
+        boolean isSaved = registerBO.saveStudent(studentDTO);
+
+        if(isSaved)
+            new Alert(Alert.AlertType.CONFIRMATION,"Saved Student Successfully!").show();
+        else
+            new Alert(Alert.AlertType.ERROR,"Save Student Failed!").show();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
