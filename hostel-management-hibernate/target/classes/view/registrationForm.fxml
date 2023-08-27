@@ -211,17 +211,17 @@
       </Text>
       <Group layoutX="750.0" layoutY="577.0">
          <children>
-            <RadioButton fx:id="rdMale" mnemonicParsing="false" onAction="#maleOnAction" text="Male" textFill="#dfdfdf">
+            <RadioButton fx:id="rdMale" mnemonicParsing="false"  text="Male" textFill="#dfdfdf">
                <font>
                   <Font size="17.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rdFemale" layoutX="93.0" mnemonicParsing="false" onAction="#femaleOnAction" text="Female" textFill="#dfdfdf">
+            <RadioButton fx:id="rdFemale" layoutX="93.0" mnemonicParsing="false"  text="Female" textFill="#dfdfdf">
                <font>
                   <Font size="17.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rdOther" layoutX="201.0" mnemonicParsing="false" onAction="#otherOnAction" text="Other" textFill="#dfdfdf">
+            <RadioButton fx:id="rdOther" layoutX="201.0" mnemonicParsing="false"  text="Other" textFill="#dfdfdf">
                <font>
                   <Font size="17.0" />
                </font>

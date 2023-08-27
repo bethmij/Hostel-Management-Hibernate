@@ -50,6 +50,7 @@ public class ReservationFormController implements Initializable {
     public RadioButton rdPayHalfNow;
     public Label lblResID;
     public Group payGroup;
+    public ToggleGroup toggleGroup;
     ReservationBO reservationBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.RESERVE);
 
     @Override
@@ -67,6 +68,12 @@ public class ReservationFormController implements Initializable {
         );
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
+
+        toggleGroup = new ToggleGroup();
+
+        rdPayNow.setToggleGroup(toggleGroup);
+        rdPayHalfNow.setToggleGroup(toggleGroup);
+        edPayLater.setToggleGroup(toggleGroup);
     }
 
     private void setReserveID() {
@@ -176,45 +183,11 @@ public class ReservationFormController implements Initializable {
         lblName.setText("");
         lblAvailable.setText("");
         lblMoney.setText("");
-        rdPayNow.setSelected(false);
-        rdPayHalfNow.setSelected(false);
-        edPayLater.setSelected(false);
+        toggleGroup.selectToggle(null);
         payGroup.setVisible(false);
     }
 
 
-    public void payLaterOnAction(ActionEvent actionEvent) {
-        if( !edPayLater.isSelected()){
-            rdPayHalfNow.setDisable(false);
-            rdPayNow.setDisable(false);
-        }else{
-            rdPayHalfNow.setDisable(true);
-            rdPayNow.setDisable(true);
-        }
-    }
-
-    public void payHalfOnAction(ActionEvent actionEvent) {
-        if( !rdPayHalfNow.isSelected()){
-            rdPayNow.setDisable(false);
-            edPayLater.setDisable(false);
-            payGroup.setVisible(false);
-        }else{
-            rdPayNow.setDisable(true);
-            edPayLater.setDisable(true);
-            payGroup.setVisible(true);
-        }
-    }
-
-
-    public void paymentOnAction(ActionEvent actionEvent) {
-        if( !rdPayNow.isSelected()){
-            rdPayHalfNow.setDisable(false);
-            edPayLater.setDisable(false);
-        }else{
-            rdPayHalfNow.setDisable(true);
-            edPayLater.setDisable(true);
-        }
-    }
 
     public void cbRoomOnAction(ActionEvent actionEvent) {
         RoomDTO roomDTO = reservationBO.getRoombyID(String.valueOf(cmbRoomID.getValue()));

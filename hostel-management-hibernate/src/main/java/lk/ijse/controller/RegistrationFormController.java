@@ -36,6 +36,7 @@ public class RegistrationFormController implements Initializable {
     public RadioButton rdOther;
     public JFXButton btnSave;
     public TextField txtNIC;
+    public ToggleGroup toggleGroup;
     RegisterBO registerBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.REGISTER);
 
     @Override
@@ -43,6 +44,12 @@ public class RegistrationFormController implements Initializable {
         if(studentDTO!=null){
             setRegisterForm();
         }
+
+        toggleGroup = new ToggleGroup();
+
+        rdFemale.setToggleGroup(toggleGroup);
+        rdMale.setToggleGroup(toggleGroup);
+        rdOther.setToggleGroup(toggleGroup);
     }
 
     private void setRegisterForm() {
@@ -119,9 +126,7 @@ public class RegistrationFormController implements Initializable {
         txtTel2.clear();
         txtEmail.clear();
         dob.setValue(null);
-        rdMale.setSelected(false);
-        rdFemale.setSelected(false);
-        rdFemale.setSelected(false);
+        toggleGroup.selectToggle(null);
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {
@@ -164,36 +169,6 @@ public class RegistrationFormController implements Initializable {
         OpenView.openView("paymentForm",registerPane);
     }
 
-    public void maleOnAction(ActionEvent actionEvent) {
-
-        if( !rdMale.isSelected()){
-            rdFemale.setDisable(false);
-            rdOther.setDisable(false);
-        }else{
-            rdFemale.setDisable(true);
-            rdOther.setDisable(true);
-        }
-    }
-
-    public void femaleOnAction(ActionEvent actionEvent) {
-        if( !rdFemale.isSelected()){
-            rdMale.setDisable(false);
-            rdOther.setDisable(false);
-        }else{
-            rdMale.setDisable(true);
-            rdOther.setDisable(true);
-        }
-    }
-
-    public void otherOnAction(ActionEvent actionEvent) {
-        if(!rdOther.isSelected()){
-            rdFemale.setDisable(false);
-            rdMale.setDisable(false);
-        }else{
-            rdFemale.setDisable(true);
-            rdMale.setDisable(true);
-        }
-    }
 
 
 }
