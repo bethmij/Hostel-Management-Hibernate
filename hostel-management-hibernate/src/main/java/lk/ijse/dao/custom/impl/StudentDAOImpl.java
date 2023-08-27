@@ -15,6 +15,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public boolean saveStudent(Student student){
+        session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         try {

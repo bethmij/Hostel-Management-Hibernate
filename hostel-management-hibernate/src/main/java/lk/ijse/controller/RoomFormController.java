@@ -1,18 +1,28 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.Group;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.RoomBO;
+import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.impl.util.OpenView;
+import lk.ijse.dto.RoomDTO;
+import lk.ijse.dto.tm.RoomTM;
+import lk.ijse.entity.Room;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class RoomFormController implements Initializable {
@@ -34,39 +44,123 @@ public class RoomFormController implements Initializable {
     public TableColumn colQty;
     public TableColumn colMonet;
     public TableColumn colAction;
+    public Group newIDGroup;
+    public Group newTypeGroup;
     RoomBO roomBo = BOFactory.getBoFactory().getBO(BOFactory.BOType.ROOM);
+    ObservableList<RoomTM> obList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setIDList();
         setTypeList();
+        newIDGroup.setDisable(true);
+        newTypeGroup.setDisable(true);
+        setCellValueFactory();
+        setTable();
+    }
+
+
+    private void setCellValueFactory() {
+        colID.setCellValueFactory(new PropertyValueFactory<>("typeId"));
+        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        colMonet.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("button"));
     }
 
     private void setTypeList() {
         List<String> typeList = roomBo.getRoomType();
-        typeList = new ArrayList<>() ;
-        typeList.add("cvcxvdfvdf");
-        typeList.add("dvgdfgvdfgd");
-        cmbType.setValue(typeList);
+        ObservableList<String> dataList = FXCollections.observableArrayList();
+
+        if(typeList!=null) {
+            for (String ids : typeList) {
+                dataList.add(ids);
+            }
+            cmbType.setItems(dataList);
+        }
+
     }
 
     private void setIDList() {
         List<String> idList = roomBo.getRoomID();
-        cmbID.setValue(idList);
+        ObservableList<String> dataList = FXCollections.observableArrayList();
+         if(idList!=null) {
+            for (String ids : idList) {
+                dataList.add(ids);
+            }
+            cmbID.setItems(dataList);
+        }
+    }
+
+    private void setTable() {
+        tbl.getItems().clear();
+        List<RoomDTO> roomList = roomBo.getRoomDetail();
+
+        for (RoomDTO room : roomList) {
+            Button deleteButton = new Button("Delete");
+            deleteButton.setCursor(Cursor.HAND);
+            setDeleteBtnOnAction(deleteButton);
+
+            RoomTM roomTM = new RoomTM(room.getTypeId(),room.getType(),room.getKeyMoney(),room.getQty(), deleteButton);
+            obList.add(roomTM);
+            tbl.setItems(obList);
+        }
+    }
+
+    private void setDeleteBtnOnAction(Button deleteButton) {
+        deleteButton.setOnAction((e) -> {
+            ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to delete?", yes, no).showAndWait();
+
+            if (result.orElse(no) == yes) {
+                 RoomDTO room = roomBo.getRoom(String.valueOf(colID.getCellData(tbl.getSelectionModel().getSelectedIndex())));
+
+                boolean isDeleted = roomBo.deleteRoom(room);
+                if(isDeleted) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Room Details Deleted!").show();
+                    setTable();
+                }else
+                    new Alert(Alert.AlertType.ERROR, "Room Details Delete Failed!").show();
+            }
+        });
     }
 
     public void IDOnAction(ActionEvent actionEvent) {
+        if(newIDGroup.isDisable())
+            newIDGroup.setDisable(false);
+
+        cmbID.setValue(txtID.getText());
 
     }
 
     public void typeOnAction(ActionEvent actionEvent) {
+        if(newTypeGroup.isDisable())
+            newTypeGroup.setDisable(false);
 
+        cmbType.setValue(txtType.getText());
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
+        RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
+                                txtMoney.getText(), Integer.parseInt(txtQty.getText()));
+        boolean isSaved = roomBo.saveRoom(roomDTO);
+
+        if(isSaved) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Saved Room Detail Successfully!").show();
+            setTable();
+        }else
+            new Alert(Alert.AlertType.ERROR,"Save Room Detail Failed!").show();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        cmbID.setValue("");
+        cmbType.setValue("");
+        newIDGroup.setDisable(true);
+        newTypeGroup.setDisable(true);
+        txtMoney.clear();
+        txtQty.clear();
     }
 
 
