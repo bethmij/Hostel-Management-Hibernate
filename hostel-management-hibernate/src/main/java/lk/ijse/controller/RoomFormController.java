@@ -246,7 +246,6 @@ public class RoomFormController implements Initializable {
     public void searchOnAction(ActionEvent actionEvent) {
         tbl.getItems().clear();
         RoomDTO room = roomBo.getRoom(txtSearch.getText());
-        System.out.println(room);
         Button deleteButton = new Button("Delete");
         deleteButton.setCursor(Cursor.HAND);
         setDeleteBtnOnAction(deleteButton);

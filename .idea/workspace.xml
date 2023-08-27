@@ -5,20 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e88df55-86a9-415d-83a0-c5cc764e8fd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/SplashFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/assests/icon/icons8-refresh-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/assests/output-onlinegiftools (7).gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/assests/output-onlinegiftools (8).gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/view/splashForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/bo/custom/ManageBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/bo/custom/ManageBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/bo/custom/RegisterBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/bo/custom/RegisterBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/bo/custom/impl/ManageBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/bo/custom/impl/ManageBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/bo/custom/impl/RegisterBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/bo/custom/impl/RegisterBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/RegistrationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/RegistrationFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/RoomFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/RoomFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/dao/custom/impl/util/OpenView.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/dao/custom/impl/util/OpenView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/view/roomForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/view/roomForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/StudentManageFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/controller/StudentManageFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/dao/custom/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/dao/custom/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/dao/custom/impl/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/java/lk/ijse/dao/custom/impl/StudentDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/view/registrationForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/view/registrationForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/view/studentManageForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/src/main/resources/view/studentManageForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/bo/custom/ManageBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/bo/custom/ManageBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/bo/custom/impl/ManageBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/bo/custom/impl/ManageBOImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/DashboardFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/DashboardFormController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/PaymentFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/PaymentFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/RegistrationFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/RegistrationFormController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/RoomFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/RoomFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/impl/util/OpenView.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/impl/util/OpenView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/roomForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/roomForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/StudentManageFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/controller/StudentManageFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/impl/StudentDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/lk/ijse/dao/custom/impl/StudentDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/studentManageForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/hostel-management-hibernate/target/classes/view/studentManageForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1693051862713</updated>
       <workItem from="1693051865925" duration="12852000" />
-      <workItem from="1693109363369" duration="15685000" />
+      <workItem from="1693109363369" duration="19835000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,7 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -11,9 +12,13 @@ import lk.ijse.bo.custom.RegisterBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
 import lk.ijse.dto.StudentDTO;
 
+import java.net.URL;
 import java.util.Date;
+import java.util.ResourceBundle;
 
-public class RegistrationFormController {
+import static lk.ijse.controller.StudentManageFormController.studentDTO;
+
+public class RegistrationFormController implements Initializable {
     public AnchorPane registerPane;
     public Circle circleUser;
     public Label lblDate;
@@ -33,26 +38,72 @@ public class RegistrationFormController {
     public TextField txtNIC;
     RegisterBO registerBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.REGISTER);
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if(studentDTO!=null){
+            setRegisterForm();
+        }
+    }
+
+    private void setRegisterForm() {
+        txtNIC.setText(studentDTO.getStudentID());
+        txtName.setText(studentDTO.getName());
+        txtAddress.setText(studentDTO.getAddress());
+        txtTel1.setText(String.valueOf(studentDTO.getTel1()));
+        txtTel2.setText(String.valueOf(studentDTO.getTel1()));
+        txtEmail.setText(studentDTO.getEmail());
+        dob.setValue(studentDTO.getDob());
+        switch (studentDTO.getGender()){
+            case "Male" : rdMale.setSelected(true);
+                            break;
+            case "Female" : rdFemale.setSelected(true);
+                            break;
+            case "Other" : rdOther.setSelected(true);
+                            break;
+         }
+        btnSave.setText("Update");
+    }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
 
-        String gender = "";
+        if(btnSave.getText().equals("Save")) {
+            String gender = "";
 
-        if(rdMale.isSelected())
-            gender = "Male";
-        else if(rdFemale.isSelected())
-            gender = "Female";
-        else if(rdOther.isSelected())
-            gender = "Other";
+            if (rdMale.isSelected())
+                gender = "Male";
+            else if (rdFemale.isSelected())
+                gender = "Female";
+            else if (rdOther.isSelected())
+                gender = "Other";
 
-        StudentDTO studentDTO = new StudentDTO(txtNIC.getText(),txtName.getText(),txtAddress.getText(),Integer.parseInt(txtTel1.getText()),
-                                    Integer.parseInt(txtTel2.getText()),txtEmail.getText(), dob.getValue(),gender);
-        boolean isSaved = registerBO.saveStudent(studentDTO);
+            StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
+                    Integer.parseInt(txtTel2.getText()), txtEmail.getText(), dob.getValue(), gender);
+            boolean isSaved = registerBO.saveStudent(studentDTO);
 
-        if(isSaved)
-            new Alert(Alert.AlertType.CONFIRMATION,"Saved Student Successfully!").show();
-        else
-            new Alert(Alert.AlertType.ERROR,"Save Student Failed!").show();
+            if (isSaved)
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved Student Successfully!").show();
+            else
+                new Alert(Alert.AlertType.ERROR, "Save Student Failed!").show();
+
+        }else if(btnSave.getText().equals("Update")){
+            String gender = "";
+
+            if (rdMale.isSelected())
+                gender = "Male";
+            else if (rdFemale.isSelected())
+                gender = "Female";
+            else if (rdOther.isSelected())
+                gender = "Other";
+
+            StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
+                    Integer.parseInt(txtTel2.getText()), txtEmail.getText(), dob.getValue(), gender);
+            boolean isUpdated = registerBO.updateStudent(studentDTO);
+
+            if (isUpdated)
+                new Alert(Alert.AlertType.CONFIRMATION, " Student Updated Successfully!").show();
+            else
+                new Alert(Alert.AlertType.ERROR, " Student Update Failed!").show();
+        }
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
@@ -138,4 +189,6 @@ public class RegistrationFormController {
             rdMale.setDisable(true);
         }
     }
+
+
 }

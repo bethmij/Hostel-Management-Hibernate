@@ -5,6 +5,9 @@ import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
     Session session;
@@ -29,5 +32,52 @@ public class StudentDAOImpl implements StudentDAO {
             session.close();
         }
 
+    }
+
+    @Override
+    public Student getStudent(String id) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        return session.get(Student.class,id);
+    }
+
+    @Override
+    public boolean deleteStudent(Student student) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.delete(student);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<Student> getAllStudent() {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery(" FROM Student ");
+        return query.list();
+    }
+
+    @Override
+    public boolean updateStudent(Student student) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.update(student);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
     }
 }

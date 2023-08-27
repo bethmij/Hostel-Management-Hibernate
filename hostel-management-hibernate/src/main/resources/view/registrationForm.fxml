@@ -228,12 +228,12 @@
             </RadioButton>
          </children>
       </Group>
-      <JFXButton fx:id="btnSave" layoutX="951.0" layoutY="656.0" onAction="#btnSaveOnAction" prefHeight="46.0" prefWidth="144.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Save" textFill="WHITE">
+      <JFXButton fx:id="btnSave" layoutX="951.0" layoutY="656.0" onAction="#btnSaveOnAction" prefHeight="46.0" prefWidth="144.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Save" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="720.0" layoutY="659.0" onAction="#btnClearOnAction" prefHeight="46.0" prefWidth="144.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="Clear" textFill="WHITE">
+      <JFXButton layoutX="720.0" layoutY="659.0" onAction="#btnClearOnAction" prefHeight="46.0" prefWidth="144.0" style="-fx-border-color: #ff5e98; -fx-border-radius: 10;" text="Clear" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
