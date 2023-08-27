@@ -132,6 +132,7 @@ public class RoomFormController implements Initializable {
             newIDGroup.setDisable(false);
 
         cmbID.setValue(txtID.getText());
+        txtID.clear();
 
     }
 
@@ -140,6 +141,7 @@ public class RoomFormController implements Initializable {
             newTypeGroup.setDisable(false);
 
         cmbType.setValue(txtType.getText());
+        txtType.clear();
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
@@ -151,6 +153,7 @@ public class RoomFormController implements Initializable {
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Room Detail Saved Successfully!").show();
                 setTable();
+                getClear();
             } else
                 new Alert(Alert.AlertType.ERROR, "Room Detail Save Failed!").show();
         }else if(btnSave.getText().equals("Update")){
@@ -161,16 +164,23 @@ public class RoomFormController implements Initializable {
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, " Room Detail Updated Successfully!").show();
                 setTable();
+                getClear();
             } else
                 new Alert(Alert.AlertType.ERROR, "Room Detail Update Failed!").show();
         }
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
+        getClear();
+    }
+
+    private void getClear() {
         cmbID.setValue("");
         cmbType.setValue("");
         newIDGroup.setDisable(true);
         newTypeGroup.setDisable(true);
+        txtID.clear();
+        txtType.clear();
         txtMoney.clear();
         txtQty.clear();
     }
@@ -218,6 +228,7 @@ public class RoomFormController implements Initializable {
 
 
     public void tblOnAction(MouseEvent mouseEvent) {
+        getClear();
         if (mouseEvent.getClickCount() == 2){
             String roomID = String.valueOf(colID.getCellData(tbl.getSelectionModel().getSelectedIndex()));
 
@@ -234,8 +245,8 @@ public class RoomFormController implements Initializable {
 
     public void searchOnAction(ActionEvent actionEvent) {
         tbl.getItems().clear();
-        RoomDTO room = roomBo.getRoom(String.valueOf(colID.getCellData(tbl.getSelectionModel().getSelectedIndex())));
-
+        RoomDTO room = roomBo.getRoom(txtSearch.getText());
+        System.out.println(room);
         Button deleteButton = new Button("Delete");
         deleteButton.setCursor(Cursor.HAND);
         setDeleteBtnOnAction(deleteButton);
@@ -243,5 +254,9 @@ public class RoomFormController implements Initializable {
         RoomTM roomTM = new RoomTM(room.getTypeId(),room.getType(),room.getKeyMoney(),room.getQty(), deleteButton);
         obList.add(roomTM);
         tbl.setItems(obList);
+    }
+
+    public void refreshOnAction(ActionEvent actionEvent) {
+        setTable();
     }
 }

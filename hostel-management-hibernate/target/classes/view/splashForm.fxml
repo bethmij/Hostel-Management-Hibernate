@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="783.0" prefWidth="1395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SplashFormController">
+   <children>
+      <ImageView fitHeight="786.0" fitWidth="1398.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.02" contrast="-0.06" hue="0.04" saturation="1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="741.0" fitWidth="1166.0" layoutX="99.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/output-onlinegiftools%20(7).gif" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.21" contrast="1.0" hue="0.06" saturation="1.0" />
+         </effect>
+      </ImageView>
+   </children>
+   <effect>
+      <ColorAdjust brightness="-0.12" contrast="-0.02" hue="-0.02" saturation="1.0" />
+   </effect>
+</AnchorPane>

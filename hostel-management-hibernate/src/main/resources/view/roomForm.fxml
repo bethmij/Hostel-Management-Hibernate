@@ -308,7 +308,7 @@
             </TableView>
          </children>
       </Group>
-      <Group fx:id="newIDGroup1" layoutX="806.0" layoutY="110.0">
+      <Group fx:id="newIDGroup1" layoutX="771.0" layoutY="110.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="34.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="347.0" />
             <TextField fx:id="txtSearch" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="29.0" prefWidth="346.0" promptText="Room Type ID" style="-fx-border-color: #ffffff;">
@@ -325,11 +325,23 @@
             </TextField>
          </children>
       </Group>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1171.0" layoutY="109.0" onAction="#searchOnAction" opacity="0.92" prefHeight="42.0" prefWidth="24.0">
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1127.0" layoutY="109.0" onAction="#searchOnAction" opacity="0.92" prefHeight="42.0" prefWidth="24.0">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assests/icon/icons8-search-100.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1183.0" layoutY="109.0" onAction="#refreshOnAction" opacity="0.92" prefHeight="42.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/icon/icons8-refresh-100.png" />
                </image>
             </ImageView>
          </graphic>
