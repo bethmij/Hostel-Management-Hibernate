@@ -13,7 +13,7 @@ public interface ReservationBO extends SuperBO {
 
     RoomDTO getRoombyID(String roomID);
 
-    int getUsedRoom();
+    int getUsedRoom(String roomID);
 
     String getStuName(String stuID);
 

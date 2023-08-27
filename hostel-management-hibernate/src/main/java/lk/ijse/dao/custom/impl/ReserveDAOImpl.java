@@ -11,9 +11,10 @@ public class ReserveDAOImpl implements ReserveDAO {
     Session session;
 
     @Override
-    public int getUsedRoomCount() {
+    public int getUsedRoomCount(String roomID) {
         session = SessionFactoryConfig.getInstance().getSession();
-        Query query = session.createQuery("SELECT count(r.room) FROM Reservation as r");
+        Query query = session.createQuery("SELECT count(rs.id) FROM Reservation as rs JOIN rs.room r WHERE r.id = :roomId");
+        query.setParameter("roomId",roomID);
         Long countResult = (Long) query.getSingleResult();
         return countResult.intValue();
     }
@@ -23,8 +24,7 @@ public class ReserveDAOImpl implements ReserveDAO {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT r.id FROM Reservation as r ORDER BY r.id DESC");
         query.setMaxResults(1);
-        Long id = (Long) query.uniqueResult();
-        return String.valueOf(id);
+        return (String) query.uniqueResult();
 
     }
 

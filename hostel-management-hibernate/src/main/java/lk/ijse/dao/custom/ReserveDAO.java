@@ -4,7 +4,7 @@ import lk.ijse.dao.SuperDAO;
 import lk.ijse.entity.Reservation;
 
 public interface ReserveDAO extends SuperDAO  {
-    int getUsedRoomCount();
+    int getUsedRoomCount(String roomID);
 
     String getNextID();
 

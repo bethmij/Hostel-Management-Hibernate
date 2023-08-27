@@ -8,10 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -162,8 +159,28 @@ public class ReservationFormController implements Initializable {
         ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(),room,student,LocalDateTime.now(),status);
 
         boolean isSaved = reservationBO.reserveRoom(reservationDTO);
+
+        if (isSaved) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully!").show();
+            getClear();
+            setReserveID();
+        }else
+            new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();
     }
 
+    private void getClear() {
+        setReserveID();
+        cmbRoomID.setValue("");
+        lblRoomType.setText("");
+        cmbStuID.setValue("");
+        lblName.setText("");
+        lblAvailable.setText("");
+        lblMoney.setText("");
+        rdPayNow.setSelected(false);
+        rdPayHalfNow.setSelected(false);
+        edPayLater.setSelected(false);
+        payGroup.setVisible(false);
+    }
 
 
     public void payLaterOnAction(ActionEvent actionEvent) {
@@ -201,7 +218,7 @@ public class ReservationFormController implements Initializable {
 
     public void cbRoomOnAction(ActionEvent actionEvent) {
         RoomDTO roomDTO = reservationBO.getRoombyID(String.valueOf(cmbRoomID.getValue()));
-        int usedRooms = reservationBO.getUsedRoom();
+        int usedRooms = reservationBO.getUsedRoom(String.valueOf(cmbRoomID.getValue()));
         lblRoomType.setText(roomDTO.getType());
         lblMoney.setText(roomDTO.getKeyMoney());
         lblAvailable.setText(String.valueOf(roomDTO.getQty()-usedRooms));

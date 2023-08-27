@@ -30,7 +30,6 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public List<String> getStudentID() {
-        System.out.println("sdvgfedsrgesrdgdfgdfdbdfbdfgersdgHELOOOOOOOO");
         return studentDAO.getStudentID();
     }
 
@@ -41,8 +40,8 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
-    public int getUsedRoom() {
-        return reserveDAO.getUsedRoomCount();
+    public int getUsedRoom(String roomID) {
+        return reserveDAO.getUsedRoomCount(roomID);
     }
 
     @Override
