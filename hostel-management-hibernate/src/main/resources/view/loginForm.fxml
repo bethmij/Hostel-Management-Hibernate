@@ -25,7 +25,10 @@
             <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="237.0" layoutY="99.0" opacity="0.28" stroke="#d5dee7" strokeType="INSIDE" width="952.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="237.0" layoutY="99.0" opacity="0.28" stroke="#d5dee7" strokeType="INSIDE" width="952.0">
+         <effect>
+            <DropShadow />
+         </effect></Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="592.0" layoutX="237.0" layoutY="99.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="428.0" />
       <ImageView fitHeight="328.0" fitWidth="552.0" layoutX="237.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -55,7 +58,7 @@
             <ColorAdjust brightness="0.75" contrast="-0.28" saturation="0.95" />
          </effect>
       </ImageView>
-      <Text fill="#dcdcdc" layoutX="737.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fill="#dcdcdc" layoutX="743.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
          <font>
             <Font name="Book Antiqua" size="21.0" />
          </font>

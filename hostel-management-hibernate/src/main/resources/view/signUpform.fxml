@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="665.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignUpformController">
+   <children>
+      <JFXButton layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="0.0" />
+      <ImageView fitHeight="665.0" fitWidth="1182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="110.0" layoutY="32.0" opacity="0.28" stroke="#d5dee7" strokeType="INSIDE" width="952.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="592.0" layoutX="110.0" layoutY="32.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="428.0" />
+      <ImageView fitHeight="129.0" fitWidth="169.0" layoutX="272.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/Green_Minimalist_Simple_House_Logo_Icon__4_-removebg-preview.png" />
+         </image>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.5473684072494507" green="0.5473684072494507" blue="0.5473684072494507" />
+               </color>
+               <input>
+                  <ColorAdjust brightness="0.81" contrast="-0.19" saturation="-0.01" />
+               </input>
+            </DropShadow>
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="288.0" fitWidth="372.0" layoutX="190.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/Simple_Black_and_Turquoise_Welcome_Instagram_Post__1_-removebg-preview%20(1).png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.75" contrast="-0.28" saturation="0.95" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="328.0" fitWidth="552.0" layoutX="120.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/Untitled__8_-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Text fill="#dcdcdc" layoutX="616.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sing up">
+         <font>
+            <Font name="Book Antiqua" size="21.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="620.0" layoutY="175.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </TextField>
+      <PasswordField fx:id="txtPass" blendMode="OVERLAY" layoutX="620.0" layoutY="232.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="txtReenter" blendMode="OVERLAY" layoutX="620.0" layoutY="287.0" prefHeight="38.0" prefWidth="394.0" promptText="Re-Enter Password">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="620.0" layoutY="119.0" prefHeight="38.0" prefWidth="394.0" promptText="User ID" style="-fx-border-color: #ffffff;">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </TextField>
+      <TextField fx:id="txtEmail" blendMode="OVERLAY" layoutX="620.0" layoutY="345.0" prefHeight="38.0" prefWidth="394.0" promptText="Email" style="-fx-border-color: #ffffff;">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </TextField>
+      <JFXButton layoutX="750.0" layoutY="416.0" onAction="#signUpOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="SIGN UP" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

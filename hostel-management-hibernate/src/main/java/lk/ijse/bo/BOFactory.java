@@ -14,7 +14,7 @@ public class BOFactory {
     }
 
     public enum BOType{
-        DASHBOARD,LOGIN,MANAGE,PAYMENT,REGISTER,RESERVE,ROOM,SETTING
+        DASHBOARD,LOGIN,MANAGE,PAYMENT,REGISTER,RESERVE,ROOM,SETTING,USER
     }
 
     public <T extends SuperBO> T getBO (BOType boType){
@@ -35,6 +35,8 @@ public class BOFactory {
                 return (T) new RoomBOImpl();
             case SETTING:
                 return (T) new SettingBOImpl();
+            case USER:
+                return (T) new UserBOImpl();
             default:
                 return null;
         }

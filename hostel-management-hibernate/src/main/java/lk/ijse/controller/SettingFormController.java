@@ -30,6 +30,8 @@ public class SettingFormController {
     public void passOnAction(ActionEvent actionEvent) {
     }
 
+    public void editOnAction(MouseEvent mouseEvent) {
+    }
 
 
     public void dashbordOnAction(MouseEvent mouseEvent) {
@@ -71,4 +73,6 @@ public class SettingFormController {
     public void payOnAction(MouseEvent mouseEvent) {
         OpenView.openView("paymentForm",settingPane);
     }
+
+
 }
