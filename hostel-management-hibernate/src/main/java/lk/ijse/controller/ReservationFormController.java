@@ -159,7 +159,7 @@ public class ReservationFormController implements Initializable {
         else if(edPayLater.isSelected())
             status = "Unpaid";
         else if(rdPayHalfNow.isSelected())
-            status = "Half Paid";
+            status = "Half Paid:"+txtPay.getText();
 
         RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
         StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
@@ -200,5 +200,9 @@ public class ReservationFormController implements Initializable {
     public void cbStuOnAction(ActionEvent actionEvent) {
         String name = reservationBO.getStuName(String.valueOf(cmbStuID.getValue()));
         lblName.setText(name);
+    }
+
+    public void rdHalfOnAction(ActionEvent actionEvent) {
+        payGroup.setVisible(true);
     }
 }

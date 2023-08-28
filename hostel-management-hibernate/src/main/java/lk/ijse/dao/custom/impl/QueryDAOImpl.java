@@ -14,7 +14,7 @@ public class QueryDAOImpl implements QueryDAO {
     @Override
     public List<ReserveProjection> getReserveDetail() {
         session = SessionFactoryConfig.getInstance().getSession();
-        Query query = session.createQuery("SELECT new lk.ijse.entity.projection.ReserveProjection(rs.id, s.id, s.name, r.id, r.type, rs.status, r.keyMoney) FROM Reservation rs JOIN rs.room r JOIN rs.student s ");
+        Query query = session.createQuery("SELECT new lk.ijse.entity.projection.ReserveProjection(rs.id, s.id, s.name, r.id, r.type, rs.status, r.keyMoney) FROM Reservation rs JOIN rs.room r JOIN rs.student s ORDER BY rs.id ASC ");
         return query.list();
     }
 }

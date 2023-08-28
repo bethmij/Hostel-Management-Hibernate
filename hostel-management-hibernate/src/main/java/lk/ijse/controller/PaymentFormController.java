@@ -3,8 +3,10 @@ package lk.ijse.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -17,9 +19,11 @@ import lk.ijse.dto.tm.ReserveTM;
 import lk.ijse.dto.tm.RoomTM;
 import lk.ijse.entity.projection.ReserveProjection;
 
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class PaymentFormController {
+public class PaymentFormController implements Initializable {
     public AnchorPane payPane;
     public Circle circleUser;
     public Label lblDate;
@@ -41,8 +45,16 @@ public class PaymentFormController {
     public TableColumn colAction;
     public TableColumn colAction1;
     public TableColumn colPayment;
+    static String status;
     PaymentBO paymentBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAYMENT);
     ObservableList<ReserveTM> obList = FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setCellValueFactory();
+    }
+
+
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
     }
@@ -72,7 +84,7 @@ public class PaymentFormController {
             String remaining = calcRemaining(list.getStatus(), list.getKeyMoney());
 
             ReserveTM reserveTM = new ReserveTM(list.getReserveID(), list.getStudentID(), list.getName(),list.getRoomID(),
-                                    list.getRoomType(),list.getStatus(),remaining,payButton,deleteButton);
+                                    list.getRoomType(),status,remaining,payButton,deleteButton);
             obList.add(reserveTM);
             tbl.setItems(obList);
         }
@@ -80,15 +92,17 @@ public class PaymentFormController {
     }
 
     private String calcRemaining(String status, String keyMoney) {
-        switch (status){
-            case "Paid" :
-                return "";
-            case "Unpaid" :
-                return keyMoney;
-            case "Half Paid" :
-                return String.valueOf((Double.valueOf(keyMoney)/2));
-            default:
-                return "";
+
+        if(status.equals("Paid")) {
+            status = "Paid";
+            return "";
+        }else if(status.equals("Unpaid")) {
+            status = "Unpaid";
+            return keyMoney;
+        }else {
+            status = "Half Paid";
+            String[] halfPaid = status.split(":");
+            return String.valueOf((Double.valueOf(keyMoney)-Double.valueOf(halfPaid[1])));
         }
     }
 
@@ -136,6 +150,18 @@ public class PaymentFormController {
 
     public void payOnAction(MouseEvent mouseEvent) {
         OpenView.openView("paymentForm",payPane);
+    }
+
+    private void setCellValueFactory() {
+        colReserveID.setCellValueFactory(new PropertyValueFactory<>("reserveID"));
+        colStuID.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+        colType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colRemain.setCellValueFactory(new PropertyValueFactory<>("remaining"));
+        colPayment.setCellValueFactory(new PropertyValueFactory<>("payment"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("delete"));
     }
 }
 

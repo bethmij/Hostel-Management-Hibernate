@@ -243,12 +243,12 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rdPayNow" layoutX="613.0" layoutY="457.0" mnemonicParsing="false"  text="Pay Full Payment" textFill="WHITE">
+      <RadioButton fx:id="rdPayNow" layoutX="613.0" layoutY="457.0" mnemonicParsing="false" text="Pay Full Payment" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="edPayLater" layoutX="1084.0" layoutY="454.0" mnemonicParsing="false"  text="Pay Later" textFill="WHITE">
+      <RadioButton fx:id="edPayLater" layoutX="1084.0" layoutY="454.0" mnemonicParsing="false" text="Pay Later" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
@@ -261,7 +261,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <RadioButton fx:id="rdPayHalfNow" layoutX="832.0" layoutY="456.0" mnemonicParsing="false"  text="Pay Half Payment" textFill="WHITE">
+      <RadioButton fx:id="rdPayHalfNow" layoutX="832.0" layoutY="456.0" mnemonicParsing="false" onAction="#rdHalfOnAction" text="Pay Half Payment" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
