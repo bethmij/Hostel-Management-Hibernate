@@ -45,7 +45,6 @@ public class PaymentFormController implements Initializable {
     public TableColumn colAction;
     public TableColumn colAction1;
     public TableColumn colPayment;
-    static String status;
     PaymentBO paymentBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAYMENT);
     ObservableList<ReserveTM> obList = FXCollections.observableArrayList();
 
@@ -57,6 +56,43 @@ public class PaymentFormController implements Initializable {
 
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
+        tbl.getItems().clear();
+        ReserveProjection reserve = paymentBO.getReservebyID(txtName.getText());
+        System.out.println(reserve);
+        /*for (ReserveProjection list : reserveList) {
+            Button deleteButton = new Button("Delete");
+            deleteButton.setCursor(Cursor.HAND);
+            setDeleteBtnOnAction(deleteButton);
+
+            Button payButton = new Button();
+
+            if(!list.getStatus().equals("Paid")) {
+                payButton.setText("Pay");
+                payButton.setCursor(Cursor.HAND);
+                setPaymentBtnOnAction(payButton);
+            }else {
+                payButton = null;
+            }
+
+            String remaining = calcRemaining(list.getStatus(), list.getKeyMoney());
+            if(remaining.equals("")){
+                remaining = "---";
+            }
+
+            String status = "";
+            if(list.getStatus().equals("Paid")) {
+                status = "Paid";
+            }else if(list.getStatus().equals("Unpaid")) {
+                status = "Unpaid";
+            }else if(list.getStatus().contains("Half")){
+                status = "Half Paid";
+            }
+
+            ReserveTM reserveTM = new ReserveTM(list.getReserveID(), list.getStudentID(), list.getName(),list.getRoomID(),
+                    list.getRoomType(),status,remaining,payButton,deleteButton);
+            obList.add(reserveTM);
+            tbl.setItems(obList);
+        }*/
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
@@ -70,18 +106,34 @@ public class PaymentFormController implements Initializable {
         tbl.getItems().clear();
         List<ReserveProjection> reserveList = paymentBO.getReserveDetail();
 
-
-
         for (ReserveProjection list : reserveList) {
             Button deleteButton = new Button("Delete");
             deleteButton.setCursor(Cursor.HAND);
             setDeleteBtnOnAction(deleteButton);
 
-            Button payButton = new Button("Payment");
-            payButton.setCursor(Cursor.HAND);
-            setPaymentBtnOnAction(payButton);
+            Button payButton = new Button();
+
+            if(!list.getStatus().equals("Paid")) {
+                payButton.setText("Pay");
+                payButton.setCursor(Cursor.HAND);
+                setPaymentBtnOnAction(payButton);
+            }else {
+                payButton = null;
+            }
 
             String remaining = calcRemaining(list.getStatus(), list.getKeyMoney());
+            if(remaining.equals("")){
+                remaining = "---";
+            }
+
+            String status = "";
+            if(list.getStatus().equals("Paid")) {
+                status = "Paid";
+            }else if(list.getStatus().equals("Unpaid")) {
+                status = "Unpaid";
+            }else if(list.getStatus().contains("Half")){
+                status = "Half Paid";
+            }
 
             ReserveTM reserveTM = new ReserveTM(list.getReserveID(), list.getStudentID(), list.getName(),list.getRoomID(),
                                     list.getRoomType(),status,remaining,payButton,deleteButton);
@@ -94,16 +146,13 @@ public class PaymentFormController implements Initializable {
     private String calcRemaining(String status, String keyMoney) {
 
         if(status.equals("Paid")) {
-            status = "Paid";
             return "";
         }else if(status.equals("Unpaid")) {
-            status = "Unpaid";
             return keyMoney;
-        }else {
-            status = "Half Paid";
-            String[] halfPaid = status.split(":");
-            return String.valueOf((Double.valueOf(keyMoney)-Double.valueOf(halfPaid[1])));
-        }
+        }else if (status.contains("Half")){
+            String numericPart = status.replaceAll("\\D+", "");
+            return String.valueOf((Double.valueOf(keyMoney)-Double.valueOf(numericPart)));
+        }else {return "";}
     }
 
     private void setPaymentBtnOnAction(Button payButton) {

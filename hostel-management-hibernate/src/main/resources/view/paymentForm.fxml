@@ -151,13 +151,13 @@
                <columns>
                   <TableColumn fx:id="colReserveID" prefWidth="92.00003051757812" text="Reservation ID" />
                   <TableColumn fx:id="colStuID" prefWidth="99.199951171875" text="Student ID" />
-                  <TableColumn fx:id="colName" minWidth="0.0" prefWidth="185.59994506835938" text="Name" />
-                  <TableColumn fx:id="colRoomID" minWidth="0.0" prefWidth="109.60003662109375" text="Room ID" />
-                  <TableColumn fx:id="colType" prefWidth="163.99993896484375" text="Room Type" />
-                  <TableColumn fx:id="colStatus" prefWidth="118.4000244140625" text="Status" />
-                  <TableColumn fx:id="colRemain" prefWidth="112.0" text="Remaining" />
-                  <TableColumn fx:id="colPayment" prefWidth="104.0" text="Payment" />
-                  <TableColumn fx:id="colAction" maxWidth="112.199951171875" prefWidth="112.199951171875" text="Action" />
+                  <TableColumn fx:id="colName" minWidth="0.0" prefWidth="199.199951171875" text="Name" />
+                  <TableColumn fx:id="colRoomID" minWidth="0.0" prefWidth="107.199951171875" text="Room ID" />
+                  <TableColumn fx:id="colType" prefWidth="154.4000244140625" text="Room Type" />
+                  <TableColumn fx:id="colStatus" prefWidth="132.0" text="Status" />
+                  <TableColumn fx:id="colRemain" prefWidth="108.79998779296875" text="Remaining" />
+                  <TableColumn fx:id="colPayment" prefWidth="85.60009765625" style="-fx-alignment: CENTER;" text="Payment" />
+                  <TableColumn fx:id="colAction" maxWidth="122.39990234375" prefWidth="122.39990234375" style="-fx-alignment: CENTER;" text="Action" />
                </columns>
             </TableView>
          </children>

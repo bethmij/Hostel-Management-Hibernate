@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface PaymentBO extends SuperBO {
     List<ReserveProjection> getReserveDetail();
+
+    ReserveProjection getReservebyID(String reserveID);
 }

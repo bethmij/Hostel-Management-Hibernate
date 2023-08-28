@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface QueryDAO extends SuperDAO {
     List<ReserveProjection> getReserveDetail();
+
+    ReserveProjection getReserveByID(String reserveID);
 }

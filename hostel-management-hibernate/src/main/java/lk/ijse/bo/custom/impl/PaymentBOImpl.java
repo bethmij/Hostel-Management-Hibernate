@@ -14,4 +14,9 @@ public class PaymentBOImpl implements PaymentBO {
     public List<ReserveProjection> getReserveDetail() {
         return queryDAO.getReserveDetail();
     }
+
+    @Override
+    public ReserveProjection getReservebyID(String reserveID) {
+        return queryDAO.getReserveByID(reserveID);
+    }
 }
