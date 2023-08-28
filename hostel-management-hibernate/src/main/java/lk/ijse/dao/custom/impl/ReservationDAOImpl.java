@@ -2,7 +2,6 @@ package lk.ijse.dao.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dao.custom.ReservationDAO;
-import lk.ijse.dto.ReservationDTO;
 import lk.ijse.entity.Reservation;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -53,6 +52,23 @@ public class ReservationDAOImpl implements ReservationDAO {
 
         try {
             session.delete(reservationDTO);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean updateRoom(Reservation reservation) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.update(reservation);
             transaction.commit();
             return true;
         }catch (Exception e){

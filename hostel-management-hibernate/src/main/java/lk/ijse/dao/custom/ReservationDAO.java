@@ -12,4 +12,6 @@ public interface ReservationDAO extends SuperDAO  {
     boolean reserveRoom(Reservation reservation);
 
     boolean deleteReservation(Reservation reservationDTO);
+
+    boolean updateRoom(Reservation reservation);
 }

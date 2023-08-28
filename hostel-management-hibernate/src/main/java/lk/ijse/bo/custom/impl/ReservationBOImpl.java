@@ -66,4 +66,16 @@ public class ReservationBOImpl implements ReservationBO {
 
         return reserveDAO.reserveRoom(reservation);
     }
+
+    @Override
+    public boolean updateRoom(ReservationDTO reservationDTO) {
+        Room room = new Room(reservationDTO.getRoom().getTypeId());
+        Student student = new Student(reservationDTO.getStudent().getStudentID());
+        Date date = Date.from(reservationDTO.getDate().atZone(ZoneId.systemDefault()).toInstant());
+
+        Reservation reservation = new Reservation(reservationDTO.getReserveID(),room,student,
+                date,reservationDTO.getStatus());
+
+        return reserveDAO.updateRoom(reservation);
+    }
 }

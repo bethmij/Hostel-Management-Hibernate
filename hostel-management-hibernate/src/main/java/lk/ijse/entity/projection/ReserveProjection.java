@@ -15,5 +15,6 @@ public class ReserveProjection {
     private String roomType;
     private String status;
     private String keyMoney;
+    private int qty;
 
 }

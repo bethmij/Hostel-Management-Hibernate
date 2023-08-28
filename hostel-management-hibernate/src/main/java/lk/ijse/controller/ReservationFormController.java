@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -31,6 +32,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static lk.ijse.controller.PaymentFormController.reserveProjection;
+import static lk.ijse.controller.StudentManageFormController.studentDTO;
+
 public class ReservationFormController implements Initializable {
     public AnchorPane reservePane;
     public Circle circleUser;
@@ -51,6 +55,7 @@ public class ReservationFormController implements Initializable {
     public Label lblResID;
     public Group payGroup;
     public ToggleGroup toggleGroup;
+    public JFXButton btnSave;
     ReservationBO reservationBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.RESERVE);
 
     @Override
@@ -74,6 +79,34 @@ public class ReservationFormController implements Initializable {
         rdPayNow.setToggleGroup(toggleGroup);
         rdPayHalfNow.setToggleGroup(toggleGroup);
         edPayLater.setToggleGroup(toggleGroup);
+
+        if(reserveProjection!=null){
+            setReserveForm();
+        }
+    }
+
+    private void setReserveForm() {
+        lblResID.setText(reserveProjection.getReserveID());
+        cmbRoomID.setValue(reserveProjection.getRoomID());
+        lblRoomType.setText(reserveProjection.getRoomType());
+        cmbStuID.setValue(reserveProjection.getStudentID());
+        lblName.setText(reserveProjection.getName());
+        lblMoney.setText(reserveProjection.getKeyMoney());
+        btnSave.setText("Update");
+
+
+        int usedRooms = reservationBO.getUsedRoom(reserveProjection.getRoomID());
+        lblAvailable.setText(String.valueOf(reserveProjection.getQty()-Integer.valueOf(usedRooms)));
+
+        if(reserveProjection.getStatus().equals("Paid")) {
+            rdPayNow.setSelected(true);
+        }else if(reserveProjection.getStatus().equals("Unpaid")) {
+            edPayLater.setSelected(true);
+        }else if (reserveProjection.getStatus().contains("Half")){
+            rdPayHalfNow.setSelected(true);
+            payGroup.setVisible(true);
+            txtPay.setText(reserveProjection.getStatus().replaceAll("\\D+", ""));
+        }
     }
 
     private void setReserveID() {
@@ -152,27 +185,53 @@ public class ReservationFormController implements Initializable {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        String status = "";
+        if(btnSave.getText().equals("Save")) {
+            String status = "";
 
-        if(rdPayNow.isSelected())
-            status = "Paid";
-        else if(edPayLater.isSelected())
-            status = "Unpaid";
-        else if(rdPayHalfNow.isSelected())
-            status = "Half Paid:"+txtPay.getText();
+            if (rdPayNow.isSelected())
+                status = "Paid";
+            else if (edPayLater.isSelected())
+                status = "Unpaid";
+            else if (rdPayHalfNow.isSelected())
+                status = "Half Paid:" + txtPay.getText();
 
-        RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
-        StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
-        ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(),room,student,LocalDateTime.now(),status);
+            RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
+            StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
+            ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
 
-        boolean isSaved = reservationBO.reserveRoom(reservationDTO);
+            boolean isSaved = reservationBO.reserveRoom(reservationDTO);
 
-        if (isSaved) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully!").show();
-            getClear();
-            setReserveID();
-        }else
-            new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully!").show();
+                getClear();
+                setReserveID();
+            } else
+                new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();
+
+        }else if(btnSave.getText().equals("Update")){
+            String status = "";
+
+            if (rdPayNow.isSelected())
+                status = "Paid";
+            else if (edPayLater.isSelected())
+                status = "Unpaid";
+            else if (rdPayHalfNow.isSelected())
+                status = "Half Paid:" + txtPay.getText();
+
+            RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
+            StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
+            ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
+
+            boolean isUpdated = reservationBO.updateRoom(reservationDTO);
+
+            if (isUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Room Reservation Updated  Successfully!").show();
+                getClear();
+                setReserveID();
+            } else
+                new Alert(Alert.AlertType.ERROR, "Room Reservation Update Failed!").show();
+
+        }
     }
 
     private void getClear() {

@@ -20,4 +20,6 @@ public interface ReservationBO extends SuperBO {
     String getReserveID();
 
     boolean reserveRoom(ReservationDTO reservationDTO);
+
+    boolean updateRoom(ReservationDTO reservationDTO);
 }

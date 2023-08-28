@@ -49,8 +49,10 @@ public class PaymentFormController implements Initializable {
     public TableColumn colAction1;
     public TableColumn colPayment;
     public ComboBox cbSelect;
+    public static ReserveProjection reserveProjection;
     PaymentBO paymentBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAYMENT);
     ObservableList<ReserveTM> obList = FXCollections.observableArrayList();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,6 +83,8 @@ public class PaymentFormController implements Initializable {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        reserveProjection = paymentBO.getReservebyReserveID(txtName.getText());
+        OpenView.openView("reservationForm");
     }
 
     public void btnGetAllOnAction(ActionEvent actionEvent) {
