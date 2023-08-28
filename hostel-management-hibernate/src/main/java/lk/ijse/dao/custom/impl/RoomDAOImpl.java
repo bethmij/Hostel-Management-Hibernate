@@ -19,14 +19,14 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public List<String> getRoomID() {
         session = SessionFactoryConfig.getInstance().getSession();
-        Query query = session.createQuery("SELECT r.id FROM Room as r");
+        Query query = session.createQuery("SELECT r.id FROM Room  r");
         return  query.list();
     }
 
     @Override
     public List<String> getRoomType() {
         session = SessionFactoryConfig.getInstance().getSession();
-        Query query = session.createQuery("SELECT r.type FROM Room as r");
+        Query query = session.createQuery("SELECT r.type FROM Room  r");
         return query.list();
     }
 

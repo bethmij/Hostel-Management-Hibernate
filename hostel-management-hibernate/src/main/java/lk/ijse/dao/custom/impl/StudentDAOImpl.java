@@ -84,14 +84,14 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public List<String> getStudentID() {
         session = SessionFactoryConfig.getInstance().getSession();
-        Query query = session.createQuery("SELECT s.id FROM Student as s");
+        Query query = session.createQuery("SELECT s.id FROM Student  s");
         return  query.list();
     }
 
     @Override
     public String getStuName(String stuID) {
         session = SessionFactoryConfig.getInstance().getSession();
-        Query query = session.createQuery("SELECT s.name FROM Student as s WHERE s.id = :stID");
+        Query query = session.createQuery("SELECT s.name FROM Student  s WHERE s.id = :stID");
         query.setParameter("stID",stuID);
         return (String) query.getSingleResult();
     }
