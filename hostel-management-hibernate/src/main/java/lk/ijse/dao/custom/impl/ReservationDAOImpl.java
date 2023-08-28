@@ -1,14 +1,14 @@
-/*
 package lk.ijse.dao.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
-import lk.ijse.dao.custom.ReserveDAO;
+import lk.ijse.dao.custom.ReservationDAO;
+import lk.ijse.dto.ReservationDTO;
 import lk.ijse.entity.Reservation;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-public class ReserveDAOImpl implements ReserveDAO {
+public class ReservationDAOImpl implements ReservationDAO {
     Session session;
 
     @Override
@@ -45,5 +45,21 @@ public class ReserveDAOImpl implements ReserveDAO {
             session.close();
         }
     }
+
+    @Override
+    public boolean deleteReservation(Reservation reservationDTO) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.delete(reservationDTO);
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
 }
-*/

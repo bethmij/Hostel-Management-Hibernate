@@ -19,11 +19,43 @@ public class QueryDAOImpl implements QueryDAO {
     }
 
     @Override
-    public ReserveProjection getReserveByID(String reserveID) {
+    public List<ReserveProjection> getReserveByPay(String paid) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT new lk.ijse.entity.projection.ReserveProjection(rs.id, s.id, s.name, r.id, r.type, rs.status, r.keyMoney) FROM Reservation rs JOIN rs.room r JOIN rs.student s WHERE rs.status = :status ORDER BY rs.id ASC ");
+        query.setParameter("status",paid);
+        return query.list();
+    }
+
+    @Override
+    public List<ReserveProjection> getReserveByHalfPay() {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT new lk.ijse.entity.projection.ReserveProjection(rs.id, s.id, s.name, r.id, r.type, rs.status, r.keyMoney) FROM Reservation rs JOIN rs.room r JOIN rs.student s WHERE rs.status LIKE 'Half Paid%' ORDER BY rs.id ASC ");
+        return query.list();
+    }
+
+    @Override
+    public List<ReserveProjection> getReserveByStudentID(String studentID) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT new lk.ijse.entity.projection.ReserveProjection(rs.id, s.id, s.name, r.id, r.type, rs.status, r.keyMoney) FROM Reservation rs JOIN rs.room r JOIN rs.student s WHERE s.id = :stuID ORDER BY rs.id ASC ");
+        query.setParameter("stuID",studentID);
+        //ReserveProjection reserveProjection = ReserveProjection.class.cast(query.getSingleResult());
+        return query.list();
+    }
+
+    @Override
+    public ReserveProjection getReserveByPayResID(String reserveID) {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT new lk.ijse.entity.projection.ReserveProjection(rs.id, s.id, s.name, r.id, r.type, rs.status, r.keyMoney) FROM Reservation rs JOIN rs.room r JOIN rs.student s WHERE rs.id = :resID ORDER BY rs.id ASC ");
         query.setParameter("resID",reserveID);
         ReserveProjection reserveProjection = ReserveProjection.class.cast(query.getSingleResult());
         return reserveProjection;
+    }
+
+    @Override
+    public List<ReserveProjection> getReserveByRoomID(String roomID) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT new lk.ijse.entity.projection.ReserveProjection(rs.id, s.id, s.name, r.id, r.type, rs.status, r.keyMoney) FROM Reservation rs JOIN rs.room r JOIN rs.student s WHERE r.id = :roomID ORDER BY rs.id ASC ");
+        query.setParameter("roomID",roomID);
+        return query.list();
     }
 }

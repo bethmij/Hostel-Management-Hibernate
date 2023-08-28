@@ -3,7 +3,7 @@ package lk.ijse.bo.custom.impl;
 import lk.ijse.bo.custom.ReservationBO;
 import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.QueryDAO;
-import lk.ijse.dao.custom.ReserveDAO;
+import lk.ijse.dao.custom.ReservationDAO;
 import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.dto.ReservationDTO;
@@ -19,7 +19,7 @@ import java.util.List;
 public class ReservationBOImpl implements ReservationBO {
     RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.ROOM);
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.STUDENT);
-    ReserveDAO reserveDAO = (ReserveDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.RESERVATION);
+    ReservationDAO reserveDAO = (ReservationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.RESERVATION);
     QueryDAO queryDAO = (QueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.QUERY);
 
     @Override

@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -114,10 +115,10 @@
             <Image url="@../assests/icon/icons8-setting-80.png" />
          </image>
       </ImageView>
-      <Group layoutX="414.0" layoutY="120.0">
+      <Group layoutX="430.0" layoutY="120.0">
          <children>
-            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="586.0" />
-            <TextField fx:id="txtName" blendMode="OVERLAY" layoutY="2.0" prefHeight="42.0" prefWidth="588.0" promptText="Student ID" style="-fx-border-color: #ffffff;">
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="37.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="401.0" />
+            <TextField fx:id="txtName" blendMode="OVERLAY" layoutY="2.0" prefHeight="20.0" prefWidth="401.0" promptText="Please select your selection type!" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -139,7 +140,7 @@
             <ColorAdjust brightness="-0.36" />
          </effect>
       </ImageView>
-      <CheckBox fx:id="cbPaid" layoutX="659.0" layoutY="198.0" mnemonicParsing="false" text="Paid" textFill="#eaeaea">
+      <CheckBox fx:id="cbPaid" layoutX="659.0" layoutY="198.0" mnemonicParsing="false" onAction="#payNowOnAction" text="Paid" textFill="#eaeaea">
          <font>
             <Font size="17.0" />
          </font>
@@ -162,12 +163,12 @@
             </TableView>
          </children>
       </Group>
-      <CheckBox fx:id="cbNonPaid" layoutX="767.0" layoutY="198.0" mnemonicParsing="false" text="Unpaid" textFill="#eaeaea">
+      <CheckBox fx:id="cbNonPaid" layoutX="767.0" layoutY="198.0" mnemonicParsing="false" onAction="#unpaidOnAction" text="Unpaid" textFill="#eaeaea">
          <font>
             <Font size="17.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="cbOther" layoutX="906.0" layoutY="198.0" mnemonicParsing="false" text="Half Paid" textFill="#eaeaea">
+      <CheckBox fx:id="cbOther" layoutX="906.0" layoutY="198.0" mnemonicParsing="false" onAction="#halfOnAction" text="Half Paid" textFill="#eaeaea">
          <font>
             <Font size="17.0" />
          </font>
@@ -241,5 +242,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <Group layoutX="867.0" layoutY="120.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="37.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="228.0" />
+            <ComboBox fx:id="cbSelect" blendMode="OVERLAY" onAction="#cbSelectOnAction" prefHeight="37.0" prefWidth="230.0" />
+         </children>
+      </Group>
    </children>
 </AnchorPane>

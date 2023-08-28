@@ -22,7 +22,7 @@ public class DAOFactory {
             case ROOM:
                 return new RoomDAOImpl();
             case RESERVATION:
-                return new ReserveDAOImpl();
+                return new ReservationDAOImpl();
             case USER:
                 return new UserDAOImpl();
             case QUERY:
