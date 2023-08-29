@@ -18,6 +18,7 @@
 
 <AnchorPane fx:id="settingPane" prefHeight="783.0" prefWidth="1395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SettingFormController">
    <children>
+      <JFXButton layoutX="286.0" layoutY="74.0" prefHeight="26.0" prefWidth="1.0" />
       <JFXButton layoutX="100.0" layoutY="65.0" prefHeight="26.0" prefWidth="1.0" />
       <ImageView fitHeight="786.0" fitWidth="1398.0" layoutX="-1.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -116,7 +117,7 @@
       <Group layoutX="660.0" layoutY="118.0">
          <children>
             <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="66.0" layoutY="86.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="87.0" layoutY="102.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0" ripplerFill="#ffffff00" textFill="TRANSPARENT">
+            <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="87.0" layoutY="102.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0" ripplerFill="#ffffff00" textFill="TRANSPARENT">
                <graphic>
                   <ImageView fitHeight="52.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -127,7 +128,7 @@
             </JFXButton>
          </children>
       </Group>
-      <Label fx:id="lblUserName" layoutX="811.0" layoutY="188.0" prefHeight="32.0" prefWidth="256.0" textFill="#e1e1e1">
+      <Label fx:id="lblName" layoutX="803.0" layoutY="169.0" prefHeight="32.0" prefWidth="256.0" textFill="#e1e1e1">
          <font>
             <Font size="22.0" />
          </font>
@@ -269,5 +270,10 @@
             <Font name="Calibri" size="19.0" />
          </font>
       </JFXButton>
+      <Label fx:id="lblUserName" layoutX="803.0" layoutY="196.0" prefHeight="32.0" prefWidth="256.0" textFill="#e1e1e1">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

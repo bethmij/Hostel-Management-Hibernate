@@ -1,6 +1,7 @@
 package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -20,10 +21,13 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.io.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-import static org.apache.commons.io.IOUtils.toByteArray;
+import static lk.ijse.controller.PaymentFormController.reserveProjection;
 
-public class SignUpformController {
+
+public class SignUpformController implements Initializable {
     public TextField txtName;
     public PasswordField txtPass;
     public PasswordField txtReenter;
@@ -33,12 +37,19 @@ public class SignUpformController {
     public TextField txtUserName;
     InputStream in = null;
     String path;
-
     UserBO userBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.USER);
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if(reserveProjection!=null){
+            setSignUpForm();
+        }
+    }
+
+    private void setSignUpForm() {
+    }
+
     public void signUpOnAction(ActionEvent actionEvent) {
-
-
     
         byte[] imagePath = path.getBytes();
 
@@ -65,19 +76,10 @@ public class SignUpformController {
         } catch (FileNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-        System.out.println(in);
-//
-//        if(in==null) {
-//            try {
-//                in = new FileInputStream("D:\\IJSE\\Working Projects\\Hostel Management\\hostel-management-hibernate\\src\\main\\resources\\assests\\icons8-user-100 (1).png");
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
         Image image = new Image(in);
-        System.out.println(image);
         circleUser1.setFill(new ImagePattern(image));
 
     }
+
+    
 }

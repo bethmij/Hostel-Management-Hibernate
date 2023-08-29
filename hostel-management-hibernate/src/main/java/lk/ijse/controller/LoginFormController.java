@@ -19,7 +19,6 @@ public class LoginFormController {
 
     public void logInOnAction(ActionEvent actionEvent) {
         user = loginBO.getUser(txtName.getText());
-        System.out.println(user);
         OpenView.openView("dashboardForm",logPane);
     }
 

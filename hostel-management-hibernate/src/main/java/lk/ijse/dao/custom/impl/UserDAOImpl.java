@@ -1,6 +1,5 @@
 package lk.ijse.dao.custom.impl;
 
-import javafx.scene.control.TextField;
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dao.custom.UserDAO;
 import lk.ijse.entity.User;
@@ -31,10 +30,71 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User getUser(String txtUserName) {
         session = SessionFactoryConfig.getInstance().getSession();
+
         Query query = session.createQuery("SELECT u FROM User u WHERE u.userName = :userName");
         query.setParameter("userName",txtUserName);
         User user = User.class.cast(query.getSingleResult());
         session.close();
         return user;
+    }
+
+    @Override
+    public boolean updatePic(byte[] imagePath, String userName) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            Query query = session.createQuery("UPDATE User u SET u.image= :image WHERE u.userName = :userName");
+            query.setParameter("image", imagePath);
+            query.setParameter("userName", userName);
+            query.executeUpdate();
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean updateUserName(String text, String userName) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            Query query = session.createQuery("UPDATE User u SET u.userName= :user WHERE u.userName = :userName");
+            query.setParameter("user", text);
+            query.setParameter("userName", userName);
+            query.executeUpdate();
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean updatePassword(String text, String userName) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            Query query = session.createQuery("UPDATE User u SET u.password= :pass WHERE u.userName = :userName");
+            query.setParameter("pass", text);
+            query.setParameter("userName", userName);
+            query.executeUpdate();
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
     }
 }
