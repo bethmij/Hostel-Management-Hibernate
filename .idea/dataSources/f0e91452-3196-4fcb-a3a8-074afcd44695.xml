@@ -1119,16 +1119,16 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="321" parent="294" name="password">
-      <DataType>varchar(255)|0s</DataType>
+    <column id="321" parent="294" name="profile_pic">
+      <DataType>longblob|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="322" parent="294" name="user_name">
+    <column id="322" parent="294" name="password">
       <DataType>varchar(255)|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="323" parent="294" name="profile_pic">
-      <DataType>longblob|0s</DataType>
+    <column id="323" parent="294" name="user_name">
+      <DataType>varchar(255)|0s</DataType>
       <Position>5</Position>
     </column>
     <key id="324" parent="294" name="PRIMARY">

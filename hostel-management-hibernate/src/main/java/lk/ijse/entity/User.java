@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.InputStream;
+import java.sql.Blob;
 
 @NoArgsConstructor
 @AllArgsConstructor
