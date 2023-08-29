@@ -90,7 +90,7 @@
             <Font name="Bookshelf Symbol 7" size="16.0" />
          </font>
       </Text>
-      <Text fill="#fafafa" layoutX="994.0" layoutY="442.0" onDragDetected="#signUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" wrappingWidth="86.84375">
+      <Text fill="#fafafa" layoutX="994.0" layoutY="442.0" onMouseClicked="#signUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" wrappingWidth="86.84375">
          <font>
             <Font name="Bookshelf Symbol 7" size="16.0" />
          </font>

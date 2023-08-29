@@ -13,5 +13,6 @@ public class LoginFormController {
     }
 
     public void signUpOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("signUpform");
     }
 }
