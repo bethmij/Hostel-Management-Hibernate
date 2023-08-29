@@ -11,6 +11,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean saveUser(User user) {
+        System.out.println(user.getImage());
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

@@ -31,39 +31,46 @@ public class SignUpformController {
     public TextField txtEmail;
     public Circle circleUser1;
     InputStream in = null;
+    String path;
 
     UserBO userBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.USER);
 
     public void signUpOnAction(ActionEvent actionEvent) {
 
-//        Session session = SessionFactoryConfig.getInstance().getSession();
-//        Query<byte[]> query = session.createQuery("SELECT u.image FROM User u WHERE u.userID = :id", byte[].class);
-//        query.setParameter("id","U034");
-//        byte[] blobData = (byte[]) query.uniqueResult();
-//        System.out.println("blob"+blobData);
-//        InputStream in = new ByteArrayInputStream(blobData);
-//        System.out.println("input"+in);
-//            Image image = new Image(in);
-//        System.out.println("image"+image);
-//            circleUser1.setFill(new ImagePattern(image));
-
-        byte[] imageData = null;
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        //Query query = session.createQuery("SELECT u.image FROM User u WHERE u.userID = :id");
+       /* User user = session.get(User.class, "1");
+        System.out.println(user);*/
+        //String paths = (String) query.uniqueResult();
+        //System.out.println("byte"+blobData);
+       /* path = paths;
+        System.out.println("string"+paths);
+        //nputStream in = new ByteArrayInputStream((byte[]) o);
         try {
-            imageData = toByteArray(in);
+            in = new FileInputStream(path);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }*/
+       /* System.out.println("input"+in);
+            Image image = new Image(in);
+        System.out.println("image"+image);
+            circleUser1.setFill(new ImagePattern(image));*/
+
+
+        InputStream inputStream = this.getClass()
+                .getClassLoader()
+                .getResourceAsStream(path);
+        try {
+            byte[] imageData = IOUtils.toByteArray(in);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
+    }
+       // byte[] imagePath = path.getBytes();
 
         UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(), txtReenter.getText(),txtEmail.getText(),imageData);
         boolean isSaved = userBO.saveUser(userDTO);
 
-//        Session session = SessionFactoryConfig.getInstance().getSession();
-//        Query query = session.createQuery("SELECT u FROM User u WHERE u.userID = :userid", User.class);
-//        query.setParameter("userid","U034");
-//        User user = (User) query.getSingleResult();
-//        System.out.println(user);
 
     }
 
@@ -72,6 +79,7 @@ public class SignUpformController {
         Window window = ((Node) (actionEvent.getSource())).getScene().getWindow();
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(window);
+        path = file.getPath();
         actionEvent.consume();
         try {
             in = new FileInputStream(file);
@@ -91,22 +99,6 @@ public class SignUpformController {
         Image image = new Image(in);
         System.out.println(image);
         circleUser1.setFill(new ImagePattern(image));
-
-//        byte[] imageData = null;
-//
-//        try {
-//            imageData = toByteArray(in);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("imageData"+imageData);
-//
-//        in = new ByteArrayInputStream(imageData);
-//        System.out.println(in);
-//
-//        image = new Image(in);
-//        System.out.println(image);
-
 
     }
 }
