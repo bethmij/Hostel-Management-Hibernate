@@ -103,6 +103,7 @@
             <Image url="@../assests/icon/icons8-logout-100.png" />
          </image>
       </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#0516267b" height="176.0" layoutX="625.0" layoutY="119.0" stroke="#0517285c" strokeType="INSIDE" width="508.0" />
       <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="10.0" layoutY="549.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/icon/icons8-setting-80.png" />
@@ -112,20 +113,28 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594f" height="651.0" layoutX="572.0" layoutY="98.0" stroke="#1a3a575b" strokeType="INSIDE" width="618.0" />
-      <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="718.0" layoutY="176.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
-      <Text fill="#e1e1e1" layoutX="834.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User : ">
-         <font>
-            <Font name="Calibri" size="28.0" />
-         </font>
-      </Text>
-      <Label fx:id="lblUserName" layoutX="880.0" layoutY="184.0" prefHeight="27.0" prefWidth="250.0" textFill="#e1e1e1">
+      <Group layoutX="660.0" layoutY="118.0">
+         <children>
+            <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="66.0" layoutY="86.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="87.0" layoutY="102.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0" ripplerFill="#ffffff00" textFill="TRANSPARENT">
+               <graphic>
+                  <ImageView fitHeight="52.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assests/icon/icons8-add-128.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </Group>
+      <Label fx:id="lblUserName" layoutX="811.0" layoutY="188.0" prefHeight="32.0" prefWidth="256.0" textFill="#e1e1e1">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       <Text fill="#c4c2c2" layoutX="637.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit User Name">
          <font>
-            <Font name="Calibri" size="24.0" />
+            <Font name="Calibri" size="22.0" />
          </font>
       </Text>
       <Group layoutX="720.0" layoutY="387.0">
@@ -159,7 +168,7 @@
       </JFXButton>
       <Text fill="#c4c2c2" layoutX="636.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Password">
          <font>
-            <Font name="Calibri" size="24.0" />
+            <Font name="Calibri" size="22.0" />
          </font>
       </Text>
       <Group layoutX="717.0" layoutY="524.0">
@@ -195,11 +204,6 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Text fill="#c4c2c2" layoutX="666.0" layoutY="265.0" onMouseClicked="#editOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile Pic">
-         <font>
-            <Font name="Calibri" size="21.0" />
-         </font>
-      </Text>
       <ImageView fitHeight="412.0" fitWidth="752.0" layoutX="14.0" layoutY="227.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Untitled%20(9)-fotor-bg-remover-20230825235017.png" />
@@ -250,5 +254,20 @@
             </Text>
          </children>
       </AnchorPane>
+      <Text fill="#c4c2c2" layoutX="1002.0" layoutY="276.0" onMouseClicked="#editOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Account " wrappingWidth="129.39999389648432">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="26.0" fitWidth="24.0" layoutX="968.0" layoutY="255.0" opacity="0.81" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icon/icons8-edit-100.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="968.0" layoutY="686.0" onAction="#deleteOnAction" style="-fx-border-color: #c40c43; -fx-border-radius: 10;" text="Delete Account" textFill="#c9c9c9">
+         <font>
+            <Font name="Calibri" size="19.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

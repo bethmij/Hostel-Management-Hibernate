@@ -16,6 +16,7 @@ public class ReservationDAOImpl implements ReservationDAO {
         Query query = session.createQuery("SELECT count(rs.id) FROM Reservation  rs JOIN rs.room r WHERE r.id = :roomId");
         query.setParameter("roomId",roomID);
         Long countResult = (Long) query.getSingleResult();
+        session.close();
         return countResult.intValue();
     }
 
@@ -24,6 +25,7 @@ public class ReservationDAOImpl implements ReservationDAO {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT r.id FROM Reservation  r ORDER BY r.id DESC");
         query.setMaxResults(1);
+        session.close();
         return (String) query.uniqueResult();
 
     }

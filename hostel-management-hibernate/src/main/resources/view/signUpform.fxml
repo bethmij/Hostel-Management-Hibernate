@@ -26,7 +26,7 @@
             <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="110.0" layoutY="32.0" opacity="0.28" stroke="#d5dee7" strokeType="INSIDE" width="952.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="110.0" layoutY="32.0" opacity="0.28" stroke="#d5dde500" strokeType="INSIDE" width="952.0">
          <effect>
             <DropShadow />
          </effect>
@@ -60,7 +60,7 @@
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
-      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="620.0" layoutY="299.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtUserName" blendMode="OVERLAY" layoutX="620.0" layoutY="339.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -72,17 +72,17 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <PasswordField fx:id="txtPass" blendMode="OVERLAY" layoutX="620.0" layoutY="356.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
+      <PasswordField fx:id="txtPass" blendMode="OVERLAY" layoutX="620.0" layoutY="392.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="txtReenter" blendMode="OVERLAY" layoutX="620.0" layoutY="410.0" prefHeight="38.0" prefWidth="394.0" promptText="Re-Enter Password">
+      <PasswordField fx:id="txtReenter" blendMode="OVERLAY" layoutX="620.0" layoutY="443.0" prefHeight="38.0" prefWidth="394.0" promptText="Re-Enter Password">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="620.0" layoutY="241.0" prefHeight="38.0" prefWidth="394.0" promptText="User ID" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="620.0" layoutY="238.0" prefHeight="38.0" prefWidth="394.0" promptText="User ID" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -99,7 +99,7 @@
             <Image url="@../assests/Untitled__8_-removebg-preview.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtEmail" blendMode="OVERLAY" layoutX="620.0" layoutY="465.0" prefHeight="38.0" prefWidth="394.0" promptText="Email" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtEmail" blendMode="OVERLAY" layoutX="620.0" layoutY="496.0" prefHeight="38.0" prefWidth="394.0" promptText="Email" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -111,13 +111,13 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <JFXButton layoutX="747.0" layoutY="539.0" onAction="#signUpOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="SIGN UP" textFill="WHITE">
+      <JFXButton layoutX="762.0" layoutY="554.0" onAction="#signUpOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="SIGN UP" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
       <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="805.0" layoutY="162.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="826.0" layoutY="177.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0">
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="826.0" layoutY="177.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0" ripplerFill="#ffffff00" textFill="TRANSPARENT">
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -126,5 +126,17 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="620.0" layoutY="289.0" prefHeight="38.0" prefWidth="394.0" promptText="Name" style="-fx-border-color: #ffffff;">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </TextField>
    </children>
 </AnchorPane>

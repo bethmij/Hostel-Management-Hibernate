@@ -5,6 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import lk.ijse.bo.BOFactory;
+import lk.ijse.bo.custom.DashboardBO;
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dao.custom.impl.util.OpenView;
 import org.hibernate.Session;
@@ -32,6 +34,7 @@ public class DashboardFormController implements Initializable {
     public Label lblAcFoodTotal;
     public Label lblAcFoodAvailble;
     public AnchorPane menuPane;
+    DashboardBO dashboardBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.DASHBOARD);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,7 +42,8 @@ public class DashboardFormController implements Initializable {
     }
 
     public DashboardFormController(){
-        //Session session = SessionFactoryConfig.getInstance().getSession();
+        Session session = SessionFactoryConfig.getInstance().getSession();
+
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {

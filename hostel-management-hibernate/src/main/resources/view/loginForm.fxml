@@ -63,7 +63,7 @@
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
-      <TextField blendMode="OVERLAY" layoutX="737.0" layoutY="200.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="737.0" layoutY="200.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -75,7 +75,7 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <PasswordField blendMode="OVERLAY" layoutX="737.0" layoutY="284.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
+      <PasswordField fx:id="txtPassword" blendMode="OVERLAY" layoutX="737.0" layoutY="284.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>

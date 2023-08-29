@@ -16,6 +16,7 @@ import javax.persistence.Table;
 public class UserDTO {
 
     private String userID;
+    private String name;
     private String userName;
     private String password;
     private String Email;

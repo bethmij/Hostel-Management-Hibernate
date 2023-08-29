@@ -37,6 +37,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public Student getStudent(String id) {
         session = SessionFactoryConfig.getInstance().getSession();
+        session.close();
         return session.get(Student.class,id);
     }
 
@@ -61,6 +62,7 @@ public class StudentDAOImpl implements StudentDAO {
     public List<Student> getAllStudent() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery(" FROM Student ");
+        session.close();
         return query.list();
     }
 
@@ -85,6 +87,7 @@ public class StudentDAOImpl implements StudentDAO {
     public List<String> getStudentID() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT s.id FROM Student  s");
+        session.close();
         return  query.list();
     }
 
@@ -93,6 +96,7 @@ public class StudentDAOImpl implements StudentDAO {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT s.name FROM Student  s WHERE s.id = :stID");
         query.setParameter("stID",stuID);
+        session.close();
         return (String) query.getSingleResult();
     }
 }

@@ -1131,7 +1131,11 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>varchar(255)|0s</DataType>
       <Position>5</Position>
     </column>
-    <key id="324" parent="294" name="PRIMARY">
+    <column id="324" parent="294" name="name">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <key id="325" parent="294" name="PRIMARY">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>

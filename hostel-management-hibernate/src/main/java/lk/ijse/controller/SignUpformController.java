@@ -30,6 +30,7 @@ public class SignUpformController {
     public TextField txtID;
     public TextField txtEmail;
     public Circle circleUser1;
+    public TextField txtUserName;
     InputStream in = null;
     String path;
 
@@ -37,24 +38,11 @@ public class SignUpformController {
 
     public void signUpOnAction(ActionEvent actionEvent) {
 
-        /*Session session = SessionFactoryConfig.getInstance().getSession();
-        Query query = session.createQuery("SELECT u.image FROM User u WHERE u.userID = :id",byte[].class);
 
-        byte[] bytes = (byte[]) query.setParameter("id", "U001").uniqueResult();
-        String paths = new String(bytes);
-
-        try {
-            in = new FileInputStream(paths);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-            Image image = new Image(in);
-            circleUser1.setFill(new ImagePattern(image));*/
     
         byte[] imagePath = path.getBytes();
-        System.out.println(imagePath);
 
-        UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(), txtReenter.getText(),txtEmail.getText(),imagePath);
+        UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(),txtUserName.getText(), txtReenter.getText(),txtEmail.getText(),imagePath);
         boolean isSaved = userBO.saveUser(userDTO);
 
         if (isSaved) {

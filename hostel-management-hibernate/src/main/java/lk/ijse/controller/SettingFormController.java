@@ -1,15 +1,22 @@
 package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import lk.ijse.bo.BOFactory;
+import lk.ijse.bo.custom.SettingBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
+import lk.ijse.dto.UserDTO;
 
-public class SettingFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SettingFormController implements Initializable {
     public AnchorPane settingPane;
     public Circle circleUser;
     public Label lblDate;
@@ -21,8 +28,26 @@ public class SettingFormController {
     public TextField txtUserName;
     public PasswordField txtPass;
     public PasswordField txtReEnter;
+    SettingBO settingBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.SETTING);
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        /*Session session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT u.image FROM User u WHERE u.userID = :id",byte[].class);
 
+        byte[] bytes = (byte[]) query.setParameter("id", "U001").uniqueResult();
+        String paths = new String(bytes);
+
+        try {
+            in = new FileInputStream(paths);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+            Image image = new Image(in);
+            circleUser1.setFill(new ImagePattern(image));*/
+        //UserDTO userDTO = settingBO.getUser();
+
+    }
 
     public void userOnAction(ActionEvent actionEvent) {
     }
@@ -72,6 +97,13 @@ public class SettingFormController {
 
     public void payOnAction(MouseEvent mouseEvent) {
         OpenView.openView("paymentForm",settingPane);
+    }
+
+
+    public void picOnAction(ActionEvent actionEvent) {
+    }
+
+    public void deleteOnAction(ActionEvent actionEvent) {
     }
 
 

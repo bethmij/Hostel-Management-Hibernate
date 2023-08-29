@@ -19,6 +19,9 @@ public class User {
     @Column(name = "user_id")
     private String userID;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "user_name")
     private String userName;
 
