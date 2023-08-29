@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
+
 public class RoomFormController implements Initializable {
     public AnchorPane roomPane;
     public Circle circleUser;
@@ -57,6 +59,7 @@ public class RoomFormController implements Initializable {
         newTypeGroup.setDisable(true);
         setCellValueFactory();
         setTable();
+        setHeader(lblDate,lblTime,circleUser,lblUser);
     }
 
 

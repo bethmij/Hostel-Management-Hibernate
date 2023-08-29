@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
+
 public class DashboardFormController implements Initializable {
     public AnchorPane dashPane;
     public Circle circleUser;
@@ -38,7 +40,9 @@ public class DashboardFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         menuPane.setVisible(false);
+        setHeader(lblDate,lblTime,circleUser,lblUser);
     }
 
     public DashboardFormController(){

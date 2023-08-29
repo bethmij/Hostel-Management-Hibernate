@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import static lk.ijse.controller.StudentManageFormController.studentDTO;
+import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
 
 public class RegistrationFormController implements Initializable {
     public AnchorPane registerPane;
@@ -41,6 +42,8 @@ public class RegistrationFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setHeader(lblDate,lblTime,circleUser,lblUser);
+
         if(studentDTO!=null){
             setRegisterForm();
         }

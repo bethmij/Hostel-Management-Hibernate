@@ -87,7 +87,6 @@ public class StudentDAOImpl implements StudentDAO {
     public List<String> getStudentID() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT s.id FROM Student  s");
-        session.close();
         return  query.list();
     }
 

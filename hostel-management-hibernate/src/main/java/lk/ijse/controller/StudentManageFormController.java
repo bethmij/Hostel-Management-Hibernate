@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
+
 public class StudentManageFormController implements Initializable {
     public AnchorPane managePane;
     public Circle circleUser;
@@ -47,6 +49,7 @@ public class StudentManageFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setHeader(lblDate,lblTime,circleUser,lblUser);
         setCellValueFactory();
     }
 

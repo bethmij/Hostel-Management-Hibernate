@@ -3,10 +3,7 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -17,6 +14,7 @@ import javafx.stage.Window;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.SettingBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
+import lk.ijse.dto.RoomDTO;
 import lk.ijse.dto.UserDTO;
 
 import java.io.File;
@@ -24,9 +22,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static lk.ijse.controller.LoginFormController.user;
+import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
 
 public class SettingFormController implements Initializable {
     public AnchorPane settingPane;
@@ -51,6 +51,7 @@ public class SettingFormController implements Initializable {
         lblUserName.setText(user.getUserName());
 
         setImage();
+        setHeader(lblDate,lblTime,circleUser,lblUser);
 
 
 
@@ -93,6 +94,7 @@ public class SettingFormController implements Initializable {
     }
 
     public void editOnAction(MouseEvent mouseEvent) {
+        OpenView.openView("signUpform");
     }
 
 
@@ -160,6 +162,20 @@ public class SettingFormController implements Initializable {
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to delete?", yes, no).showAndWait();
+
+        if (result.orElse(no) == yes) {
+            boolean isDeleted = settingBO.deleteUser(user);
+            if(isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "User Account Details Deleted!").show();
+                user=null;
+                OpenView.openView("loginForm",settingPane);
+            }else
+                new Alert(Alert.AlertType.ERROR, "User Account Delete Failed!").show();
+        }
     }
 
 

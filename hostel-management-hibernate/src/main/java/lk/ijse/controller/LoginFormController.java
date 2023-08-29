@@ -14,7 +14,7 @@ public class LoginFormController {
     public AnchorPane logPane;
     public TextField txtName;
     public PasswordField txtPassword;
-    static User user;
+    public static User user;
     LoginBO loginBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.LOGIN);
 
     public void logInOnAction(ActionEvent actionEvent) {

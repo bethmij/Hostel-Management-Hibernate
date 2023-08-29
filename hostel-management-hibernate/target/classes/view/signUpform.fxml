@@ -111,7 +111,7 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <JFXButton layoutX="762.0" layoutY="554.0" onAction="#signUpOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="SIGN UP" textFill="WHITE">
+      <JFXButton fx:id="btnSave" layoutX="762.0" layoutY="554.0" onAction="#signUpOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="SIGN UP" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

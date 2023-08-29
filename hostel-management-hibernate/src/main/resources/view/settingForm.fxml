@@ -50,7 +50,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblUser" layoutX="1181.0" layoutY="18.0" prefHeight="27.0" prefWidth="179.0" textFill="#e1e1e1">
+      <Label fx:id="lblUser" layoutX="1177.0" layoutY="11.0" prefHeight="27.0" prefWidth="179.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
@@ -273,6 +273,11 @@
       <Label fx:id="lblUserName" layoutX="803.0" layoutY="196.0" prefHeight="32.0" prefWidth="256.0" textFill="#e1e1e1">
          <font>
             <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUser1" layoutX="1187.0" layoutY="18.0" prefHeight="27.0" prefWidth="179.0" textFill="#e1e1e1">
+         <font>
+            <Font size="18.0" />
          </font>
       </Label>
    </children>

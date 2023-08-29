@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
+
 public class PaymentFormController implements Initializable {
     public AnchorPane payPane;
     public Circle circleUser;
@@ -58,6 +60,7 @@ public class PaymentFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setCellValueFactory();
         setSelections();
+        setHeader(lblDate,lblTime,circleUser,lblUser);
     }
 
 

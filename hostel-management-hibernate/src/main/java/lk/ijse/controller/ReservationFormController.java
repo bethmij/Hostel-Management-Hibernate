@@ -34,6 +34,7 @@ import java.util.ResourceBundle;
 
 import static lk.ijse.controller.PaymentFormController.reserveProjection;
 import static lk.ijse.controller.StudentManageFormController.studentDTO;
+import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
 
 public class ReservationFormController implements Initializable {
     public AnchorPane reservePane;
@@ -83,6 +84,8 @@ public class ReservationFormController implements Initializable {
         if(reserveProjection!=null){
             setReserveForm();
         }
+
+        setHeader(lblDate,lblTime,circleUser,lblUser);
     }
 
     private void setReserveForm() {

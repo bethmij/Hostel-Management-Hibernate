@@ -13,4 +13,8 @@ public interface UserDAO extends SuperDAO {
     boolean updateUserName(String text, String userName);
 
     boolean updatePassword(String text, String userName);
+
+    boolean updateUser(User user);
+
+    boolean deleteUser(User user);
 }
