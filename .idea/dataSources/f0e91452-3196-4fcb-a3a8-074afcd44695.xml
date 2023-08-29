@@ -1127,7 +1127,11 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>varchar(255)|0s</DataType>
       <Position>4</Position>
     </column>
-    <key id="323" parent="294" name="PRIMARY">
+    <column id="323" parent="294" name="profile_pic">
+      <DataType>longblob|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <key id="324" parent="294" name="PRIMARY">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>

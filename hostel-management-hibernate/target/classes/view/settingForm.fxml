@@ -151,6 +151,9 @@
                <image>
                   <Image url="@../assests/icon/icons8-done-100.png" />
                </image>
+               <effect>
+                  <ColorAdjust brightness="0.52" hue="0.86" saturation="1.0" />
+               </effect>
             </ImageView>
          </graphic>
       </JFXButton>
@@ -186,15 +189,18 @@
                <image>
                   <Image url="@../assests/icon/icons8-done-100.png" />
                </image>
+               <effect>
+                  <ColorAdjust brightness="0.52" hue="0.86" saturation="1.0" />
+               </effect>
             </ImageView>
          </graphic>
       </JFXButton>
-      <Text fill="#c4c2c2" layoutX="666.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile Pic">
+      <Text fill="#c4c2c2" layoutX="666.0" layoutY="265.0" onMouseClicked="#editOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile Pic">
          <font>
             <Font name="Calibri" size="21.0" />
          </font>
       </Text>
-      <ImageView fitHeight="412.0" fitWidth="752.0" layoutX="14.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="412.0" fitWidth="752.0" layoutX="14.0" layoutY="227.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Untitled%20(9)-fotor-bg-remover-20230825235017.png" />
          </image>

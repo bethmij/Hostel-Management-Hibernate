@@ -24,5 +24,9 @@ public class User {
     private String password;
 
     @Column(name = "email")
-    private String Email;
+    private String email;
+
+    @Lob
+    @Column(name = "profile_pic")
+    private byte[] image;
 }
