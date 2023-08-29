@@ -37,39 +37,30 @@ public class SignUpformController {
 
     public void signUpOnAction(ActionEvent actionEvent) {
 
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        //Query query = session.createQuery("SELECT u.image FROM User u WHERE u.userID = :id");
-       /* User user = session.get(User.class, "1");
-        System.out.println(user);*/
-        //String paths = (String) query.uniqueResult();
-        //System.out.println("byte"+blobData);
-       /* path = paths;
-        System.out.println("string"+paths);
-        //nputStream in = new ByteArrayInputStream((byte[]) o);
+        /*Session session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT u.image FROM User u WHERE u.userID = :id",byte[].class);
+
+        byte[] bytes = (byte[]) query.setParameter("id", "U001").uniqueResult();
+        String paths = new String(bytes);
+
         try {
-            in = new FileInputStream(path);
+            in = new FileInputStream(paths);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }*/
-       /* System.out.println("input"+in);
-            Image image = new Image(in);
-        System.out.println("image"+image);
-            circleUser1.setFill(new ImagePattern(image));*/
-
-
-        InputStream inputStream = this.getClass()
-                .getClassLoader()
-                .getResourceAsStream(path);
-        try {
-            byte[] imageData = IOUtils.toByteArray(in);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-    }
-       // byte[] imagePath = path.getBytes();
+            Image image = new Image(in);
+            circleUser1.setFill(new ImagePattern(image));*/
+    
+        byte[] imagePath = path.getBytes();
+        System.out.println(imagePath);
 
-        UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(), txtReenter.getText(),txtEmail.getText(),imageData);
+        UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(), txtReenter.getText(),txtEmail.getText(),imagePath);
         boolean isSaved = userBO.saveUser(userDTO);
+
+        if (isSaved) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Signed Up Successfully!").show();
+        } else
+            new Alert(Alert.AlertType.ERROR, "Sign Up Failed!").show();
 
 
     }
