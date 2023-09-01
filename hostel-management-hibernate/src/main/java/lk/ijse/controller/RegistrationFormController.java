@@ -81,24 +81,33 @@ public class RegistrationFormController implements Initializable {
     public void btnSaveOnAction(ActionEvent actionEvent) {
 
         if(btnSave.getText().equals("Save")) {
-            String gender = "";
+            if(!txtName.getText().isEmpty() && !txtNIC.getText().isEmpty() && !txtAddress.getText().isEmpty() && !txtTel1.getText().isEmpty()) {
+                String gender = "";
 
-            if (rdMale.isSelected())
-                gender = "Male";
-            else if (rdFemale.isSelected())
-                gender = "Female";
-            else if (rdOther.isSelected())
-                gender = "Other";
+                if (rdMale.isSelected())
+                    gender = "Male";
+                else if (rdFemale.isSelected())
+                    gender = "Female";
+                else if (rdOther.isSelected())
+                    gender = "Other";
 
-            StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
-                    Integer.parseInt(txtTel2.getText()), txtEmail.getText(), dob.getValue(), gender);
-            boolean isSaved = registerBO.saveStudent(studentDTO);
+                int tel2 = 0;
+                if(!txtTel2.getText().isEmpty()){
+                    tel2 = Integer.parseInt(txtTel2.getText());
+                }
 
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved Student Successfully!").show();
-                getClear();
+                StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
+                        tel2, txtEmail.getText(), dob.getValue(), gender);
+                boolean isSaved = registerBO.saveStudent(studentDTO);
+
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Saved Student Successfully!").show();
+                    getClear();
+                } else
+                    new Alert(Alert.AlertType.ERROR, "Save Student Failed!").show();
+
             }else
-                new Alert(Alert.AlertType.ERROR, "Save Student Failed!").show();
+                new Alert(Alert.AlertType.ERROR, "Please fill up the compulsory fields * ").show();
 
         }else if(btnSave.getText().equals("Update")){
             String gender = "";
@@ -192,32 +201,48 @@ public class RegistrationFormController implements Initializable {
     }
 
     public void txtTel1OnKeyReleased(KeyEvent keyEvent) {
-        if (!txtTel1.getText().matches("^[0-9]*$")) {
-            txtTel1.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblTel1.setText("This filed can only contain numeric values!");
-        }else if (!(txtTel1.getText().length() == 10)) {
+        if (txtTel1.getText().matches("^[0-9]*$")) {
+            txtTel1.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel1.setText("");
+        }
+        if (!(txtTel1.getText().length() == 10)) {
             txtTel1.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
             lblTel1.setText("Not a valid contact number!");
+        }
+        if(txtTel1.getText().equals("")){
+            txtTel1.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel1.setText("");
         }
     }
 
     public void txtTel1OnKeyTyped(KeyEvent keyEvent) {
-        if (txtTel2.getText().matches("^[0-9]*$")) {
-            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel2.setText("");
-        } else if (txtTel2.getText().length() > 10) {
-            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel2.setText("");
+
+        if (!txtTel1.getText().matches("^[0-9]*$")) {
+            txtTel1.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblTel1.setText("Not a valid contact number!");
+        }
+        if ((txtTel1.getText().length() == 10)) {
+            txtTel1.setStyle("-fx-effect: null; -fx-font-size: 16px;");
+            lblTel1.setText(" ");
+        }
+        if(txtTel1.getText().equals("")){
+            txtTel1.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel1.setText("");
         }
     }
 
     public void txtTel2OnKeyReleased(KeyEvent keyEvent) {
         if (!txtTel2.getText().matches("^[0-9]*$")) {
             txtTel2.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblTel2.setText("This filed can only contain numeric values!");
-        }else if (!(txtTel2.getText().length() == 10)) {
+            lblTel2.setText("Not a valid contact number!");
+        }
+        if (!(txtTel2.getText().length() == 10)) {
             txtTel2.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
             lblTel2.setText("Not a valid contact number!");
+        }
+        if(txtTel2.getText().equals("")){
+            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel2.setText("");
         }
     }
 
@@ -225,7 +250,12 @@ public class RegistrationFormController implements Initializable {
         if (txtTel2.getText().matches("^[0-9]*$")) {
             txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
             lblTel2.setText("");
-        } else if (txtTel2.getText().length() > 10) {
+        }
+        if (txtTel2.getText().length() == 10) {
+            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel2.setText("");
+        }
+        if(txtTel2.getText().equals("")){
             txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
             lblTel2.setText("");
         }
