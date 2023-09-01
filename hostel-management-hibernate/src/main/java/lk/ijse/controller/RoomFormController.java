@@ -9,6 +9,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -260,5 +261,17 @@ public class RoomFormController implements Initializable {
 
     public void refreshOnAction(ActionEvent actionEvent) {
         setTable();
+    }
+
+    public void txtQtyOnReleased(KeyEvent keyEvent) {
+    }
+
+    public void txtQtyOnTyped(KeyEvent keyEvent) {
+    }
+
+    public void txtKeyOnReleased(KeyEvent keyEvent) {
+    }
+
+    public void txtKeyOnTyped(KeyEvent keyEvent) {
     }
 }

@@ -37,4 +37,9 @@ public class ManageBOImpl implements ManageBO {
         }
         return studentDTOS;
     }
+
+    @Override
+    public List<String> getStudentID() {
+        return studentDAO.getStudentID();
+    }
 }

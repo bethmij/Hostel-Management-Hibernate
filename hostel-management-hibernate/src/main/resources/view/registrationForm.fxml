@@ -241,7 +241,7 @@
             <Image url="@../assests/Untitled%20(10)-fotor-bg-remover-2023082602146.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
             <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Payment" wrappingWidth="133.87893676757812">

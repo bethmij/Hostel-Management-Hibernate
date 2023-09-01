@@ -11,4 +11,6 @@ public interface ManageBO extends SuperBO {
     boolean deleteStudent(StudentDTO studentDTO);
 
     List<StudentDTO> getStudentl();
+
+    List<String> getStudentID();
 }

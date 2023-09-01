@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="managePane" prefHeight="783.0" prefWidth="1395.0"  stylesheets="@css/sheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudentManageFormController">
+<AnchorPane fx:id="managePane" prefHeight="783.0" prefWidth="1395.0" stylesheets="@css/sheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudentManageFormController">
    <children>
       <JFXButton layoutX="99.0" layoutY="66.0" prefHeight="26.0" prefWidth="0.0" />
       <ImageView fitHeight="786.0" fitWidth="1398.0" pickOnBounds="true" preserveRatio="true">
@@ -29,28 +30,28 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="59.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="1398.0" />
-      <Text fill="#e1e1e1" layoutX="613.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
+      <Text fill="#e1e1e1" layoutX="864.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Text fill="#e1e1e1" layoutX="884.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : ">
+      <Text fill="#e1e1e1" layoutX="1040.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : ">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Circle fx:id="circleUser" fill="#ffffff00" layoutX="1152.0" layoutY="32.0" radius="21.0" stroke="#eaeaea" strokeType="INSIDE" />
-      <Label fx:id="lblDate" layoutX="673.0" layoutY="19.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
+      <Circle fx:id="circleUser" fill="#ffffff00" layoutX="1251.0" layoutY="32.0" radius="21.0" stroke="#eaeaea" strokeType="INSIDE" />
+      <Label fx:id="lblDate" layoutX="910.0" layoutY="19.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime" layoutX="939.0" layoutY="19.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
+      <Label fx:id="lblTime" layoutX="1090.0" layoutY="19.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblUser" layoutX="1183.0" layoutY="19.0" prefHeight="27.0" prefWidth="179.0" textFill="#e1e1e1">
+      <Label fx:id="lblUser" layoutX="1281.0" layoutY="19.0" prefHeight="27.0" prefWidth="109.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
@@ -129,20 +130,29 @@
             <Image url="@../assests/icon/icons8-setting-80.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="841.0" layoutY="227.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Search" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="841.0" layoutY="227.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Search" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <JFXButton layoutX="1091.0" layoutY="227.0" onAction="#btnGetAllOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ff5e91; -fx-border-radius: 10;" text="Get All" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1091.0" layoutY="227.0" onAction="#btnGetAllOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #ff5e91; -fx-border-radius: 10;" text="Get All" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <JFXButton layoutX="970.0" layoutY="227.0" onAction="#btnUpdateOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #5effcf; -fx-border-radius: 10;" text="Update" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="970.0" layoutY="227.0" onAction="#btnUpdateOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #5effcf; -fx-border-radius: 10;" text="Update" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <Group layoutX="149.0" layoutY="281.0">
          <children>
@@ -165,45 +175,69 @@
       <AnchorPane fx:id="menuPane" layoutX="63.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="-4.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
-            <Text fill="#e1e1e1" layoutX="10.0" layoutY="450.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="10.0" layoutY="450.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Payment" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#e1e1e1" layoutX="12.0" layoutY="318.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="12.0" layoutY="318.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Rooms" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#e1e1e1" layoutX="13.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+            <Text fill="#e1e1e1" layoutX="13.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Dashboard">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#dcdbdb" layoutX="13.0" layoutY="175.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+            <Text fill="#dcdbdb" layoutX="13.0" layoutY="175.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Registration">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
             <Text fill="#5cfdff" layoutX="13.0" layoutY="233.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
             </Text>
-            <Text fill="#e1e1e1" layoutX="13.0" layoutY="387.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="13.0" layoutY="387.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Reservation" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Log out" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#e1e1e1" layoutX="13.0" layoutY="509.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="13.0" layoutY="509.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Setting" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
          </children>
       </AnchorPane>

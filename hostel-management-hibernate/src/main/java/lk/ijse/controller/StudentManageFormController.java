@@ -66,16 +66,29 @@ public class StudentManageFormController implements Initializable {
     }
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
-        tbl.getItems().clear();
-        StudentDTO studentDTO = manageBO.getStudent(txtName.getText());
-        Button deleteButton = new Button("Delete");
-        deleteButton.setCursor(Cursor.HAND);
-        setDeleteBtnOnAction(deleteButton);
+        List<String> idList = manageBO.getStudentID();
 
-        StudentTM studentTM = new StudentTM(studentDTO.getStudentID(),studentDTO.getName(),studentDTO.getAddress(),studentDTO.getTel1(),
-                studentDTO.getTel2(),studentDTO.getEmail(),studentDTO.getDob(),studentDTO.getGender(),deleteButton);
-        obList.add(studentTM);
-        tbl.setItems(obList);
+        boolean isValidID = false;
+        for (String list:idList) {
+            if(txtName.getText().equalsIgnoreCase(list)){
+                isValidID = true;
+            }
+        }
+
+        if(isValidID) {
+            tbl.getItems().clear();
+            StudentDTO studentDTO = manageBO.getStudent(txtName.getText());
+            Button deleteButton = new Button("Delete");
+            deleteButton.setCursor(Cursor.HAND);
+            setDeleteBtnOnAction(deleteButton);
+
+            StudentTM studentTM = new StudentTM(studentDTO.getStudentID(), studentDTO.getName(), studentDTO.getAddress(), studentDTO.getTel1(),
+                    studentDTO.getTel2(), studentDTO.getEmail(), studentDTO.getDob(), studentDTO.getGender(), deleteButton);
+            obList.add(studentTM);
+            tbl.setItems(obList);
+
+        }else
+            new Alert(Alert.AlertType.ERROR, "Not a valid Student ID").show();
     }
 
     private void setTable() {
@@ -119,8 +132,20 @@ public class StudentManageFormController implements Initializable {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        studentDTO = manageBO.getStudent(txtName.getText());
-        OpenView.openView("registrationForm");
+        List<String> idList = manageBO.getStudentID();
+
+        boolean isValidID = false;
+        for (String list:idList) {
+            if(txtName.getText().equalsIgnoreCase(list)){
+                isValidID = true;
+            }
+        }
+
+        if(isValidID) {
+            studentDTO = manageBO.getStudent(txtName.getText());
+            OpenView.openView("registrationForm");
+        }else
+            new Alert(Alert.AlertType.ERROR, "Not a valid Student ID").show();
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {
