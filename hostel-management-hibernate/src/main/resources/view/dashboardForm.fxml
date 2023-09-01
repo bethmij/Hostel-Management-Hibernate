@@ -22,28 +22,28 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" layoutX="-1.0" opacity="0.0" stroke="#d5dee7" strokeType="INSIDE" width="1398.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="59.0" layoutX="-1.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="1398.0" />
-      <Text fill="#e1e1e1" layoutX="690.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
+      <Text fill="#e1e1e1" layoutX="864.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Text fill="#e1e1e1" layoutX="926.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : ">
+      <Text fill="#e1e1e1" layoutX="1040.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : ">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Circle fx:id="circleUser" fill="#ffffff00" layoutX="1202.0" layoutY="31.0" radius="21.0" stroke="#eaeaea" strokeType="INSIDE" />
-      <Label fx:id="lblDate" layoutX="737.0" layoutY="18.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
+      <Circle fx:id="circleUser" fill="#ffffff00" layoutX="1251.0" layoutY="31.0" radius="21.0" stroke="#eaeaea" strokeType="INSIDE" />
+      <Label fx:id="lblDate" layoutX="910.0" layoutY="18.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime" layoutX="975.0" layoutY="18.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
+      <Label fx:id="lblTime" layoutX="1090.0" layoutY="18.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblUser" layoutX="1228.0" layoutY="18.0" prefHeight="27.0" prefWidth="134.0" textFill="#e1e1e1">
+      <Label fx:id="lblUser" layoutX="1281.0" layoutY="18.0" prefHeight="27.0" prefWidth="98.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
@@ -147,17 +147,17 @@
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblNoAcTotal" alignment="CENTER" layoutX="1025.0" layoutY="228.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblNoAcTotal" alignment="CENTER" layoutX="1016.0" layoutY="230.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="1135.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available : ">
+      <Text fill="#e1e1e1" layoutX="1124.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available : ">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblNoAcAvailble" alignment="CENTER" layoutX="1223.0" layoutY="229.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblNoAcAvailble" alignment="CENTER" layoutX="1199.0" layoutY="231.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -172,17 +172,17 @@
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblNoAcFoodTotal" alignment="CENTER" layoutX="1029.0" layoutY="349.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblNoAcFoodTotal" alignment="CENTER" layoutX="1018.0" layoutY="352.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="1139.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available : ">
+      <Text fill="#e1e1e1" layoutX="1123.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available : ">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblNoAcFoodAvailble" alignment="CENTER" layoutX="1227.0" layoutY="350.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblNoAcFoodAvailble" alignment="CENTER" layoutX="1198.0" layoutY="350.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -197,17 +197,17 @@
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblAcTotal" alignment="CENTER" layoutX="1029.0" layoutY="484.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblAcTotal" alignment="CENTER" layoutX="1017.0" layoutY="487.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="1139.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available : ">
+      <Text fill="#e1e1e1" layoutX="1127.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available : ">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblAcAvailble" alignment="CENTER" layoutX="1227.0" layoutY="485.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblAcAvailble" alignment="CENTER" layoutX="1200.0" layoutY="486.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -222,17 +222,17 @@
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblAcFoodTotal" alignment="CENTER" layoutX="1033.0" layoutY="625.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblAcFoodTotal" alignment="CENTER" layoutX="1021.0" layoutY="626.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="1143.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available : ">
+      <Text fill="#e1e1e1" layoutX="1129.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available : ">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblAcFoodAvailble" alignment="CENTER" layoutX="1231.0" layoutY="626.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblAcFoodAvailble" alignment="CENTER" layoutX="1203.0" layoutY="626.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

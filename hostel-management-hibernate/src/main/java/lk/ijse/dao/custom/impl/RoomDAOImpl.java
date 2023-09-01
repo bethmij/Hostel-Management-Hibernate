@@ -93,4 +93,22 @@ public class RoomDAOImpl implements RoomDAO {
             session.close();
         }
     }
+
+    @Override
+    public int getTotalRoomCount() {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT sum(r.qty) FROM Room r ");
+        Long countResult = (Long) query.getSingleResult();
+        return countResult.intValue();
+    }
+
+    @Override
+    public int getTotalRoomsSep(String id) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT r.qty FROM Room r WHERE r.id= :roomid");
+        query.setParameter("roomid",id);
+        return (int) query.uniqueResult();
+    }
+
+
 }

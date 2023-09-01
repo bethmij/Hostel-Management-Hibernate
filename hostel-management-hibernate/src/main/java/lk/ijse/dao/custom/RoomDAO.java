@@ -20,4 +20,7 @@ public interface RoomDAO extends SuperDAO {
 
     boolean updateRoom(Room room);
 
+    int getTotalRoomCount();
+
+    int getTotalRoomsSep(String id);
 }

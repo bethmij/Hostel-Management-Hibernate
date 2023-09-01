@@ -78,4 +78,21 @@ public class ReservationDAOImpl implements ReservationDAO {
             session.close();
         }
     }
+
+    @Override
+    public int getReservedCount() {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT count (r.id) FROM Reservation rs JOIN rs.room r");
+        Long countResult = (Long) query.getSingleResult();
+        return countResult.intValue();
+    }
+
+    @Override
+    public int getReservedRoomsSep(String roomID) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT count(r.id) FROM Reservation rs JOIN rs.room r WHERE r.id=:roomid");
+        query.setParameter("roomid",roomID);
+        Long countResult = (Long) query.getSingleResult();
+        return countResult.intValue();
+    }
 }

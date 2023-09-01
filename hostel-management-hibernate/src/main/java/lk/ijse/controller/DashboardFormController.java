@@ -43,11 +43,29 @@ public class DashboardFormController implements Initializable {
 
         menuPane.setVisible(false);
         setHeader(lblDate,lblTime,circleUser,lblUser);
+        setDashBoard();
     }
+
+
 
     public DashboardFormController(){
         Session session = SessionFactoryConfig.getInstance().getSession();
 
+    }
+
+    private void setDashBoard() {
+        lblStudent.setText(String.valueOf(dashboardBO.getTotalStudent()));
+        lblRoom.setText(String.valueOf(dashboardBO.getTotalRooms()));
+        lblUsed.setText(String.valueOf(dashboardBO.getReservedCount()));
+        lblRemain.setText(String.valueOf(dashboardBO.getTotalRooms()-dashboardBO.getReservedCount()));
+        lblNoAcTotal.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-1324")));
+        lblNoAcFoodTotal.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-5467")));
+        lblAcTotal.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-7896")));
+        lblAcFoodTotal.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-0093")));
+        lblNoAcAvailble.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-1324")-dashboardBO.getReservedRoomsSep("RM-1324")));
+        lblNoAcFoodAvailble.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-5467")-dashboardBO.getReservedRoomsSep("RM-5467")));
+        lblAcAvailble.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-7896")-dashboardBO.getReservedRoomsSep("RM-7896")));
+        lblAcFoodAvailble.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-0093")-dashboardBO.getReservedRoomsSep("RM-0093")));
     }
 
     public void dashbordOnAction(MouseEvent mouseEvent) {

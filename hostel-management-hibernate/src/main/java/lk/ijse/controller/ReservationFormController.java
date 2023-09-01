@@ -188,7 +188,7 @@ public class ReservationFormController implements Initializable {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        if(btnSave.getText().equals("Save")) {
+        if(btnSave.getText().equals("Reserve")) {
             String status = "";
 
             if (rdPayNow.isSelected())
