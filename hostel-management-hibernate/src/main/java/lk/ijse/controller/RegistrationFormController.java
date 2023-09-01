@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -13,7 +14,6 @@ import lk.ijse.dao.custom.impl.util.OpenView;
 import lk.ijse.dto.StudentDTO;
 
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import static lk.ijse.controller.StudentManageFormController.studentDTO;
@@ -38,6 +38,10 @@ public class RegistrationFormController implements Initializable {
     public JFXButton btnSave;
     public TextField txtNIC;
     public ToggleGroup toggleGroup;
+    public Label lblName;
+    public Label lblTel1;
+    public Label lblTel2;
+    public Label lblEmail;
     RegisterBO registerBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.REGISTER);
 
     @Override
@@ -173,5 +177,79 @@ public class RegistrationFormController implements Initializable {
     }
 
 
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+        if (!txtName.getText().matches("^[A-Za-z\\s]*$")) {
+            txtName.setStyle(" -fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblName.setText("This filed can not contain numeric values!");
+        }
+    }
 
+    public void txtNameOnKeyTyped(KeyEvent keyEvent) {
+        if (txtName.getText().matches("^[A-Za-z\\s]*$")) {
+            txtName.setStyle("-fx-effect: null; -fx-font-size: 16px;");
+            lblName.setText("");
+        }
+    }
+
+    public void txtTel1OnKeyReleased(KeyEvent keyEvent) {
+        if (!txtTel1.getText().matches("^[0-9]*$")) {
+            txtTel1.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblTel1.setText("This filed can only contain numeric values!");
+        }else if (!(txtTel1.getText().length() == 10)) {
+            txtTel1.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblTel1.setText("Not a valid contact number!");
+        }
+    }
+
+    public void txtTel1OnKeyTyped(KeyEvent keyEvent) {
+        if (txtTel2.getText().matches("^[0-9]*$")) {
+            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel2.setText("");
+        } else if (txtTel2.getText().length() > 10) {
+            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel2.setText("");
+        }
+    }
+
+    public void txtTel2OnKeyReleased(KeyEvent keyEvent) {
+        if (!txtTel2.getText().matches("^[0-9]*$")) {
+            txtTel2.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblTel2.setText("This filed can only contain numeric values!");
+        }else if (!(txtTel2.getText().length() == 10)) {
+            txtTel2.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblTel2.setText("Not a valid contact number!");
+        }
+    }
+
+    public void txtTel2OnKeyTyped(KeyEvent keyEvent) {
+        if (txtTel2.getText().matches("^[0-9]*$")) {
+            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel2.setText("");
+        } else if (txtTel2.getText().length() > 10) {
+            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblTel2.setText("");
+        }
+    }
+
+    public void txtEmailOnKeyReleased(KeyEvent keyEvent) {
+        if (!txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            txtEmail.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3);; -fx-font-size: 16px;");
+            lblEmail.setText("Invalid Email Format!");
+        }
+        if(txtEmail.getText().equals("")){
+            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblEmail.setText("");
+        }
+    }
+
+    public void txtEmailOnKeyTyped(KeyEvent keyEvent) {
+        if (txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblEmail.setText("");
+        }
+        if(txtEmail.getText().equals("")){
+            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblEmail.setText("");
+        }
+    }
 }

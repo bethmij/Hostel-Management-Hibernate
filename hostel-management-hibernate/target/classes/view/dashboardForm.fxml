@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="dashPane" prefHeight="769.0" prefWidth="1397.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+<AnchorPane fx:id="dashPane" prefHeight="769.0" prefWidth="1397.0" stylesheets="@css/sheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
    <children>
       <ImageView fitHeight="786.0" fitWidth="1399.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -137,7 +138,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="901.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non-AC ">
+      <Text fill="#e1e1e1" layoutX="901.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non-AC Rooms ">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
@@ -162,7 +163,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="905.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non-AC-Food">
+      <Text fill="#e1e1e1" layoutX="905.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non-AC-Food Rooms">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
@@ -187,7 +188,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="905.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AC ">
+      <Text fill="#e1e1e1" layoutX="905.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AC Rooms ">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
@@ -212,7 +213,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#e1e1e1" layoutX="909.0" layoutY="613.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AC-Food">
+      <Text fill="#e1e1e1" layoutX="909.0" layoutY="613.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AC-Food Rooms">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
@@ -271,48 +272,69 @@
             <Font name="Calibri" size="28.0" />
          </font>
       </Text>
-      <AnchorPane fx:id="menuPane" layoutX="65.0" layoutY="60.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="menuPane" layoutX="65.0" layoutY="60.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="2.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="458.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="458.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Payment" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Text fill="#e1e1e1" layoutX="17.0" layoutY="318.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Rooms" wrappingWidth="133.87893676757812">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Text fill="#5cfdff" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Dashboard">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <Text fill="#e1e1e1" layoutX="17.0" layoutY="318.0" onMouseClicked="#roomsOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="20.0" layoutY="176.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Registration">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#5cfdff" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+            <Text fill="#e1e1e1" layoutX="18.0" layoutY="233.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Student Management" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#e1e1e1" layoutX="20.0" layoutY="176.0" onMouseClicked="#registrationOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+            <Text fill="#e1e1e1" layoutX="20.0" layoutY="387.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Reservation" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#e1e1e1" layoutX="18.0" layoutY="233.0" onMouseClicked="#manageOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Management" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Log out" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
-            <Text fill="#e1e1e1" layoutX="20.0" layoutY="387.0" onMouseClicked="#reserveOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" wrappingWidth="133.87893676757812">
+            <Text fill="#e1e1e1" layoutX="17.0" layoutY="516.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Setting" wrappingWidth="133.87893676757812">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="14.0" layoutY="689.0" onMouseClicked="#logoutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-            <Text fill="#e1e1e1" layoutX="17.0" layoutY="516.0" onMouseClicked="#settingOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="133.87893676757812">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Text>
          </children>
       </AnchorPane>
