@@ -275,7 +275,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="lblUser1" layoutX="1187.0" layoutY="21.0" prefHeight="27.0" prefWidth="179.0" textFill="#e1e1e1">
+      <Label fx:id="lblUser1" layoutX="1187.0" layoutY="18.0" prefHeight="27.0" prefWidth="179.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>

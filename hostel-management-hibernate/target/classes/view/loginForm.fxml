@@ -25,17 +25,36 @@
             <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="237.0" layoutY="99.0" opacity="0.28" stroke="#d5dee7" strokeType="INSIDE" width="952.0">
+      <ImageView fitHeight="786.0" fitWidth="1398.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/586f513b350e3f5a1694ec752ae2a183.jpg" />
+         </image>
          <effect>
-            <DropShadow />
+            <ColorAdjust brightness="-0.37" contrast="0.47" saturation="0.3" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="592.0" fitWidth="952.0" layoutX="237.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3c6586" height="535.0" layoutX="239.0" layoutY="130.0" opacity="0.4" stroke="#d5dee7" strokeType="INSIDE" width="952.0">
+         <effect>
+            <DropShadow height="40.35" radius="14.8375">
+               <input>
+                  <InnerShadow />
+               </input>
+               <color>
+                  <Color red="0.23157894611358643" green="0.23157894611358643" blue="0.23157894611358643" />
+               </color></DropShadow>
          </effect></Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="592.0" layoutX="237.0" layoutY="99.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="428.0" />
-      <ImageView fitHeight="328.0" fitWidth="552.0" layoutX="237.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="535.0" layoutX="239.0" layoutY="130.0" opacity="0.61" stroke="#081e33" strokeType="INSIDE" width="428.0" />
+      <ImageView fitHeight="328.0" fitWidth="552.0" layoutX="245.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Untitled__8_-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="129.0" fitWidth="169.0" layoutX="389.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="129.0" fitWidth="169.0" layoutX="391.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Green_Minimalist_Simple_House_Logo_Icon__4_-removebg-preview.png" />
          </image>
@@ -50,7 +69,7 @@
             </DropShadow>
          </effect>
       </ImageView>
-      <ImageView fitHeight="288.0" fitWidth="372.0" layoutX="307.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="288.0" fitWidth="372.0" layoutX="309.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Simple_Black_and_Turquoise_Welcome_Instagram_Post__1_-removebg-preview%20(1).png" />
          </image>
@@ -58,12 +77,12 @@
             <ColorAdjust brightness="0.75" contrast="-0.28" saturation="0.95" />
          </effect>
       </ImageView>
-      <Text fill="#dcdcdc" layoutX="743.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fill="#dcdcdc" layoutX="717.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
          <font>
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
-      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="737.0" layoutY="200.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="757.0" layoutY="264.0" prefHeight="38.0" prefWidth="373.0" promptText="User Name" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -75,25 +94,35 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <PasswordField fx:id="txtPassword" blendMode="OVERLAY" layoutX="737.0" layoutY="284.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
+      <PasswordField fx:id="txtPassword" blendMode="OVERLAY" layoutX="758.0" layoutY="339.0" prefHeight="38.0" prefWidth="374.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <JFXButton layoutX="877.0" layoutY="358.0" onAction="#logInOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="LOG IN" textFill="WHITE">
+      <JFXButton layoutX="886.0" layoutY="451.0" onAction="#logInOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="LOG IN" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <Text fill="#a9a7a7" layoutX="798.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ?">
+      <Text fill="#a9a7a7" layoutX="818.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ?">
          <font>
             <Font name="Bookshelf Symbol 7" size="16.0" />
          </font>
       </Text>
-      <Text fill="#fafafa" layoutX="994.0" layoutY="442.0" onMouseClicked="#signUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" wrappingWidth="86.84375">
+      <Text fill="#fafafa" layoutX="996.0" layoutY="524.0" onMouseClicked="#signUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" wrappingWidth="86.84375">
          <font>
             <Font name="Bookshelf Symbol 7" size="16.0" />
          </font>
       </Text>
+      <ImageView fitHeight="38.0" fitWidth="87.0" layoutX="714.0" layoutY="263.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icons8-user-100.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="87.0" layoutX="714.0" layoutY="340.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/icons8-password-100.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

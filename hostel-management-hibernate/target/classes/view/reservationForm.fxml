@@ -210,7 +210,7 @@
       </Text>
       <Label fx:id="lblRoomType" layoutX="1082.0" layoutY="210.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Label>
       <Text fill="#e1e1e1" layoutX="956.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name : ">
