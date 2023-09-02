@@ -80,8 +80,10 @@ public class RegistrationFormController implements Initializable {
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
 
-        if(btnSave.getText().equals("Save")) {
-            if(!txtName.getText().isEmpty() && !txtNIC.getText().isEmpty() && !txtAddress.getText().isEmpty() && !txtTel1.getText().isEmpty()) {
+        if(!txtName.getText().isEmpty() && !txtNIC.getText().isEmpty() && !txtAddress.getText().isEmpty() && !txtTel1.getText().isEmpty()) {
+
+            if (btnSave.getText().equals("Save")) {
+
                 String gender = "";
 
                 if (rdMale.isSelected())
@@ -92,7 +94,7 @@ public class RegistrationFormController implements Initializable {
                     gender = "Other";
 
                 int tel2 = 0;
-                if(!txtTel2.getText().isEmpty()){
+                if (!txtTel2.getText().isEmpty()) {
                     tel2 = Integer.parseInt(txtTel2.getText());
                 }
 
@@ -106,28 +108,28 @@ public class RegistrationFormController implements Initializable {
                 } else
                     new Alert(Alert.AlertType.ERROR, "Save Student Failed!").show();
 
-            }else
-                new Alert(Alert.AlertType.ERROR, "Please fill up the compulsory fields * ").show();
 
-        }else if(btnSave.getText().equals("Update")){
-            String gender = "";
+            } else if (btnSave.getText().equals("Update")) {
+                String gender = "";
 
-            if (rdMale.isSelected())
-                gender = "Male";
-            else if (rdFemale.isSelected())
-                gender = "Female";
-            else if (rdOther.isSelected())
-                gender = "Other";
+                if (rdMale.isSelected())
+                    gender = "Male";
+                else if (rdFemale.isSelected())
+                    gender = "Female";
+                else if (rdOther.isSelected())
+                    gender = "Other";
 
-            StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
-                    Integer.parseInt(txtTel2.getText()), txtEmail.getText(), dob.getValue(), gender);
-            boolean isUpdated = registerBO.updateStudent(studentDTO);
+                StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
+                        Integer.parseInt(txtTel2.getText()), txtEmail.getText(), dob.getValue(), gender);
+                boolean isUpdated = registerBO.updateStudent(studentDTO);
 
-            if (isUpdated)
-                new Alert(Alert.AlertType.CONFIRMATION, " Student Updated Successfully!").show();
-            else
-                new Alert(Alert.AlertType.ERROR, " Student Update Failed!").show();
-        }
+                if (isUpdated)
+                    new Alert(Alert.AlertType.CONFIRMATION, " Student Updated Successfully!").show();
+                else
+                    new Alert(Alert.AlertType.ERROR, " Student Update Failed!").show();
+            }
+        }else
+            new Alert(Alert.AlertType.ERROR, "Please fill up the compulsory fields * ").show();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {

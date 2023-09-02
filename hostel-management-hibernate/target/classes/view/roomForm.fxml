@@ -22,7 +22,7 @@
 <AnchorPane fx:id="roomPane" prefHeight="783.0" prefWidth="1395.0" stylesheets="@css/sheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RoomFormController">
    <children>
       <JFXButton layoutX="82.0" layoutY="64.0" prefHeight="26.0" prefWidth="0.0" text="Button" />
-      <ImageView fitHeight="786.0" fitWidth="1398.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="786.0" fitWidth="1398.0" layoutX="1.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
          </image>
@@ -31,28 +31,28 @@
          </effect>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="59.0" layoutX="1.0" layoutY="-1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="1398.0" />
-      <Text fill="#e1e1e1" layoutX="613.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
+      <Text fill="#e1e1e1" layoutX="864.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date : ">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Text fill="#e1e1e1" layoutX="884.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : ">
+      <Text fill="#e1e1e1" layoutX="1040.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : ">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Text>
-      <Circle fx:id="circleUser" fill="#ffffff00" layoutX="1152.0" layoutY="29.0" radius="21.0" stroke="#eaeaea" strokeType="INSIDE" />
-      <Label fx:id="lblDate" layoutX="673.0" layoutY="16.0" prefHeight="27.0" prefWidth="151.0" textFill="#e1e1e1">
+      <Circle fx:id="circleUser" fill="#ffffff00" layoutX="1251.0" layoutY="29.0" radius="21.0" stroke="#eaeaea" strokeType="INSIDE" />
+      <Label fx:id="lblDate" layoutX="910.0" layoutY="16.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime" layoutX="939.0" layoutY="16.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
+      <Label fx:id="lblTime" layoutX="1090.0" layoutY="16.0" prefHeight="27.0" prefWidth="124.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblUser" layoutX="1183.0" layoutY="16.0" prefHeight="27.0" prefWidth="179.0" textFill="#e1e1e1">
+      <Label fx:id="lblUser" layoutX="1281.0" layoutY="16.0" prefHeight="27.0" prefWidth="110.0" textFill="#e1e1e1">
          <font>
             <Font size="18.0" />
          </font>
@@ -118,7 +118,7 @@
       <Group fx:id="newIDGroup" layoutX="292.0" layoutY="223.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="34.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="205.0" />
-            <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="39.0" prefWidth="206.0" promptText="Add New ID" style="-fx-border-color: #ffffff;">
+            <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="206.0" promptText="Add New ID" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -149,7 +149,7 @@
             </TextField>
          </children>
       </Group>
-      <Text fill="#e1e1e1" layoutX="160.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID">
+      <Text fill="#e1e1e1" layoutX="160.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID*">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
@@ -166,7 +166,7 @@
             <ComboBox fx:id="cmbType" blendMode="OVERLAY" layoutY="-1.0" prefHeight="34.0" prefWidth="208.0" />
          </children>
       </Group>
-      <Text fill="#e1e1e1" layoutX="158.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type">
+      <Text fill="#e1e1e1" layoutX="158.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type*">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
@@ -174,7 +174,7 @@
       <Group layoutX="158.0" layoutY="445.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="341.0" />
-            <TextField fx:id="txtQty" blendMode="OVERLAY" layoutY="2.0" onKeyReleased="#txtQtyOnReleased" onKeyTyped="#txtQtyOnTyped" prefHeight="42.0" prefWidth="342.0" promptText="Rooms QTY" style="-fx-border-color: #ffffff;">
+            <TextField fx:id="txtQty" blendMode="OVERLAY" layoutY="2.0" onKeyReleased="#txtQtyOnReleased" onKeyTyped="#txtQtyOnTyped" prefHeight="42.0" prefWidth="342.0" promptText="Rooms QTY*" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -191,7 +191,7 @@
       <Group layoutX="160.0" layoutY="519.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="341.0" />
-            <TextField fx:id="txtMoney" blendMode="OVERLAY" layoutY="2.0" onKeyReleased="#txtKeyOnReleased" onKeyTyped="#txtKeyOnTyped" prefHeight="42.0" prefWidth="342.0" promptText="Key Money (LKR)" style="-fx-border-color: #ffffff;">
+            <TextField fx:id="txtMoney" blendMode="OVERLAY" layoutY="2.0" onKeyReleased="#txtKeyOnReleased" onKeyTyped="#txtKeyOnTyped" prefHeight="42.0" prefWidth="342.0" promptText="Key Money* (LKR)" style="-fx-border-color: #ffffff;">
                <effect>
                   <DropShadow height="10.5" radius="2.125" width="0.0">
                      <color>
@@ -215,7 +215,7 @@
             <Font name="Calibri" size="15.0" />
          </font>
       </Text>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="500.0" layoutY="228.0" onAction="#IDOnAction">
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="500.0" layoutY="228.0" onAction="#IDOnAction" styleClass="image-icon">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -223,8 +223,11 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="500.0" layoutY="371.0" onAction="#typeOnAction">
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="500.0" layoutY="371.0" onAction="#typeOnAction" styleClass="image-icon">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -232,6 +235,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton fx:id="btnSave" layoutX="348.0" layoutY="637.0" onAction="#btnSaveOnAction" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Save" textFill="WHITE">
          <font>
@@ -258,7 +264,7 @@
                   <TableColumn fx:id="colType" prefWidth="172.0" text="Room Type" />
                   <TableColumn fx:id="colQty" minWidth="0.0" prefWidth="147.20001220703125" text="Oty" />
                   <TableColumn fx:id="colMonet" minWidth="0.0" prefWidth="152.7999267578125" text="Key Money" />
-                  <TableColumn fx:id="colAction" prefWidth="109.5999755859375" text="Action" />
+                  <TableColumn fx:id="colAction" prefWidth="109.5999755859375" style="-fx-alignment: CENTER;" text="Action" />
                </columns>
             </TableView>
          </children>
@@ -280,7 +286,7 @@
             </TextField>
          </children>
       </Group>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1127.0" layoutY="109.0" onAction="#searchOnAction" opacity="0.92" prefHeight="42.0" prefWidth="24.0">
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1127.0" layoutY="109.0" onAction="#searchOnAction" opacity="0.92" prefHeight="42.0" prefWidth="24.0" styleClass="image-icon">
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
                <image>
@@ -295,7 +301,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="60.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
+      <AnchorPane fx:id="menuPane" layoutX="66.0" layoutY="60.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
             <Text fill="#e1e1e1" layoutX="18.0" layoutY="459.0" onMouseClicked="#payOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Payment" wrappingWidth="133.87893676757812">
@@ -361,7 +367,12 @@
             </Text>
          </children>
       </AnchorPane>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1183.0" layoutY="109.0" onAction="#refreshOnAction" opacity="0.92" prefHeight="42.0" prefWidth="24.0">
+      <Label fx:id="lblQty" layoutX="163.0" layoutY="489.0" prefHeight="20.0" prefWidth="342.0" textFill="#a91515">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1183.0" layoutY="109.0" onAction="#refreshOnAction" opacity="0.92" prefHeight="42.0" prefWidth="24.0" styleClass="image-icon">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
                <image>
@@ -376,5 +387,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <Label fx:id="lblMoney" layoutX="163.0" layoutY="563.0" prefHeight="20.0" prefWidth="342.0" textFill="#a91515">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

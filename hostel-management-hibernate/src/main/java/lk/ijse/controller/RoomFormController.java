@@ -49,6 +49,8 @@ public class RoomFormController implements Initializable {
     public Group newTypeGroup;
     public JFXButton btnSave;
     public TextField txtSearch;
+    public Label lblQty;
+    public Label lblMoney;
     RoomBO roomBo = BOFactory.getBoFactory().getBO(BOFactory.BOType.ROOM);
     ObservableList<RoomTM> obList = FXCollections.observableArrayList();
 
@@ -149,29 +151,33 @@ public class RoomFormController implements Initializable {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        if(btnSave.getText().equals("Save")) {
-            RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
-                    txtMoney.getText(), Integer.parseInt(txtQty.getText()));
-            boolean isSaved = roomBo.saveRoom(roomDTO);
 
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Room Detail Saved Successfully!").show();
-                setTable();
-                getClear();
-            } else
-                new Alert(Alert.AlertType.ERROR, "Room Detail Save Failed!").show();
-        }else if(btnSave.getText().equals("Update")){
-            RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
-                    txtMoney.getText(), Integer.parseInt(txtQty.getText()));
-            boolean isUpdated = roomBo.updateRoom(roomDTO);
+        if(!cmbID.isPressed() && !cmbType.isPressed() && !txtQty.getText().isEmpty() && !txtMoney.getText().isEmpty()) {
+            if (btnSave.getText().equals("Save")) {
+                RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
+                        txtMoney.getText(), Integer.parseInt(txtQty.getText()));
+                boolean isSaved = roomBo.saveRoom(roomDTO);
 
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, " Room Detail Updated Successfully!").show();
-                setTable();
-                getClear();
-            } else
-                new Alert(Alert.AlertType.ERROR, "Room Detail Update Failed!").show();
-        }
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Room Detail Saved Successfully!").show();
+                    setTable();
+                    getClear();
+                } else
+                    new Alert(Alert.AlertType.ERROR, "Room Detail Save Failed!").show();
+            } else if (btnSave.getText().equals("Update")) {
+                RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
+                        txtMoney.getText(), Integer.parseInt(txtQty.getText()));
+                boolean isUpdated = roomBo.updateRoom(roomDTO);
+
+                if (isUpdated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, " Room Detail Updated Successfully!").show();
+                    setTable();
+                    getClear();
+                } else
+                    new Alert(Alert.AlertType.ERROR, "Room Detail Update Failed!").show();
+            }
+        }else
+            new Alert(Alert.AlertType.ERROR, "Please fill up the compulsory fields * ").show();
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
@@ -264,14 +270,30 @@ public class RoomFormController implements Initializable {
     }
 
     public void txtQtyOnReleased(KeyEvent keyEvent) {
+        if (txtQty.getText().matches("^[0-9]*$")) {
+            txtQty.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblQty.setText("");
+        }
     }
 
     public void txtQtyOnTyped(KeyEvent keyEvent) {
+        if (!txtQty.getText().matches("^[0-9]*$")) {
+            txtQty.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblQty.setText("Should only contains numeric values!");
+        }
     }
 
     public void txtKeyOnReleased(KeyEvent keyEvent) {
+        if (txtMoney.getText().matches("^(([0-9.]?)*)+$")) {
+            txtMoney.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblMoney.setText("");
+        }
     }
 
     public void txtKeyOnTyped(KeyEvent keyEvent) {
+        if (!txtMoney.getText().matches("^(([0-9.]?)*)+$")) {
+            txtMoney.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblMoney.setText("Should only contains numeric values!");
+        }
     }
 }

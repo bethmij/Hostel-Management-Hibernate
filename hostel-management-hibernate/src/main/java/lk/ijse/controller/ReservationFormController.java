@@ -188,53 +188,56 @@ public class ReservationFormController implements Initializable {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        if(btnSave.getText().equals("Reserve")) {
-            String status = "";
 
-            if (rdPayNow.isSelected())
-                status = "Paid";
-            else if (edPayLater.isSelected())
-                status = "Unpaid";
-            else if (rdPayHalfNow.isSelected())
-                status = "Half Paid:" + txtPay.getText();
+//        if(!cmbRoomID.getValue().equals("") && !cmbStuID.getValue().equals("") &&  ) {
+            if (btnSave.getText().equals("Reserve")) {
+                String status = "";
 
-            RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
-            StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
-            ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
+                if (rdPayNow.isSelected())
+                    status = "Paid";
+                else if (edPayLater.isSelected())
+                    status = "Unpaid";
+                else if (rdPayHalfNow.isSelected())
+                    status = "Half Paid:" + txtPay.getText();
 
-            boolean isSaved = reservationBO.reserveRoom(reservationDTO);
+                RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
+                StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
+                ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
 
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully!").show();
-                getClear();
-                setReserveID();
-            } else
-                new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();
+                boolean isSaved = reservationBO.reserveRoom(reservationDTO);
 
-        }else if(btnSave.getText().equals("Update")){
-            String status = "";
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully!").show();
+                    getClear();
+                    setReserveID();
+                } else
+                    new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();
 
-            if (rdPayNow.isSelected())
-                status = "Paid";
-            else if (edPayLater.isSelected())
-                status = "Unpaid";
-            else if (rdPayHalfNow.isSelected())
-                status = "Half Paid:" + txtPay.getText();
+            } else if (btnSave.getText().equals("Update")) {
+                String status = "";
 
-            RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
-            StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
-            ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
+                if (rdPayNow.isSelected())
+                    status = "Paid";
+                else if (edPayLater.isSelected())
+                    status = "Unpaid";
+                else if (rdPayHalfNow.isSelected())
+                    status = "Half Paid:" + txtPay.getText();
 
-            boolean isUpdated = reservationBO.updateRoom(reservationDTO);
+                RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
+                StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
+                ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
 
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Room Reservation Updated  Successfully!").show();
-                getClear();
-                setReserveID();
-            } else
-                new Alert(Alert.AlertType.ERROR, "Room Reservation Update Failed!").show();
+                boolean isUpdated = reservationBO.updateRoom(reservationDTO);
 
-        }
+                if (isUpdated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Room Reservation Updated  Successfully!").show();
+                    getClear();
+                    setReserveID();
+                } else
+                    new Alert(Alert.AlertType.ERROR, "Room Reservation Update Failed!").show();
+
+            }
+//        }
     }
 
     private void getClear() {
