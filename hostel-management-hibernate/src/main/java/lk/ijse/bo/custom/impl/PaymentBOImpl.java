@@ -4,6 +4,8 @@ import lk.ijse.bo.custom.PaymentBO;
 import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.QueryDAO;
 import lk.ijse.dao.custom.ReservationDAO;
+import lk.ijse.dao.custom.RoomDAO;
+import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.dto.ReservationDTO;
 import lk.ijse.entity.Reservation;
 import lk.ijse.entity.Room;
@@ -17,6 +19,8 @@ import java.util.List;
 public class PaymentBOImpl implements PaymentBO {
     QueryDAO queryDAO = (QueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.QUERY);
     ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.RESERVATION);
+    StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.STUDENT);
+    RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.ROOM);
 
     @Override
     public List<ReserveProjection> getReserveDetail() {
@@ -58,5 +62,20 @@ public class PaymentBOImpl implements PaymentBO {
                 date,reservationDTO.getStatus());
 
         return reservationDAO.deleteReservation(reservation);
+    }
+
+    @Override
+    public List<String> getStudentList() {
+        return studentDAO.getStudentID();
+    }
+
+    @Override
+    public List<String> getRoomList() {
+        return roomDAO.getRoomID();
+    }
+
+    @Override
+    public List<String> getreserveList() {
+        return reservationDAO.reserveList();
     }
 }

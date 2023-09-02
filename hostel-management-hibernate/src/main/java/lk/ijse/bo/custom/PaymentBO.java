@@ -20,4 +20,10 @@ public interface PaymentBO extends SuperBO {
     List<ReserveProjection> getReservebyRoomID(String roomID);
 
     boolean deleteReservation(ReservationDTO reservationDTO);
+
+    List<String> getStudentList();
+
+    List<String> getRoomList();
+
+    List<String> getreserveList();
 }

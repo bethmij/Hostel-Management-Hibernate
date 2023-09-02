@@ -78,12 +78,17 @@ public class StudentManageFormController implements Initializable {
         if(isValidID) {
             tbl.getItems().clear();
             StudentDTO studentDTO = manageBO.getStudent(txtName.getText());
+
+            String tel2 = "";
+            if(studentDTO.getTel2()!=0)
+                tel2 = String.valueOf(studentDTO.getTel2());
+
             Button deleteButton = new Button("Delete");
             deleteButton.setCursor(Cursor.HAND);
             setDeleteBtnOnAction(deleteButton);
 
             StudentTM studentTM = new StudentTM(studentDTO.getStudentID(), studentDTO.getName(), studentDTO.getAddress(), studentDTO.getTel1(),
-                    studentDTO.getTel2(), studentDTO.getEmail(), studentDTO.getDob(), studentDTO.getGender(), deleteButton);
+                    tel2, studentDTO.getEmail(), studentDTO.getDob(), studentDTO.getGender(), deleteButton);
             obList.add(studentTM);
             tbl.setItems(obList);
 
@@ -96,12 +101,17 @@ public class StudentManageFormController implements Initializable {
         List<StudentDTO> studentList = manageBO.getStudentl();
 
         for (StudentDTO studentDTO : studentList) {
+
+            String tel2 = "";
+            if(studentDTO.getTel2()!=0)
+                tel2 = String.valueOf(studentDTO.getTel2());
+
             Button deleteButton = new Button("Delete");
             deleteButton.setCursor(Cursor.HAND);
             setDeleteBtnOnAction(deleteButton);
 
             StudentTM studentTM = new StudentTM(studentDTO.getStudentID(),studentDTO.getName(),studentDTO.getAddress(),studentDTO.getTel1(),
-                            studentDTO.getTel2(),studentDTO.getEmail(),studentDTO.getDob(),studentDTO.getGender(),deleteButton);
+                            tel2,studentDTO.getEmail(),studentDTO.getDob(),studentDTO.getGender(),deleteButton);
             obList.add(studentTM);
             tbl.setItems(obList);
         }

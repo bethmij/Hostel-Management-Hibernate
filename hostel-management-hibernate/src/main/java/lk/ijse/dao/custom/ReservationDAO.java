@@ -4,6 +4,8 @@ import lk.ijse.dao.SuperDAO;
 import lk.ijse.dto.ReservationDTO;
 import lk.ijse.entity.Reservation;
 
+import java.util.List;
+
 public interface ReservationDAO extends SuperDAO  {
     int getUsedRoomCount(String roomID);
 
@@ -18,4 +20,6 @@ public interface ReservationDAO extends SuperDAO  {
     int getReservedCount();
 
     int getReservedRoomsSep(String s);
+
+    List<String> reserveList();
 }

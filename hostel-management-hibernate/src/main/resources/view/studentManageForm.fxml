@@ -167,7 +167,7 @@
                   <TableColumn fx:id="colDOB" prefWidth="118.40008544921875" text="DOB" />
                   <TableColumn fx:id="colGender" prefWidth="93.60003662109375" text="Gender" />
                   <TableColumn fx:id="colGmail" prefWidth="171.9998779296875" text="Gmail" />
-                  <TableColumn fx:id="colAction" prefWidth="92.800048828125" text="Action" />
+                  <TableColumn fx:id="colAction" prefWidth="92.800048828125" style="-fx-alignment: CENTER;" text="Action" />
               </columns>
             </TableView>
          </children>

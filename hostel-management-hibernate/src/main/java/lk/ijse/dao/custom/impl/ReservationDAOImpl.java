@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.List;
+
 public class ReservationDAOImpl implements ReservationDAO {
     Session session;
 
@@ -94,5 +96,12 @@ public class ReservationDAOImpl implements ReservationDAO {
         query.setParameter("roomid",roomID);
         Long countResult = (Long) query.getSingleResult();
         return countResult.intValue();
+    }
+
+    @Override
+    public List<String> reserveList() {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT rs.id FROM Reservation rs");
+        return query.list();
     }
 }

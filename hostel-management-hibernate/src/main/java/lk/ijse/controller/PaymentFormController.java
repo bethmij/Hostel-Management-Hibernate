@@ -72,25 +72,72 @@ public class PaymentFormController implements Initializable {
         ReserveProjection reserveProjection =  null;
 
         if(cbSelect.getValue().equals("Reservation ID")) {
-            reserveProjection = paymentBO.getReservebyReserveID(txtName.getText());
-            getTable(reserveProjection);
-        }else if (cbSelect.getValue().equals("Student ID"))
-            reserve = paymentBO.getReservebyStudentID(txtName.getText());
-        else if (cbSelect.getValue().equals("Room ID"))
-            reserve = paymentBO.getReservebyRoomID(txtName.getText());
+            List<String> reserveList = paymentBO.getreserveList();
+            boolean isValidID = false;
+            for (String list : reserveList) {
+                if (txtName.getText().equalsIgnoreCase(list)) {
+                    isValidID = true;
+                }
+            }
+            if (isValidID) {
+                reserveProjection = paymentBO.getReservebyReserveID(txtName.getText());
+                getTable(reserveProjection);
+            }else
+                new Alert(Alert.AlertType.ERROR, "Not a valid Reservation ID").show();
 
-        for (ReserveProjection list : reserve) {
-            getTable(list);
+        }else if (cbSelect.getValue().equals("Student ID")) {
+            List<String> studentList = paymentBO.getStudentList();
+            boolean isValidID = false;
+            for (String list : studentList) {
+                if (txtName.getText().equalsIgnoreCase(list)) {
+                    isValidID = true;
+                }
+            }
+            if (isValidID) {
+                reserve = paymentBO.getReservebyStudentID(txtName.getText());
+                for (ReserveProjection list : reserve) {
+                    getTable(list);
+                }
+            }else
+                new Alert(Alert.AlertType.ERROR, "Not a valid Student ID").show();
+
+        }else if (cbSelect.getValue().equals("Room ID")) {
+            List<String> roomList = paymentBO.getRoomList();
+            boolean isValidID = false;
+            for (String list : roomList) {
+                if (txtName.getText().equalsIgnoreCase(list)) {
+                    isValidID = true;
+                }
+            }
+            if (isValidID) {
+                reserve = paymentBO.getReservebyRoomID(txtName.getText());
+                for (ReserveProjection list : reserve) {
+                    getTable(list);
+                }
+            }else
+                new Alert(Alert.AlertType.ERROR, "Not a valid Room ID").show();
         }
-
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        reserveProjection = paymentBO.getReservebyReserveID(txtName.getText());
-        OpenView.openView("reservationForm");
+        List<String> reserveList = paymentBO.getreserveList();
+        boolean isValidID = false;
+        for (String list : reserveList) {
+            if (txtName.getText().equalsIgnoreCase(list)) {
+                isValidID = true;
+            }
+        }
+        if (isValidID) {
+            reserveProjection = paymentBO.getReservebyReserveID(txtName.getText());
+            OpenView.openView("reservationForm");
+        }else
+            new Alert(Alert.AlertType.ERROR, "Not a valid Reservation ID").show();
     }
 
     public void btnGetAllOnAction(ActionEvent actionEvent) {
+        cbOther.setSelected(false);
+        cbPaid.setSelected(false);
+        cbNonPaid.setSelected(false);
         setTable();
     }
 

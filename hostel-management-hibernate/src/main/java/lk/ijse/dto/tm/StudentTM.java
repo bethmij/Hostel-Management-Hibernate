@@ -16,7 +16,7 @@ public class StudentTM {
     private String name;
     private String address;
     private int tel1;
-    private int tel2;
+    private String tel2;
     private String email;
     private LocalDate dob;
     private String gender;
