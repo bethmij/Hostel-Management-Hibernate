@@ -52,6 +52,7 @@ public class PaymentFormController implements Initializable {
     public TableColumn colPayment;
     public ComboBox cbSelect;
     public static ReserveProjection reserveProjection;
+    public static ReserveProjection reservedProjection;
     PaymentBO paymentBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAYMENT);
     ObservableList<ReserveTM> obList = FXCollections.observableArrayList();
 
@@ -159,12 +160,12 @@ public class PaymentFormController implements Initializable {
             if(!list.getStatus().equals("Paid")) {
                 payButton.setText("Pay");
                 payButton.setCursor(Cursor.HAND);
-                setPaymentBtnOnAction(payButton);
+                setPaymentBtnOnAction(payButton, list.getReserveID());
             }else {
                 payButton = null;
             }
 
-            String remaining = calcRemaining(list.getStatus(), list.getKeyMoney());
+            String remaining;remaining = calcRemaining(list.getStatus(), list.getKeyMoney());
             if(remaining.equals("")){
                 remaining = "---";
             }
@@ -190,10 +191,10 @@ public class PaymentFormController implements Initializable {
         if(status.equals("Paid")) {
             return "";
         }else if(status.equals("Unpaid")) {
-            return keyMoney;
+            return "Rs. "+keyMoney;
         }else if (status.contains("Half")){
             String numericPart = status.replaceAll("\\D+", "");
-            return String.valueOf((Double.valueOf(keyMoney)-Double.valueOf(numericPart)));
+            return ("Rs. "+(Double.valueOf(keyMoney)-Double.valueOf(numericPart)));
         }else {return "";}
     }
 
@@ -206,7 +207,9 @@ public class PaymentFormController implements Initializable {
         cbSelect.setItems(dataList);
     }
 
-    private void setPaymentBtnOnAction(Button payButton) {
+    private void setPaymentBtnOnAction(Button payButton, String reservedID) {
+        reservedProjection = paymentBO.getReservebyReserveID(reservedID);
+        OpenView.openView("payForm");
     }
 
     private void setDeleteBtnOnAction(Button deleteButton) {
