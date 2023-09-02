@@ -2,14 +2,17 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import lk.ijse.bo.BOFactory;
+import lk.ijse.bo.custom.PayBO;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static lk.ijse.controller.PaymentFormController.reserveProjection;
-import static lk.ijse.controller.PaymentFormController.reservedProjection;
+import static lk.ijse.controller.PaymentFormController.projection;
+import static org.hibernate.boot.model.source.internal.hbm.CommaSeparatedStringHelper.split;
 
 public class PayFormController implements Initializable {
     public TextField txtEAmount;
@@ -20,19 +23,40 @@ public class PayFormController implements Initializable {
     public Label lblRoomType;
     public Label lblTotal;
     public Label lblRemain;
+    PayBO payBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAY);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lblReserve.setText(reservedProjection.getReserveID() );
-        lblStuID.setText(reservedProjection.getStudentID());
-        lblStuName.setText(reservedProjection.getName());
-        lblRoomID.setText(reservedProjection.getRoomID());
-        lblRoomType.setText(reserveProjection.getRoomType());
-        lblTotal.setText(reserveProjection.getKeyMoney());
-        lblRemain.setText(calcRemaining(reserveProjection.getStatus(), reserveProjection.getKeyMoney()));
+        lblReserve.setText(projection.getReserveID() );
+        lblStuID.setText(projection.getStudentID());
+        lblStuName.setText(projection.getName());
+        lblRoomID.setText(projection.getRoomID());
+        lblRoomType.setText(projection.getRoomType());
+        lblTotal.setText("Rs. "+projection.getKeyMoney());
+        lblRemain.setText(calcRemaining(projection.getStatus(), projection.getKeyMoney()));
     }
 
     public void btnPayOnAction(ActionEvent actionEvent) {
+        if(!txtEAmount.getText().isEmpty() && !txtEAmount.getText().equals("0") ) {
+            String amount = txtEAmount.getText();
+            String status = "";
+            String[] remain = lblRemain.getText().split("Rs\\. ");
+            System.out.println(remain[1]);
+
+            if (amount.equals(remain[1])) {
+                status = "Paid";
+            } else if (amount.compareTo(remain[1]) > 0) {
+                status = "Half Paid:" + amount;
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Please check the amount again! ");
+            }
+            boolean isUpdated = payBO.updateStatus(status,projection.getReserveID());
+            if (isUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Payment Updated Successfully!").show();
+            } else
+                new Alert(Alert.AlertType.ERROR, "Payment Update Failed!").show();
+        }else
+            new Alert(Alert.AlertType.ERROR, "Please check the amount again! ").show();
     }
 
     private String calcRemaining(String status, String keyMoney) {

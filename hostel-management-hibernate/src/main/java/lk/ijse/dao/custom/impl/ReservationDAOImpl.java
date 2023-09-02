@@ -104,4 +104,23 @@ public class ReservationDAOImpl implements ReservationDAO {
         Query query = session.createQuery("SELECT rs.id FROM Reservation rs");
         return query.list();
     }
+
+    @Override
+    public boolean updateStatus(String status, String reserveID) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            Query query = session.createQuery("UPDATE Reservation rs SET rs.status = :status WHERE rs.id =:reserveID");
+            query.setParameter("status",status);
+            query.setParameter("reserveID",reserveID).executeUpdate();
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            return false;
+        }finally {
+            session.close();
+        }
+    }
 }

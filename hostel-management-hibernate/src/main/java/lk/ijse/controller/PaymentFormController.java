@@ -52,7 +52,7 @@ public class PaymentFormController implements Initializable {
     public TableColumn colPayment;
     public ComboBox cbSelect;
     public static ReserveProjection reserveProjection;
-    public static ReserveProjection reservedProjection;
+    public static ReserveProjection projection;
     PaymentBO paymentBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAYMENT);
     ObservableList<ReserveTM> obList = FXCollections.observableArrayList();
 
@@ -208,8 +208,10 @@ public class PaymentFormController implements Initializable {
     }
 
     private void setPaymentBtnOnAction(Button payButton, String reservedID) {
-        reservedProjection = paymentBO.getReservebyReserveID(reservedID);
-        OpenView.openView("payForm");
+        payButton.setOnAction((e) -> {
+            projection = paymentBO.getReservebyReserveID(reservedID);
+            OpenView.openView("payForm");
+        });
     }
 
     private void setDeleteBtnOnAction(Button deleteButton) {

@@ -1,7 +1,6 @@
 package lk.ijse.dao.custom;
 
 import lk.ijse.dao.SuperDAO;
-import lk.ijse.dto.ReservationDTO;
 import lk.ijse.entity.Reservation;
 
 import java.util.List;
@@ -22,4 +21,6 @@ public interface ReservationDAO extends SuperDAO  {
     int getReservedRoomsSep(String s);
 
     List<String> reserveList();
+
+    boolean updateStatus(String status, String reserveID);
 }
