@@ -37,7 +37,9 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public Student getStudent(String id) {
         session = SessionFactoryConfig.getInstance().getSession();
-        return session.get(Student.class,id);
+        Student student = session.get(Student.class,id);
+        session.close();
+        return student;
     }
 
     @Override
@@ -61,7 +63,9 @@ public class StudentDAOImpl implements StudentDAO {
     public List<Student> getAllStudent() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery(" FROM Student ");
-        return query.list();
+        List<Student> studentList = query.list();
+        session.close();
+        return studentList;
     }
 
     @Override
@@ -85,7 +89,9 @@ public class StudentDAOImpl implements StudentDAO {
     public List<String> getStudentID() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT s.id FROM Student  s");
-        return  query.list();
+        List<String> studentID = query.list();
+        session.close();
+        return studentID;
     }
 
     @Override
@@ -93,7 +99,9 @@ public class StudentDAOImpl implements StudentDAO {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT s.name FROM Student  s WHERE s.id = :stID");
         query.setParameter("stID",stuID);
-        return (String) query.getSingleResult();
+        String name = (String) query.getSingleResult();
+        session.close();
+        return name;
     }
 
     @Override
@@ -101,6 +109,7 @@ public class StudentDAOImpl implements StudentDAO {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT count(s.studentID) FROM Student  s ");
         Long countResult = (Long) query.getSingleResult();
+        session.close();
         return countResult.intValue();
 
     }

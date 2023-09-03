@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.List;
+
 public class UserDAOImpl implements UserDAO {
     Session session;
 
@@ -130,5 +132,24 @@ public class UserDAOImpl implements UserDAO {
         }finally {
             session.close();
         }
+    }
+
+    @Override
+    public List<String> getUserNameList() {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT u.userName FROM User u");
+        List<String> userName = query.list();
+        session.close();
+        return userName;
+    }
+
+    @Override
+    public String getPassword(String userName) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT u.password FROM User u WHERE u.userName = :userName");
+        query.setParameter("userName", userName);
+        String password =  (String) query.uniqueResult();
+        session.close();
+        return password;
     }
 }

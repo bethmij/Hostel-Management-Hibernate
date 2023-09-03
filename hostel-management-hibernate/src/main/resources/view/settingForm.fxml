@@ -190,7 +190,7 @@
                   <Font size="17.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="txtNewPass" blendMode="OVERLAY" layoutX="2.0" layoutY="3.0" prefHeight="38.0" prefWidth="341.0">
+            <TextField fx:id="txtNewPass" blendMode="OVERLAY" focusTraversable="false" layoutX="2.0" layoutY="3.0" prefHeight="38.0" prefWidth="341.0" visible="false">
                <font>
                   <Font size="17.0" />
                </font>
@@ -336,7 +336,7 @@
                   <Font size="17.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="txtCurrentPass" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="38.0" prefWidth="340.0">
+            <TextField fx:id="txtCurrentPass" blendMode="OVERLAY" focusTraversable="false" layoutX="2.0" layoutY="2.0" prefHeight="38.0" prefWidth="340.0" visible="false">
                <font>
                   <Font size="17.0" />
                </font>

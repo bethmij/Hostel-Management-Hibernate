@@ -20,14 +20,18 @@ public class RoomDAOImpl implements RoomDAO {
     public List<String> getRoomID() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT r.id FROM Room  r");
-        return  query.list();
+        List<String> roomId = query.list();
+        session.close();
+        return  roomId;
     }
 
     @Override
     public List<String> getRoomType() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT r.type FROM Room  r");
-        return query.list();
+        List<String> roomType = query.list();
+        session.close();
+        return  roomType;
     }
 
     @Override
@@ -51,13 +55,17 @@ public class RoomDAOImpl implements RoomDAO {
     public List<Room> getRoomDetails() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery(" FROM Room ");
-        return query.list();
+        List<Room> room = query.list();
+        session.close();
+        return  room;
     }
 
     @Override
     public Room getRoom(String roomID) {
         session = SessionFactoryConfig.getInstance().getSession();
-        return session.get(Room.class,roomID);
+        Room room = session.get(Room.class,roomID);
+        session.close();
+        return room;
     }
 
     @Override
@@ -99,6 +107,7 @@ public class RoomDAOImpl implements RoomDAO {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT sum(r.qty) FROM Room r ");
         Long countResult = (Long) query.getSingleResult();
+        session.close();
         return countResult.intValue();
     }
 
@@ -107,7 +116,9 @@ public class RoomDAOImpl implements RoomDAO {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery("SELECT r.qty FROM Room r WHERE r.id= :roomid");
         query.setParameter("roomid",id);
-        return (int) query.uniqueResult();
+        int qty = (int) query.uniqueResult();
+        session.close();
+        return qty;
     }
 
 

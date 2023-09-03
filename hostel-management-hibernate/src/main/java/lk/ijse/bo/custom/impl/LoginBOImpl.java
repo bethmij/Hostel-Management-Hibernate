@@ -6,11 +6,23 @@ import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.UserDAO;
 import lk.ijse.entity.User;
 
+import java.util.List;
+
 public class LoginBOImpl implements LoginBO {
     UserDAO userDAO = (UserDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.USER);
 
     @Override
     public User getUser(String txtUserName) {
         return userDAO.getUser(txtUserName);
+    }
+
+    @Override
+    public List<String> getUserNameList() {
+        return userDAO.getUserNameList();
+    }
+
+    @Override
+    public String getPassword(String userName) {
+        return userDAO.getPassword(userName);
     }
 }

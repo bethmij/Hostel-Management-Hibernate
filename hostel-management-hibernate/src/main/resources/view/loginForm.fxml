@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="logPane" prefHeight="783.0" prefWidth="1395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="logPane" prefHeight="783.0" prefWidth="1395.0" stylesheets="@css/sheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
       <JFXButton layoutX="237.0" layoutY="77.0" prefHeight="1.0" prefWidth="24.0" />
       <ImageView fitHeight="786.0" fitWidth="1399.0" pickOnBounds="true" preserveRatio="true">
@@ -49,12 +50,7 @@
                </color></DropShadow>
          </effect></Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="535.0" layoutX="239.0" layoutY="130.0" opacity="0.61" stroke="#081e33" strokeType="INSIDE" width="428.0" />
-      <ImageView fitHeight="328.0" fitWidth="552.0" layoutX="245.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assests/Untitled__8_-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="129.0" fitWidth="169.0" layoutX="391.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="158.0" fitWidth="160.0" layoutX="382.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Green_Minimalist_Simple_House_Logo_Icon__4_-removebg-preview.png" />
          </image>
@@ -69,7 +65,7 @@
             </DropShadow>
          </effect>
       </ImageView>
-      <ImageView fitHeight="288.0" fitWidth="372.0" layoutX="309.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="288.0" fitWidth="372.0" layoutX="309.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Simple_Black_and_Turquoise_Welcome_Instagram_Post__1_-removebg-preview%20(1).png" />
          </image>
@@ -82,7 +78,7 @@
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
-      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="757.0" layoutY="264.0" prefHeight="38.0" prefWidth="373.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="757.0" layoutY="264.0" prefHeight="38.0" prefWidth="354.0" promptText="User Name" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -94,7 +90,7 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <PasswordField fx:id="txtPassword" blendMode="OVERLAY" layoutX="758.0" layoutY="339.0" prefHeight="38.0" prefWidth="374.0" promptText="Password">
+      <PasswordField fx:id="txtPassword" blendMode="OVERLAY" layoutX="758.0" layoutY="339.0" prefHeight="38.0" prefWidth="354.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>
@@ -103,16 +99,22 @@
          <font>
             <Font size="16.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <Text fill="#a9a7a7" layoutX="818.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account ?">
          <font>
             <Font name="Bookshelf Symbol 7" size="16.0" />
          </font>
       </Text>
-      <Text fill="#fafafa" layoutX="996.0" layoutY="524.0" onMouseClicked="#signUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" wrappingWidth="86.84375">
+      <Text fill="#fafafa" layoutX="996.0" layoutY="524.0" onMouseClicked="#signUpOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Sign up" wrappingWidth="86.84375">
          <font>
             <Font name="Bookshelf Symbol 7" size="16.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Text>
       <ImageView fitHeight="38.0" fitWidth="87.0" layoutX="714.0" layoutY="263.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -123,6 +125,26 @@
          <image>
             <Image url="@../assests/icons8-password-100.png" />
          </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="1121.0" layoutY="346.0" onMouseClicked="#passOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
+         <image>
+            <Image url="@../assests/icon/icons8-eye-96.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TextField fx:id="txtPassVisible" blendMode="OVERLAY" layoutX="758.0" layoutY="340.0" prefHeight="38.0" prefWidth="354.0" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <ImageView fitHeight="246.0" fitWidth="553.0" layoutX="249.0" layoutY="412.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assests/hostel.png" />
+         </image>
+         <effect>
+            <ColorAdjust saturation="0.39" />
+         </effect>
       </ImageView>
    </children>
 </AnchorPane>

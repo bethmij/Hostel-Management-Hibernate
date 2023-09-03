@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
@@ -15,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="665.0" prefWidth="1177.0" stylesheets="@css/sheet.css"  xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignUpformController">
+<AnchorPane prefHeight="665.0" prefWidth="1177.0" stylesheets="@css/sheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignUpformController">
    <children>
       <JFXButton layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="0.0" />
       <ImageView fitHeight="665.0" fitWidth="1182.0" pickOnBounds="true" preserveRatio="true">
@@ -26,13 +28,26 @@
             <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
          </effect>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="592.0" layoutX="110.0" layoutY="32.0" opacity="0.28" stroke="#d5dde500" strokeType="INSIDE" width="952.0">
+      <ImageView fitHeight="665.0" fitWidth="1175.0" layoutY="2.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/586f513b350e3f5a1694ec752ae2a183.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.37" contrast="0.47" saturation="0.3" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="592.0" fitWidth="952.0" layoutX="110.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8baac4" height="535.0" layoutX="110.0" layoutY="60.0" opacity="0.28" stroke="#d5dde500" strokeType="INSIDE" width="952.0">
          <effect>
             <DropShadow />
          </effect>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="592.0" layoutX="110.0" layoutY="32.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="428.0" />
-      <ImageView fitHeight="129.0" fitWidth="169.0" layoutX="272.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#081e33" height="592.0" layoutX="110.0" layoutY="60.0" opacity="0.24" stroke="BLACK" strokeType="INSIDE" width="428.0" />
+      <ImageView fitHeight="156.0" fitWidth="159.0" layoutX="246.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Green_Minimalist_Simple_House_Logo_Icon__4_-removebg-preview.png" />
          </image>
@@ -47,7 +62,7 @@
             </DropShadow>
          </effect>
       </ImageView>
-      <ImageView fitHeight="288.0" fitWidth="372.0" layoutX="190.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="310.0" fitWidth="320.0" layoutX="169.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/Simple_Black_and_Turquoise_Welcome_Instagram_Post__1_-removebg-preview%20(1).png" />
          </image>
@@ -55,12 +70,12 @@
             <ColorAdjust brightness="0.75" contrast="-0.28" saturation="0.95" />
          </effect>
       </ImageView>
-      <Text fill="#dcdcdc" layoutX="616.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sing up">
+      <Text fill="#dcdcdc" layoutX="559.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sing up">
          <font>
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
-      <TextField fx:id="txtUserName" blendMode="OVERLAY" layoutX="620.0" layoutY="339.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtUserName" blendMode="OVERLAY" layoutX="620.0" layoutY="331.0" prefHeight="38.0" prefWidth="394.0" promptText="User Name" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -72,17 +87,17 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <PasswordField fx:id="txtPass" blendMode="OVERLAY" layoutX="620.0" layoutY="392.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
+      <PasswordField fx:id="txtPass" blendMode="OVERLAY" layoutX="620.0" layoutY="380.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="txtReenter" blendMode="OVERLAY" layoutX="620.0" layoutY="443.0" prefHeight="38.0" prefWidth="394.0" promptText="Re-Enter Password">
+      <PasswordField fx:id="txtReenter" blendMode="OVERLAY" layoutX="620.0" layoutY="429.0" prefHeight="38.0" prefWidth="394.0" promptText="Re-Enter Password">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="620.0" layoutY="238.0" prefHeight="38.0" prefWidth="394.0" promptText="User ID" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="620.0" layoutY="224.0" prefHeight="38.0" prefWidth="394.0" promptText="User ID" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -94,12 +109,7 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <ImageView fitHeight="328.0" fitWidth="552.0" layoutX="79.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assests/Untitled__8_-removebg-preview.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="txtEmail" blendMode="OVERLAY" layoutX="620.0" layoutY="496.0" prefHeight="38.0" prefWidth="394.0" promptText="Email" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtEmail" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="477.0" onKeyReleased="#txtEmailOnRelease" onKeyTyped="#txtEmailOnType" prefHeight="38.0" prefWidth="394.0" promptText="Email" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -111,13 +121,16 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <JFXButton fx:id="btnSave" layoutX="762.0" layoutY="554.0" onAction="#signUpOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="SIGN UP" textFill="WHITE">
+      <JFXButton fx:id="btnSave" layoutX="773.0" layoutY="529.0" onAction="#signUpOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="SIGN UP" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="805.0" layoutY="162.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="826.0" layoutY="177.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0" ripplerFill="#ffffff00" textFill="TRANSPARENT">
+      <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="806.0" layoutY="141.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="817.0" layoutY="162.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0" ripplerFill="#ffffff00" styleClass="image-icon" textFill="TRANSPARENT">
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -125,8 +138,11 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="620.0" layoutY="289.0" prefHeight="38.0" prefWidth="394.0" promptText="Name" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="620.0" layoutY="275.0" onKeyReleased="#txtNameOnRelease" onKeyTyped="#txtNameOnType" prefHeight="38.0" prefWidth="394.0" promptText="Name" style="-fx-border-color: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -138,5 +154,49 @@
             </InnerShadow>
          </effect>
       </TextField>
+      <TextField fx:id="txtPassVisible" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="377.0" prefHeight="38.0" prefWidth="394.0" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPassVisible1" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="427.0" prefHeight="38.0" prefWidth="394.0" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="1021.0" layoutY="389.0" onMouseClicked="#passOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
+         <image>
+            <Image url="@../assests/icon/icons8-eye-96.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="1021.0" layoutY="440.0" onMouseClicked="#reEnterOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
+         <image>
+            <Image url="@../assests/icon/icons8-eye-96.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="230.0" fitWidth="482.0" layoutX="123.0" layoutY="362.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assests/hostel.png" />
+         </image>
+         <effect>
+            <ColorAdjust saturation="0.39" />
+         </effect>
+      </ImageView>
+      <Label fx:id="lblEmail" layoutX="620.0" layoutY="513.0" prefHeight="20.0" prefWidth="394.0" textFill="#a91515">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblName" layoutX="620.0" layoutY="308.0" prefHeight="20.0" prefWidth="394.0" textFill="#a91515">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

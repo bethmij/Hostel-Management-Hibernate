@@ -5,9 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
@@ -38,6 +41,11 @@ public class SignUpformController implements Initializable {
     public Circle circleUser1;
     public TextField txtUserName;
     public JFXButton btnSave;
+    public TextField txtPassVisible;
+    public TextField txtPassVisible1;
+    public Label lblEmail;
+    public Label lblName;
+    public TextField txtReEnterVisible;
     InputStream in = null;
     String path;
     UserBO userBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.USER);
@@ -125,5 +133,65 @@ public class SignUpformController implements Initializable {
 
     }
 
-    
+
+    public void passOnAction(MouseEvent mouseEvent) {
+        if(txtPass.isVisible()) {
+            txtPass.setVisible(false);
+            txtPassVisible.setVisible(true);
+            txtPassVisible.setText(txtPass.getText());
+            txtPassVisible.setEditable(false);
+        }else{
+            txtPass.setVisible(true);
+            txtPassVisible.setVisible(false);
+        }
+    }
+
+    public void reEnterOnAction(MouseEvent mouseEvent) {
+        if(txtReenter.isVisible()) {
+            txtReenter.setVisible(false);
+            txtReEnterVisible.setVisible(true);
+            txtReEnterVisible.setText(txtReenter.getText());
+            txtReEnterVisible.setEditable(false);
+        }else{
+            txtReenter.setVisible(true);
+            txtReEnterVisible.setVisible(false);
+        }
+    }
+
+    public void txtEmailOnRelease(KeyEvent keyEvent) {
+        if (!txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            txtEmail.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3);; -fx-font-size: 16px;");
+            lblEmail.setText("Invalid Email Format!");
+        }
+        if(txtEmail.getText().equals("")){
+            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblEmail.setText("");
+        }
+
+    }
+
+    public void txtEmailOnType(KeyEvent keyEvent) {
+        if (txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblEmail.setText("");
+        }
+        if(txtEmail.getText().equals("")){
+            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblEmail.setText("");
+        }
+    }
+
+    public void txtNameOnRelease(KeyEvent keyEvent) {
+        if (!txtName.getText().matches("^[A-Za-z\\s]*$")) {
+            txtName.setStyle(" -fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblName.setText("This filed can not contain numeric values!");
+        }
+    }
+
+    public void txtNameOnType(KeyEvent keyEvent) {
+        if (txtName.getText().matches("^[A-Za-z\\s]*$")) {
+            txtName.setStyle("-fx-effect: null; -fx-font-size: 16px;");
+            lblName.setText("");
+        }
+    }
 }

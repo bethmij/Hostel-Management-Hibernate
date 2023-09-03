@@ -56,8 +56,6 @@ public class SettingFormController implements Initializable {
         setImage();
         setHeader(lblDate,lblTime,circleUser,lblUser);
 
-        txtCurrentPass.setVisible(false);
-        txtNewPass.setVisible(false);
     }
 
     private void setImage() {
