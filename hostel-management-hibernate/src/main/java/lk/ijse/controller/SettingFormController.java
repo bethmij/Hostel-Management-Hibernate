@@ -41,6 +41,9 @@ public class SettingFormController implements Initializable {
     public PasswordField txtPass;
     public PasswordField txtReEnter;
     public Label lblName;
+    public PasswordField txtCurrPass;
+    public TextField txtCurrentPass;
+    public TextField txtNewPass;
     InputStream in ;
     String path ;
     SettingBO settingBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.SETTING);
@@ -53,8 +56,8 @@ public class SettingFormController implements Initializable {
         setImage();
         setHeader(lblDate,lblTime,circleUser,lblUser);
 
-
-
+        txtCurrentPass.setVisible(false);
+        txtNewPass.setVisible(false);
     }
 
     private void setImage() {
@@ -78,19 +81,31 @@ public class SettingFormController implements Initializable {
     }
 
     public void userOnAction(ActionEvent actionEvent) {
-        boolean isUpdated = settingBO.updateUserName(txtUserName.getText(), user.getUserName());
-        if (isUpdated) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Updated User Name Successfully!").show();
-        } else
-            new Alert(Alert.AlertType.ERROR, "Update User Name Failed!").show();
+        if(!txtUserName.getText().isEmpty()) {
+            boolean isUpdated = settingBO.updateUserName(txtUserName.getText(), user.getUserName());
+            if (isUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Updated User Name Successfully!").show();
+            } else
+                new Alert(Alert.AlertType.ERROR, "Update User Name Failed!").show();
+        }new Alert(Alert.AlertType.ERROR, "Please enter user name!").show();
     }
 
     public void passOnAction(ActionEvent actionEvent) {
-        boolean isUpdated = settingBO.updatePassword(txtReEnter.getText(), user.getUserName());
-        if (isUpdated) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Updated Password Successfully!").show();
-        } else
-            new Alert(Alert.AlertType.ERROR, "Update Password Failed!").show();
+        if(!txtCurrPass.getText().isEmpty() && !txtPass.getText().isEmpty() && !txtReEnter.getText().isEmpty()) {
+            if (txtCurrPass.getText().equals(user.getPassword())) {
+                if (txtPass.getText().equals(txtReEnter.getText())) {
+                    boolean isUpdated = settingBO.updatePassword(txtReEnter.getText(), user.getUserName());
+                    if (isUpdated) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "Updated Password Successfully!").show();
+                    } else
+                        new Alert(Alert.AlertType.ERROR, "Update Password Failed!").show();
+                } else
+                    new Alert(Alert.AlertType.ERROR, "Password doesn't match! Please re-enter").show();
+            } else
+                new Alert(Alert.AlertType.ERROR, "Incorrect Password").show();
+        }else
+            new Alert(Alert.AlertType.ERROR, "Please fill up all fields!").show();
+
     }
 
     public void editOnAction(MouseEvent mouseEvent) {
@@ -179,4 +194,27 @@ public class SettingFormController implements Initializable {
     }
 
 
+    public void currPassOnAction(MouseEvent mouseEvent) {
+        if(txtCurrPass.isVisible()) {
+            txtCurrPass.setVisible(false);
+            txtCurrentPass.setVisible(true);
+            txtCurrentPass.setText(txtCurrPass.getText());
+            txtCurrentPass.setEditable(false);
+        }else{
+            txtCurrPass.setVisible(true);
+            txtCurrentPass.setVisible(false);
+        }
+    }
+
+    public void newPassOnAction(MouseEvent mouseEvent) {
+        if(txtPass.isVisible()) {
+            txtPass.setVisible(false);
+            txtNewPass.setVisible(true);
+            txtNewPass.setText(txtPass.getText());
+            txtNewPass.setEditable(false);
+        }else{
+            txtPass.setVisible(true);
+            txtNewPass.setVisible(false);
+        }
+    }
 }
