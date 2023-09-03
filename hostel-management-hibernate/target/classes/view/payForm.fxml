@@ -13,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PayFormController">
    <children>
       <JFXButton layoutX="9.0" layoutY="48.0" prefHeight="26.0" prefWidth="2.0" />
@@ -34,7 +33,7 @@
             <ColorAdjust brightness="1.0" contrast="1.0" hue="0.11" saturation="1.0" />
          </effect>
       </ImageView>
-      <Text fill="#e1e1e1" layoutX="53.0" layoutY="26.0"  strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Payment Form">
+      <Text fill="#e1e1e1" layoutX="53.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Payment Form">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
@@ -42,7 +41,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <Text fill="#e1e1e1" layoutX="36.0" layoutY="97.0"  strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Reservation ID :">
+      <Text fill="#e1e1e1" layoutX="36.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Reservation ID :">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
@@ -50,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <Text fill="#e1e1e1" layoutX="35.0" layoutY="149.0"  strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Student ID :">
+      <Text fill="#e1e1e1" layoutX="35.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Student ID :">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
@@ -58,7 +57,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <Text fill="#e1e1e1" layoutX="37.0" layoutY="194.0"  strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Student Name :">
+      <Text fill="#e1e1e1" layoutX="37.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Student Name :">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
@@ -66,7 +65,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <Text fill="#e1e1e1" layoutX="37.0" layoutY="238.0"  strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Room ID : ">
+      <Text fill="#e1e1e1" layoutX="37.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Room ID : ">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
@@ -74,7 +73,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <Text fill="#e1e1e1" layoutX="37.0" layoutY="280.0"  strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Room Type : ">
+      <Text fill="#e1e1e1" layoutX="37.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Room Type : ">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
@@ -82,7 +81,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <Text fill="#e1e1e1" layoutX="37.0" layoutY="326.0"  strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Total Amount : ">
+      <Text fill="#e1e1e1" layoutX="37.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Total Amount : ">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
@@ -90,7 +89,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <Text fill="#e1e1e1" layoutX="36.0" layoutY="367.0"  strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Remaining : ">
+      <Text fill="#e1e1e1" layoutX="36.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Remaining : ">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
@@ -101,7 +100,7 @@
       <Group layoutX="52.0" layoutY="461.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="35.0" layoutX="14.0" layoutY="-36.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="233.0" />
-            <TextField fx:id="txtEAmount" blendMode="OVERLAY" layoutX="16.0" layoutY="-40.0"  prefHeight="29.0" prefWidth="230.0" promptText="Amount" style="-fx-border-color: #ffffff;">
+            <TextField fx:id="txtEAmount" blendMode="OVERLAY" layoutX="16.0" layoutY="-40.0" onKeyReleased="#txtAmountOnRelease" onKeyTyped="#txtAmountOnType" prefHeight="29.0" prefWidth="230.0" promptText="Amount" style="-fx-border-color: #ffffff;">
                <font>
                   <Font size="17.0" />
                </font>
@@ -149,6 +148,11 @@
       <Label fx:id="lblRemain" layoutX="141.0" layoutY="350.0" prefHeight="23.0" prefWidth="174.0" textFill="#e1e1e1">
          <font>
             <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblMoney" layoutX="68.0" layoutY="458.0" prefHeight="20.0" prefWidth="230.0" textFill="#a91515">
+         <font>
+            <Font size="13.0" />
          </font>
       </Label>
    </children>

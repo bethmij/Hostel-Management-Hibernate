@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -53,6 +54,7 @@ public class PaymentFormController implements Initializable {
     public ComboBox cbSelect;
     public static ReserveProjection reserveProjection;
     public static ReserveProjection projection;
+    public Group IDGroup;
     PaymentBO paymentBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAYMENT);
     ObservableList<ReserveTM> obList = FXCollections.observableArrayList();
 
@@ -62,6 +64,7 @@ public class PaymentFormController implements Initializable {
         setCellValueFactory();
         setSelections();
         setHeader(lblDate,lblTime,circleUser,lblUser);
+        IDGroup.setDisable(true);
     }
 
 
@@ -321,6 +324,7 @@ public class PaymentFormController implements Initializable {
     }
 
     public void cbSelectOnAction(ActionEvent actionEvent) {
+        IDGroup.setDisable(false);
         txtName.clear();
 
         if(cbSelect.getValue().equals("Reservation ID")){

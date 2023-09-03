@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -57,6 +58,7 @@ public class ReservationFormController implements Initializable {
     public Group payGroup;
     public ToggleGroup toggleGroup;
     public JFXButton btnSave;
+    public Label lblMoney1;
     ReservationBO reservationBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.RESERVE);
 
     @Override
@@ -189,7 +191,8 @@ public class ReservationFormController implements Initializable {
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
 
-//        if(!cmbRoomID.getValue().equals("") && !cmbStuID.getValue().equals("") &&  ) {
+        if(cmbRoomID.isPressed() && cmbStuID.isPressed() || rdPayNow.isSelected() ||
+                rdPayHalfNow.isSelected() && !txtPay.getText().isEmpty() || edPayLater.isSelected() ) {
             if (btnSave.getText().equals("Reserve")) {
                 String status = "";
 
@@ -204,14 +207,14 @@ public class ReservationFormController implements Initializable {
                 StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
                 ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
 
-                boolean isSaved = reservationBO.reserveRoom(reservationDTO);
+               // boolean isSaved = reservationBO.reserveRoom(reservationDTO);
 
-                if (isSaved) {
+               /* if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully!").show();
                     getClear();
                     setReserveID();
                 } else
-                    new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();
+                    new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();*/
 
             } else if (btnSave.getText().equals("Update")) {
                 String status = "";
@@ -237,7 +240,8 @@ public class ReservationFormController implements Initializable {
                     new Alert(Alert.AlertType.ERROR, "Room Reservation Update Failed!").show();
 
             }
-//        }
+       }else
+            new Alert(Alert.AlertType.ERROR, "Please fill up the compulsory fields * ").show();
     }
 
     private void getClear() {
@@ -268,6 +272,23 @@ public class ReservationFormController implements Initializable {
     }
 
     public void rdHalfOnAction(ActionEvent actionEvent) {
-        payGroup.setVisible(true);
+        if(rdPayHalfNow.isSelected())
+            payGroup.setVisible(true);
+        else
+            payGroup.setVisible(false);
+    }
+
+    public void txtAmountOnRelease(KeyEvent keyEvent) {
+        if (txtPay.getText().matches("^(([0-9.]?)*)+$")) {
+            txtPay.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblMoney.setText("");
+        }
+    }
+
+    public void txtAmountOnType(KeyEvent keyEvent) {
+        if (!txtPay.getText().matches("^(([0-9.]?)*)+$")) {
+            txtPay.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblMoney.setText("Only numeric values!");
+        }
     }
 }

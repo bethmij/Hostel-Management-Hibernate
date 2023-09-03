@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PayBO;
 
@@ -23,6 +24,7 @@ public class PayFormController implements Initializable {
     public Label lblRoomType;
     public Label lblTotal;
     public Label lblRemain;
+    public Label lblMoney;
     PayBO payBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAY);
 
     @Override
@@ -39,16 +41,17 @@ public class PayFormController implements Initializable {
     public void btnPayOnAction(ActionEvent actionEvent) {
         if(!txtEAmount.getText().isEmpty() && !txtEAmount.getText().equals("0") ) {
             String amount = txtEAmount.getText();
-            String status = "";
+            String status = projection.getStatus();
             String[] remain = lblRemain.getText().split("Rs\\. ");
-            System.out.println(remain[1]);
 
             if (amount.equals(remain[1])) {
                 status = "Paid";
             } else if (amount.compareTo(remain[1]) > 0) {
-                status = "Half Paid:" + amount;
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Please check the amount again! ");
+                int preAmount = Integer.parseInt(projection.getStatus().replaceAll("\\D+", ""));
+                String[] newAmount = amount.split("\\.");
+                status = "Half Paid:" + (preAmount+Integer.parseInt(newAmount[0]));
+            } else if (amount.compareTo(remain[1]) < 0) {
+                new Alert(Alert.AlertType.ERROR, "Please check the amount again! ").show();
             }
             boolean isUpdated = payBO.updateStatus(status,projection.getReserveID());
             if (isUpdated) {
@@ -72,4 +75,17 @@ public class PayFormController implements Initializable {
     }
 
 
+    public void txtAmountOnRelease(KeyEvent keyEvent) {
+        if (txtEAmount.getText().matches("^(([0-9.]?)*)+$")) {
+            txtEAmount.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
+            lblMoney.setText("");
+        }
+    }
+
+    public void txtAmountOnType(KeyEvent keyEvent) {
+        if (!txtEAmount.getText().matches("^(([0-9.]?)*)+$")) {
+            txtEAmount.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
+            lblMoney.setText("Should only contains numeric values!");
+        }
+    }
 }

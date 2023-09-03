@@ -115,7 +115,7 @@
             <Image url="@../assests/icon/icons8-setting-80.png" />
          </image>
       </ImageView>
-      <Group layoutX="430.0" layoutY="120.0">
+      <Group fx:id="IDGroup" layoutX="430.0" layoutY="120.0">
          <children>
             <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="37.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="401.0" />
             <TextField fx:id="txtName" blendMode="OVERLAY" layoutY="2.0" prefHeight="20.0" prefWidth="401.0" promptText="Please select your selection type!" style="-fx-border-color: #ffffff;">
@@ -182,7 +182,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </CheckBox>
-      <JFXButton layoutX="806.0" layoutY="254.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Search" textFill="WHITE">
+      <JFXButton layoutX="802.0" layoutY="254.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Search" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
