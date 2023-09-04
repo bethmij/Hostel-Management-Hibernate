@@ -23,4 +23,6 @@ public interface UserDAO extends SuperDAO {
     List<String> getUserNameList();
 
     String getPassword(String userName);
+
+    String getEmail(String userName);
 }

@@ -70,7 +70,7 @@
             <ColorAdjust brightness="0.75" contrast="-0.28" saturation="0.95" />
          </effect>
       </ImageView>
-      <Text fill="#dcdcdc" layoutX="559.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sing up">
+      <Text fill="#dcdcdc" layoutX="562.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sing up">
          <font>
             <Font name="Book Antiqua" size="21.0" />
          </font>
@@ -159,7 +159,7 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtPassVisible1" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="427.0" prefHeight="38.0" prefWidth="394.0" visible="false">
+      <TextField fx:id="txtReEnterVisible" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="427.0" prefHeight="38.0" prefWidth="394.0" visible="false">
          <font>
             <Font size="15.0" />
          </font>

@@ -23,6 +23,7 @@ import lk.ijse.entity.User;
 import org.apache.commons.io.IOUtils;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.*;
 import java.net.URL;
@@ -92,8 +93,8 @@ public class SignUpformController implements Initializable {
 
         if(btnSave.getText().equals("SIGN UP")) {
             byte[] imagePath = path.getBytes();
-
-            UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(), txtUserName.getText(), txtReenter.getText(), txtEmail.getText(), imagePath);
+            String hashed = BCrypt.hashpw(txtReenter.getText(), BCrypt.gensalt());
+            UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(), txtUserName.getText(), hashed , txtEmail.getText(), imagePath);
             boolean isSaved = userBO.saveUser(userDTO);
 
             if (isSaved) {

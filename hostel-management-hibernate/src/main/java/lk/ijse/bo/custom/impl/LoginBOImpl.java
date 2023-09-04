@@ -25,4 +25,9 @@ public class LoginBOImpl implements LoginBO {
     public String getPassword(String userName) {
         return userDAO.getPassword(userName);
     }
+
+    @Override
+    public String getUserEmail(String userName) {
+        return userDAO.getEmail(userName);
+    }
 }

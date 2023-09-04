@@ -16,6 +16,7 @@ import lk.ijse.bo.custom.SettingBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
 import lk.ijse.dto.RoomDTO;
 import lk.ijse.dto.UserDTO;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -92,7 +93,8 @@ public class SettingFormController implements Initializable {
         if(!txtCurrPass.getText().isEmpty() && !txtPass.getText().isEmpty() && !txtReEnter.getText().isEmpty()) {
             if (txtCurrPass.getText().equals(user.getPassword())) {
                 if (txtPass.getText().equals(txtReEnter.getText())) {
-                    boolean isUpdated = settingBO.updatePassword(txtReEnter.getText(), user.getUserName());
+                    String hashed = BCrypt.hashpw(txtReEnter.getText(), BCrypt.gensalt());
+                    boolean isUpdated = settingBO.updatePassword(hashed, user.getUserName());
                     if (isUpdated) {
                         new Alert(Alert.AlertType.CONFIRMATION, "Updated Password Successfully!").show();
                     } else

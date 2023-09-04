@@ -12,4 +12,6 @@ public interface LoginBO extends SuperBO {
     List<String> getUserNameList();
 
     String getPassword(String userName);
+
+    String getUserEmail(String userName);
 }

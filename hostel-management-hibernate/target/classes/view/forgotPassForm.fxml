@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="471.0" prefWidth="868.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ForgotPassFormController">
+   <children>
+      <JFXButton layoutX="14.0" layoutY="434.0" prefHeight="26.0" prefWidth="0.0" />
+      <ImageView fitHeight="498.0" fitWidth="868.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.34" hue="0.04" saturation="1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="486.0" fitWidth="867.0" layoutX="-1.0" layoutY="5.0" opacity="0.67" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/586f513b350e3f5a1694ec752ae2a183.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.37" contrast="0.47" saturation="0.3" />
+         </effect>
+      </ImageView>
+      <Text fill="WHITE" layoutX="338.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify itś you!" wrappingWidth="191.051513671875">
+         <font>
+            <Font name="Yu Gothic Regular" size="28.0" />
+         </font>
+      </Text>
+      <Text fill="#d6ddff" layoutX="178.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We want to make sure itś really you. In order to futher verify your identity, enter the verification code that was sent to " wrappingWidth="511.8515319824219">
+         <font>
+            <Font name="Yu Gothic Regular" size="18.0" />
+         </font>
+      </Text>
+      <Group layoutX="283.0" layoutY="133.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#96b1c9a6" height="38.0" layoutY="38.0" stroke="#86a0b8de" strokeType="INSIDE" width="302.0" />
+            <TextField fx:id="txtVerification" blendMode="OVERLAY" layoutX="1.0" layoutY="38.0" prefHeight="38.0" prefWidth="301.0" promptText="Verification Code">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+         </children>
+      </Group>
+      <JFXButton fx:id="btnVerify" buttonType="RAISED" layoutX="372.0" layoutY="237.0" onAction="#btnVerifyOnAction" prefHeight="20.0" prefWidth="122.0" style="-fx-border-color: #ffffff; -fx-border-radius: 20;" text="Verify" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Text fill="WHITE" layoutX="500.0" layoutY="225.0" onMouseClicked="#btnResendOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Resend Code" wrappingWidth="124.99999999999989">
+         <font>
+            <Font name="Yu Gothic Regular" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
+      <Text fill="WHITE" layoutX="292.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Can't find it? Please check your spam folder" wrappingWidth="332.6514892578125">
+         <font>
+            <Font name="Yu Gothic Regular" size="14.0" />
+         </font>
+      </Text>
+      <Group layoutX="283.0" layoutY="293.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#96b1c9a6" height="38.0" layoutY="38.0" stroke="#86a0b8de" strokeType="INSIDE" width="302.0" />
+            <TextField fx:id="txtVerification1" blendMode="OVERLAY" disable="true" layoutX="1.0" layoutY="38.0" prefHeight="38.0" prefWidth="301.0" promptText="Verification Code" visible="false">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.800000011920929" green="0.5882353186607361" blue="0.16470588743686676" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="txtPasswordVisible" blendMode="OVERLAY" disable="true" layoutY="37.0" prefHeight="38.0" prefWidth="303.0" promptText="Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </Group>
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="601.0" layoutY="338.0" onMouseClicked="#passOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
+         <image>
+            <Image url="@../assests/icon/icons8-eye-96.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <JFXButton fx:id="btnSave1" buttonType="RAISED" disable="true" layoutX="361.0" layoutY="396.0" onAction="#btnSetPassOnAction" prefHeight="38.0" prefWidth="146.0" style="-fx-border-color: #ffffff; -fx-border-radius: 20;" text="Reset Password" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>

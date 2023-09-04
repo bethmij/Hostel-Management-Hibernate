@@ -152,4 +152,14 @@ public class UserDAOImpl implements UserDAO {
         session.close();
         return password;
     }
+
+    @Override
+    public String getEmail(String userName) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query query = session.createQuery("SELECT u.email FROM User u WHERE u.userName = :userName");
+        query.setParameter("userName", userName);
+        String email =  (String) query.uniqueResult();
+        session.close();
+        return email;
+    }
 }

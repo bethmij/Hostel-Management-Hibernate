@@ -146,5 +146,13 @@
             <ColorAdjust saturation="0.39" />
          </effect>
       </ImageView>
+      <Text fill="#c9c9c9" layoutX="982.0" layoutY="400.0" onMouseClicked="#forgotOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Forgot Password ?">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Text>
    </children>
 </AnchorPane>
