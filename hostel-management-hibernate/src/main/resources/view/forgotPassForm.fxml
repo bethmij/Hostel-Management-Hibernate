@@ -80,7 +80,7 @@
       <Group layoutX="283.0" layoutY="293.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#96b1c9a6" height="38.0" layoutY="38.0" stroke="#86a0b8de" strokeType="INSIDE" width="302.0" />
-            <TextField fx:id="txtVerification1" blendMode="OVERLAY" disable="true" layoutX="1.0" layoutY="38.0" prefHeight="38.0" prefWidth="301.0" promptText="Verification Code" visible="false">
+            <TextField fx:id="txtPassVisible" blendMode="OVERLAY" disable="true" layoutX="1.0" layoutY="38.0" prefHeight="38.0" prefWidth="301.0" visible="false">
                <effect>
                   <InnerShadow>
                      <color>
@@ -92,7 +92,7 @@
                   <Font size="17.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="txtPasswordVisible" blendMode="OVERLAY" disable="true" layoutY="37.0" prefHeight="38.0" prefWidth="303.0" promptText="Password">
+            <PasswordField fx:id="txtPassword" blendMode="OVERLAY" disable="true" layoutY="37.0" prefHeight="38.0" prefWidth="303.0" promptText="Password">
                <font>
                   <Font size="15.0" />
                </font>

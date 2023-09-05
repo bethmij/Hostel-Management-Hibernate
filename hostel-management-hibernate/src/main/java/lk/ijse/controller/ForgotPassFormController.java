@@ -2,109 +2,90 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import lk.ijse.dto.UserDTO;
+import lk.ijse.bo.BOFactory;
+import lk.ijse.bo.custom.ForgotPassBO;
+import org.mindrot.jbcrypt.BCrypt;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import java.sql.SQLException;
-import java.util.Properties;
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
 import static lk.ijse.controller.LoginFormController.user;
+import static lk.ijse.dao.custom.impl.util.SendMail.sendAttach;
 
-public class ForgotPassFormController {
+public class ForgotPassFormController implements Initializable {
     public TextField txtVerification;
-    public JFXButton btnSave;
     public JFXButton btnVerify;
-    public TextField txtVerification1;
-    public PasswordField txtPasswordVisible;
     public JFXButton btnSave1;
     public Label lblEmail;
+    public PasswordField txtPassword;
+    public TextField txtPassVisible;
+    int code;
+    ForgotPassBO forgotPassBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.FORGOTPASS);
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        sendEmail();
+    }
 
     public void btnVerifyOnAction(ActionEvent actionEvent) {
+        if (code==Integer.parseInt(txtVerification.getText())){
+            new Alert(Alert.AlertType.CONFIRMATION,"Verification code confirmed!").show();
+            txtPassword.setDisable(false);
+            btnSave1.setDisable(false);
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Invalid verification code!").show();
+        }
     }
 
     public void btnResendOnAction(MouseEvent mouseEvent) {
+        sendEmail();
     }
 
     public void passOnAction(MouseEvent mouseEvent) {
+        if(txtPassword.isVisible()) {
+            txtPassword.setVisible(false);
+            txtPassVisible.setVisible(true);
+            txtPassVisible.setText(txtPassword.getText());
+            txtPassVisible.setEditable(false);
+        }else{
+            txtPassword.setVisible(true);
+            txtPassVisible.setVisible(false);
+        }
     }
 
     public void btnSetPassOnAction(ActionEvent actionEvent) {
+
+            String hashed = BCrypt.hashpw(txtPassword.getText(), BCrypt.gensalt());
+            boolean isSaved = forgotPassBO.updatePassword(hashed,user.getUserName());
+            if (isSaved)
+                new Alert(Alert.AlertType.CONFIRMATION,"Password has been reset successfully!").show();
+            else
+                new Alert(Alert.AlertType.CONFIRMATION,"Password reset failed!").show();
     }
 
-    private static void sendAttach(String message, String subject, String to, String from) {
 
-        String host="smtp.gmail.com";
-        Properties properties = System.getProperties();
-        System.out.println("PROPERTIES "+properties);
-
-        properties.put("mail.smtp.host", host);
-        properties.put("mail.smtp.port","465");
-        properties.put("mail.smtp.ssl.enable","true");
-        properties.put("mail.smtp.auth","true");
-
-        Session session=Session.getInstance(properties, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("bethmij@gmail.com", "vkxyewuzwrfhtghs");
-            }});
-
-        session.setDebug(true);
-
-        MimeMessage m = new MimeMessage(session);
-
-        try {
-            m.setFrom(from);
-            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            m.setSubject(subject);
-            MimeMultipart mimeMultipart = new MimeMultipart();
-            MimeBodyPart textMime = new MimeBodyPart();
-            MimeBodyPart fileMime = new MimeBodyPart();
-
-            try {
-                textMime.setText(message);
-                mimeMultipart.addBodyPart(textMime);
-
-            } catch (Exception e) {
-                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-            }
-            m.setContent(mimeMultipart);
-            Transport.send(m);
-
-        }catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-        }
-
-        System.out.println("Sent success...................");
-
-    }
 
     public void sendEmail (){
-        UserDTO userDTO = null;
-        try {
-            userDTO = passwordBO.searchByUser(user);
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-        }
+
         Random random = new Random();
         code = random.nextInt(99999-11111) + 11111;
 
-        String message =  "Employee ID  -  "+userDTO.getEmployee()+"\n" +
-                "Username      -  "+userDTO.getUser()+"\n" +
+        String message =  "User ID  -  "+user.getUserID()+"\n" +
+                "Username      -  "+user.getUserName()+"\n" +
                 "Verification Code  -  "+code;
-        String subject = "Grama Vista : Email verification";
-        String to = userDTO.getEmail();
-        String from = "gramavista@gmail.com";
+        String subject = "D24 Hotel Administration  : Email verification";
+        String to = user.getEmail();
+        String from = "d24hostel@gmail.com";
         sendAttach(message,subject,to,from);
 
     }
+
+
 }

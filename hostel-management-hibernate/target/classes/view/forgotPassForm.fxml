@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
@@ -40,7 +41,7 @@
             <Font name="Yu Gothic Regular" size="28.0" />
          </font>
       </Text>
-      <Text fill="#d6ddff" layoutX="178.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We want to make sure itś really you. In order to futher verify your identity, enter the verification code that was sent to " wrappingWidth="511.8515319824219">
+      <Text fill="#d6ddff" layoutX="103.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We want to make sure itś really you. In order to futher verify your identity, enter the verification code that was sent to " wrappingWidth="663.051513671875">
          <font>
             <Font name="Yu Gothic Regular" size="18.0" />
          </font>
@@ -79,7 +80,7 @@
       <Group layoutX="283.0" layoutY="293.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#96b1c9a6" height="38.0" layoutY="38.0" stroke="#86a0b8de" strokeType="INSIDE" width="302.0" />
-            <TextField fx:id="txtVerification1" blendMode="OVERLAY" disable="true" layoutX="1.0" layoutY="38.0" prefHeight="38.0" prefWidth="301.0" promptText="Verification Code" visible="false">
+            <TextField fx:id="txtPassVisible" blendMode="OVERLAY" disable="true" layoutX="1.0" layoutY="38.0" prefHeight="38.0" prefWidth="301.0" visible="false">
                <effect>
                   <InnerShadow>
                      <color>
@@ -91,7 +92,7 @@
                   <Font size="17.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="txtPasswordVisible" blendMode="OVERLAY" disable="true" layoutY="37.0" prefHeight="38.0" prefWidth="303.0" promptText="Password">
+            <PasswordField fx:id="txtPassword" blendMode="OVERLAY" disable="true" layoutY="37.0" prefHeight="38.0" prefWidth="303.0" promptText="Password">
                <font>
                   <Font size="15.0" />
                </font>
@@ -114,5 +115,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <Label fx:id="lblEmail" layoutX="414.0" layoutY="105.0" prefHeight="22.0" prefWidth="282.0" textFill="#d6ddff">
+         <font>
+            <Font name="Yu Gothic Regular" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

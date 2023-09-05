@@ -68,4 +68,14 @@ public class QueryDAOImpl implements QueryDAO {
         session.close();
         return reserveProjections;
     }
+
+    @Override
+    public String getEmail(String reserveID) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query<String> query = session.createQuery("SELECT s.email FROM Reservation rs JOIN rs.student s WHERE rs.reserveID = :resID  ",String.class);
+        query.setParameter("resID",reserveID);
+        String email = query.uniqueResult();
+        session.close();
+        return email;
+    }
 }

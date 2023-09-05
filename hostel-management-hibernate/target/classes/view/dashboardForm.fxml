@@ -158,7 +158,7 @@
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblNoAcAvailble" alignment="CENTER" layoutX="1199.0" layoutY="231.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblNoAcAvailable" alignment="CENTER" layoutX="1199.0" layoutY="231.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -183,7 +183,7 @@
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblNoAcFoodAvailble" alignment="CENTER" layoutX="1198.0" layoutY="350.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblNoAcFoodAvailable" alignment="CENTER" layoutX="1198.0" layoutY="350.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -208,7 +208,7 @@
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblAcAvailble" alignment="CENTER" layoutX="1200.0" layoutY="486.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblAcAvailable" alignment="CENTER" layoutX="1200.0" layoutY="486.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -233,7 +233,7 @@
             <Font name="Calibri" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblAcFoodAvailble" alignment="CENTER" layoutX="1203.0" layoutY="626.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
+      <Label fx:id="lblAcFoodAvailable" alignment="CENTER" layoutX="1203.0" layoutY="626.0" prefHeight="30.0" prefWidth="65.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

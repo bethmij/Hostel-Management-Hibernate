@@ -17,4 +17,6 @@ public interface QueryDAO extends SuperDAO {
     ReserveProjection getReserveByPayResID(String reserveID);
 
     List<ReserveProjection> getReserveByRoomID(String roomID);
+
+    String getEmail(String reserveID);
 }

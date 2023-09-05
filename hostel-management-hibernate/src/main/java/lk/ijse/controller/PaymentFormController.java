@@ -168,7 +168,7 @@ public class PaymentFormController implements Initializable {
                 payButton = null;
             }
 
-            String remaining;remaining = calcRemaining(list.getStatus(), list.getKeyMoney());
+            String remaining = calcRemaining(list.getStatus(), list.getKeyMoney());
             if(remaining.equals("")){
                 remaining = "---";
             }

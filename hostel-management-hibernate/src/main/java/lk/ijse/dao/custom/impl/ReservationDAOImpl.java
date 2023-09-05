@@ -7,6 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 public class ReservationDAOImpl implements ReservationDAO {
@@ -129,5 +132,17 @@ public class ReservationDAOImpl implements ReservationDAO {
         }finally {
             session.close();
         }
+    }
+
+    @Override
+    public LocalDate getReservedDate(String reserveID) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query<Date> query = session.createQuery("SELECT rs.date FROM Reservation rs WHERE rs.reserveID = :id", Date.class);
+        query.setParameter("id",reserveID);
+        LocalDate date = query.uniqueResult().toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();;
+        session.close();
+        return date;
     }
 }

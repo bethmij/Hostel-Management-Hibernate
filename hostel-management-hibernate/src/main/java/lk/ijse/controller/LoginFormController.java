@@ -68,8 +68,8 @@ public class LoginFormController {
             List<String> userNameLists = loginBO.getUserNameList();
             for (String userName : userNameLists) {
                 if (txtName.getText().equals(userName)) {
-                    userEmail = loginBO.getUserEmail(userName);
-                    if (userEmail.isEmpty())
+                    user = loginBO.getUser(userName);
+                    if (user.getEmail().isEmpty())
                         new Alert(Alert.AlertType.ERROR, "User doesn't have an email, This feature can't proceed further!").show();
                     else
                         OpenView.openView("forgotPassForm");
