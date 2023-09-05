@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 
 import static lk.ijse.controller.StudentManageFormController.studentDTO;
 import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
+import static lk.ijse.dao.custom.impl.util.SetValidation.*;
 
 public class RegistrationFormController implements Initializable {
     public AnchorPane registerPane;
@@ -187,101 +188,35 @@ public class RegistrationFormController implements Initializable {
         OpenView.openView("paymentForm",registerPane);
     }
 
-
     public void txtNameOnKeyReleased(KeyEvent keyEvent) {
-        if (!txtName.getText().matches("^[A-Za-z\\s]*$")) {
-            txtName.setStyle(" -fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblName.setText("This filed can not contain numeric values!");
-        }
+        txtNameOnKeyRelease(txtName,lblName);
     }
 
     public void txtNameOnKeyTyped(KeyEvent keyEvent) {
-        if (txtName.getText().matches("^[A-Za-z\\s]*$")) {
-            txtName.setStyle("-fx-effect: null; -fx-font-size: 16px;");
-            lblName.setText("");
-        }
+        txtNameOnKeyType(txtName,lblName);
     }
 
     public void txtTel1OnKeyReleased(KeyEvent keyEvent) {
-        if (txtTel1.getText().matches("^[0-9]*$")) {
-            txtTel1.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel1.setText("");
-        }
-        if (!(txtTel1.getText().length() == 10)) {
-            txtTel1.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblTel1.setText("Not a valid contact number!");
-        }
-        if(txtTel1.getText().equals("")){
-            txtTel1.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel1.setText("");
-        }
+        txtTelOnKeyRelease(txtTel1,lblTel1);
     }
 
     public void txtTel1OnKeyTyped(KeyEvent keyEvent) {
-
-        if (!txtTel1.getText().matches("^[0-9]*$")) {
-            txtTel1.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblTel1.setText("Not a valid contact number!");
-        }
-        if ((txtTel1.getText().length() == 10)) {
-            txtTel1.setStyle("-fx-effect: null; -fx-font-size: 16px;");
-            lblTel1.setText(" ");
-        }
-        if(txtTel1.getText().equals("")){
-            txtTel1.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel1.setText("");
-        }
+        txtTelOnKeyType(txtTel1,lblTel1);
     }
 
     public void txtTel2OnKeyReleased(KeyEvent keyEvent) {
-        if (!txtTel2.getText().matches("^[0-9]*$")) {
-            txtTel2.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblTel2.setText("Not a valid contact number!");
-        }
-        if (!(txtTel2.getText().length() == 10)) {
-            txtTel2.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblTel2.setText("Not a valid contact number!");
-        }
-        if(txtTel2.getText().equals("")){
-            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel2.setText("");
-        }
+        txtTelOnKeyRelease(txtTel2,lblTel2);
     }
 
     public void txtTel2OnKeyTyped(KeyEvent keyEvent) {
-        if (txtTel2.getText().matches("^[0-9]*$")) {
-            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel2.setText("");
-        }
-        if (txtTel2.getText().length() == 10) {
-            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel2.setText("");
-        }
-        if(txtTel2.getText().equals("")){
-            txtTel2.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblTel2.setText("");
-        }
+        txtTelOnKeyType(txtTel2,lblTel2);
     }
 
     public void txtEmailOnKeyReleased(KeyEvent keyEvent) {
-        if (!txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            txtEmail.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3);; -fx-font-size: 16px;");
-            lblEmail.setText("Invalid Email Format!");
-        }
-        if(txtEmail.getText().equals("")){
-            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblEmail.setText("");
-        }
+        txtEmailOnKeyRelease(txtEmail,lblEmail);
     }
 
     public void txtEmailOnKeyTyped(KeyEvent keyEvent) {
-        if (txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblEmail.setText("");
-        }
-        if(txtEmail.getText().equals("")){
-            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblEmail.setText("");
-        }
+        txtEmailOnKeyType(txtEmail,lblEmail);
     }
 }

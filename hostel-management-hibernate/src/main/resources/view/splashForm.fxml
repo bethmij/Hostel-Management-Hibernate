@@ -5,8 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="783.0" prefWidth="1395.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SplashFormController">
+<AnchorPane prefHeight="777.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SplashFormController">
    <children>
       <ImageView fitHeight="786.0" fitWidth="1398.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,7 +15,15 @@
             <ColorAdjust brightness="0.02" contrast="-0.06" hue="0.04" saturation="1.0" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="741.0" fitWidth="1166.0" layoutX="99.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="776.0" fitWidth="1398.0" layoutX="-3.0" layoutY="1.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/586f513b350e3f5a1694ec752ae2a183.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.37" contrast="0.47" saturation="0.3" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="693.0" fitWidth="1166.0" layoutX="99.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/output-onlinegiftools%20(7).gif" />
          </image>
@@ -24,8 +31,13 @@
             <ColorAdjust brightness="0.21" contrast="1.0" hue="0.06" saturation="1.0" />
          </effect>
       </ImageView>
+      <ImageView blendMode="SCREEN" fitHeight="222.0" fitWidth="289.0" layoutX="782.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/output-onlinegiftools%20(10).gif" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.29" contrast="0.5" hue="-0.83" saturation="1.0" />
+         </effect>
+      </ImageView>
    </children>
-   <effect>
-      <ColorAdjust brightness="-0.12" contrast="-0.02" hue="-0.02" saturation="1.0" />
-   </effect>
 </AnchorPane>

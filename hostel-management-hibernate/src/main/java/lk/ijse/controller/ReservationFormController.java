@@ -17,8 +17,6 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.ReservationBO;
-import lk.ijse.bo.custom.RoomBO;
-import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.impl.util.OpenView;
 import lk.ijse.dto.ReservationDTO;
 import lk.ijse.dto.RoomDTO;
@@ -37,6 +35,8 @@ import java.util.ResourceBundle;
 import static lk.ijse.controller.PaymentFormController.reserveProjection;
 import static lk.ijse.controller.StudentManageFormController.studentDTO;
 import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
+import static lk.ijse.dao.custom.impl.util.SetValidation.txtKeyOnRelease;
+import static lk.ijse.dao.custom.impl.util.SetValidation.txtKeyOnType;
 
 public class ReservationFormController implements Initializable {
     public AnchorPane reservePane;
@@ -284,16 +284,10 @@ public class ReservationFormController implements Initializable {
     }
 
     public void txtAmountOnRelease(KeyEvent keyEvent) {
-        if (txtPay.getText().matches("^(([0-9.]?)*)+$")) {
-            txtPay.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblMoneyValidate.setText("");
-        }
+        txtKeyOnRelease(txtPay,lblMoneyValidate);
     }
 
     public void txtAmountOnType(KeyEvent keyEvent) {
-        if (!txtPay.getText().matches("^(([0-9.]?)*)+$")) {
-            txtPay.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblMoneyValidate.setText("Only numeric values!");
-        }
+        txtKeyOnType(txtPay,lblMoneyValidate);
     }
 }

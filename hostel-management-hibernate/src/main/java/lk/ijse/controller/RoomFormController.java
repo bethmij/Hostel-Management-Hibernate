@@ -25,6 +25,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
+import static lk.ijse.dao.custom.impl.util.SetValidation.*;
 
 public class RoomFormController implements Initializable {
     public AnchorPane roomPane;
@@ -270,30 +271,18 @@ public class RoomFormController implements Initializable {
     }
 
     public void txtQtyOnReleased(KeyEvent keyEvent) {
-        if (txtQty.getText().matches("^[0-9]*$")) {
-            txtQty.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblQty.setText("");
-        }
+        txtQtyOnRelease(txtQty,lblQty);
     }
 
     public void txtQtyOnTyped(KeyEvent keyEvent) {
-        if (!txtQty.getText().matches("^[0-9]*$")) {
-            txtQty.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblQty.setText("Should only contains numeric values!");
-        }
+        txtQtyOnType(txtQty,lblQty);
     }
 
     public void txtKeyOnReleased(KeyEvent keyEvent) {
-        if (txtMoney.getText().matches("^(([0-9.]?)*)+$")) {
-            txtMoney.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblMoney.setText("");
-        }
+        txtKeyOnRelease(txtMoney,lblMoney);
     }
 
     public void txtKeyOnTyped(KeyEvent keyEvent) {
-        if (!txtMoney.getText().matches("^(([0-9.]?)*)+$")) {
-            txtMoney.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblMoney.setText("Should only contains numeric values!");
-        }
+        txtKeyOnType(txtMoney,lblMoney);
     }
 }
