@@ -29,6 +29,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -59,6 +60,7 @@ public class ReservationFormController implements Initializable {
     public ToggleGroup toggleGroup;
     public JFXButton btnSave;
     public Label lblMoney1;
+    public Label lblMoneyValidate;
     ReservationBO reservationBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.RESERVE);
 
     @Override
@@ -228,7 +230,10 @@ public class ReservationFormController implements Initializable {
 
                 RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
                 StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
-                ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
+                ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student,
+                        reserveProjection.getReserveDate().toInstant()
+                        .atZone(ZoneId.systemDefault())
+                        .toLocalDateTime(), status);
 
                 boolean isUpdated = reservationBO.updateRoom(reservationDTO);
 
@@ -281,14 +286,14 @@ public class ReservationFormController implements Initializable {
     public void txtAmountOnRelease(KeyEvent keyEvent) {
         if (txtPay.getText().matches("^(([0-9.]?)*)+$")) {
             txtPay.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblMoney.setText("");
+            lblMoneyValidate.setText("");
         }
     }
 
     public void txtAmountOnType(KeyEvent keyEvent) {
         if (!txtPay.getText().matches("^(([0-9.]?)*)+$")) {
             txtPay.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblMoney.setText("Only numeric values!");
+            lblMoneyValidate.setText("Only numeric values!");
         }
     }
 }

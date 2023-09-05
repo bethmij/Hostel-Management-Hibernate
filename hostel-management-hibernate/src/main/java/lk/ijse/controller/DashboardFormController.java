@@ -121,25 +121,29 @@ public class DashboardFormController implements Initializable {
         List<ReserveProjection> reservationList = dashboardBO.getReservation();
 
         for (ReserveProjection list : reservationList) {
-            LocalDate reserveDate = dashboardBO.getReserveDate(list.getReserveID());
-            String email = dashboardBO.getEmail(list.getReserveID());
-            long dayCount = DAYS.between(LocalDate.now(), reserveDate);
-            if(dayCount==7){
-                if(!email.isEmpty()){
-                    String remain =calcRemaining(list.getStatus(),list.getKeyMoney());
-                    LocalDate dueDate = reserveDate.plusDays(7);
-                    String message =  "Reservation ID  -  "+list.getReserveID()+"\n" +
-                            "Student ID      -  " +
-                            "This is to fomally remind you that the payment owed by you on reservation "+list.getReserveID()+"" +
-                            "is due in one week."+remain+"was due for payment on"+dueDate+"Kindly pay the amount immediately\n" +
-                            "Kindly disregard this notice if payment has already been made. We advise you settle your dues" +
-                            "immediately to avoid furthur penalties\n" +
-                            "Thank you for your immediate action regarding the matter\n\n" +
-                            "Sincerely\nD24 Hostel Administration ";
-                    String subject = "D24 Hotel Administration  : Payment Reminder Notice ";
-                    String to = user.getEmail();
-                    String from = "bethmij@gmail.com";
-                    sendAttach(message,subject,to,from);
+            if (!list.getStatus().equals("Paid")) {
+                LocalDate reserveDate = dashboardBO.getReserveDate(list.getReserveID());
+                String email = dashboardBO.getEmail(list.getReserveID());
+                int dayCount = (int) DAYS.between(reserveDate, LocalDate.now() );
+//                System.out.println(dayCount );
+                if (dayCount==8) {
+                    if (!email.isEmpty()) {
+                        String remain = calcRemaining(list.getStatus(), list.getKeyMoney());
+                        LocalDate dueDate = reserveDate.plusDays(60);
+                        String message = "\n" +
+                                "Student ID         -   " + list.getStudentID() + "\n" +
+                                "Student Name   -   " + list.getName() + "\n" +
+                                "This is to formally remind you that the payment owed by you on reservation " + list.getReserveID() + "" +
+                                " is due in one week. " + remain + " was due for payment on " + dueDate + " Kindly pay the amount immediately.\n" +
+                                "Disregard this notice if payment has already been made. We advise you settle your dues " +
+                                "immediately to avoid further penalties\n" +
+                                "Thank you for your immediate action regarding the matter\n\n" +
+                                "Sincerely\nD24 Hostel Administration ";
+                        String subject = "D24 Hotel Administration  : Payment Reminder Notice ";
+                        String to = email;
+                        String from = "d24hostel@gmail.com";
+                        sendAttach(message, subject, to, from);
+                    }
                 }
             }
         }
@@ -149,7 +153,8 @@ public class DashboardFormController implements Initializable {
     }
 
     private String calcRemaining(String status, String keyMoney) {
-
+        System.out.println("status "+status);
+        System.out.println("keymoney "+keyMoney);
         if(status.equals("Paid")) {
             return "";
         }else if(status.equals("Unpaid")) {

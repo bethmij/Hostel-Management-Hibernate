@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -16,5 +18,6 @@ public class ReserveProjection {
     private String status;
     private String keyMoney;
     private int qty;
+    private Date reserveDate;
 
 }

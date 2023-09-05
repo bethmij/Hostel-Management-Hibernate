@@ -306,7 +306,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblMoney1" layoutX="825.0" layoutY="551.0" prefHeight="20.0" prefWidth="210.0" textFill="#a91515">
+      <Label fx:id="lblMoneyValidate" layoutX="825.0" layoutY="551.0" prefHeight="20.0" prefWidth="210.0" textFill="#a91515">
          <font>
             <Font size="13.0" />
          </font>
