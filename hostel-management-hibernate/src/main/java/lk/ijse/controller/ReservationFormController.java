@@ -192,68 +192,70 @@ public class ReservationFormController implements Initializable {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
+        if(!lblAvailable.getText().equals("Not Available") ){
+            if (cmbRoomID.isPressed() && cmbStuID.isPressed() || rdPayNow.isSelected() ||
+                    rdPayHalfNow.isSelected() && !txtPay.getText().isEmpty() || edPayLater.isSelected()) {
+                if (btnSave.getText().equals("Reserve")) {
+                    String status = "";
 
-        if(cmbRoomID.isPressed() && cmbStuID.isPressed() || rdPayNow.isSelected() ||
-                rdPayHalfNow.isSelected() && !txtPay.getText().isEmpty() || edPayLater.isSelected() ) {
-            if (btnSave.getText().equals("Reserve")) {
-                String status = "";
+                    if (rdPayNow.isSelected())
+                        status = "Paid";
+                    else if (edPayLater.isSelected())
+                        status = "Unpaid";
+                    else if (rdPayHalfNow.isSelected())
+                        status = "Half Paid:" + txtPay.getText();
 
-                if (rdPayNow.isSelected())
-                    status = "Paid";
-                else if (edPayLater.isSelected())
-                    status = "Unpaid";
-                else if (rdPayHalfNow.isSelected())
-                    status = "Half Paid:" + txtPay.getText();
+                    RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
+                    StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
+                    ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
 
-                RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
-                StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
-                ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
+                    boolean isSaved = reservationBO.reserveRoom(reservationDTO);
 
-               // boolean isSaved = reservationBO.reserveRoom(reservationDTO);
+                    if (isSaved) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully!").show();
+                        getClear();
+                        setReserveID();
+                    } else
+                        new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();
 
-               /* if (isSaved) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully!").show();
-                    getClear();
-                    setReserveID();
-                } else
-                    new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();*/
+                } else if (btnSave.getText().equals("Update")) {
+                    String status = "";
 
-            } else if (btnSave.getText().equals("Update")) {
-                String status = "";
+                    if (rdPayNow.isSelected())
+                        status = "Paid";
+                    else if (edPayLater.isSelected())
+                        status = "Unpaid";
+                    else if (rdPayHalfNow.isSelected())
+                        status = "Half Paid:" + txtPay.getText();
 
-                if (rdPayNow.isSelected())
-                    status = "Paid";
-                else if (edPayLater.isSelected())
-                    status = "Unpaid";
-                else if (rdPayHalfNow.isSelected())
-                    status = "Half Paid:" + txtPay.getText();
+                    RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
+                    StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
+                    ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student,
+                            reserveProjection.getReserveDate().toInstant()
+                                    .atZone(ZoneId.systemDefault())
+                                    .toLocalDateTime(), status);
 
-                RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
-                StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
-                ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student,
-                        reserveProjection.getReserveDate().toInstant()
-                        .atZone(ZoneId.systemDefault())
-                        .toLocalDateTime(), status);
+                    boolean isUpdated = reservationBO.updateRoom(reservationDTO);
 
-                boolean isUpdated = reservationBO.updateRoom(reservationDTO);
+                    if (isUpdated) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "Room Reservation Updated  Successfully!").show();
+                        getClear();
+                        setReserveID();
+                    } else
+                        new Alert(Alert.AlertType.ERROR, "Room Reservation Update Failed!").show();
 
-                if (isUpdated) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Room Reservation Updated  Successfully!").show();
-                    getClear();
-                    setReserveID();
-                } else
-                    new Alert(Alert.AlertType.ERROR, "Room Reservation Update Failed!").show();
-
-            }
-       }else
-            new Alert(Alert.AlertType.ERROR, "Please fill up the compulsory fields * ").show();
+                }
+            } else
+                new Alert(Alert.AlertType.ERROR, "Please fill up the compulsory fields * ").show();
+        }else
+             new Alert(Alert.AlertType.ERROR, "Room not Available ").show();
     }
 
     private void getClear() {
         setReserveID();
-        cmbRoomID.setValue("");
+        cmbRoomID.setValue(null);
         lblRoomType.setText("");
-        cmbStuID.setValue("");
+        cmbStuID.setValue(null);
         lblName.setText("");
         lblAvailable.setText("");
         lblMoney.setText("");
@@ -264,16 +266,20 @@ public class ReservationFormController implements Initializable {
 
 
     public void cbRoomOnAction(ActionEvent actionEvent) {
-        RoomDTO roomDTO = reservationBO.getRoombyID(String.valueOf(cmbRoomID.getValue()));
-        int usedRooms = reservationBO.getUsedRoom(String.valueOf(cmbRoomID.getValue()));
-        lblRoomType.setText(roomDTO.getType());
-        lblMoney.setText(roomDTO.getKeyMoney());
-        lblAvailable.setText(String.valueOf(roomDTO.getQty()-usedRooms));
+        if(cmbRoomID.getValue()!=null) {
+            RoomDTO roomDTO = reservationBO.getRoombyID(String.valueOf(cmbRoomID.getValue()));
+            int usedRooms = reservationBO.getUsedRoom(String.valueOf(cmbRoomID.getValue()));
+            lblRoomType.setText(roomDTO.getType());
+            lblMoney.setText(roomDTO.getKeyMoney());
+            lblAvailable.setText((roomDTO.getQty() - usedRooms) > 0 ? String.valueOf(roomDTO.getQty() - usedRooms) : "Not Available");
+        }
     }
 
     public void cbStuOnAction(ActionEvent actionEvent) {
-        String name = reservationBO.getStuName(String.valueOf(cmbStuID.getValue()));
-        lblName.setText(name);
+        if(cmbStuID.getValue()!=null) {
+            String name = reservationBO.getStuName(String.valueOf(cmbStuID.getValue()));
+            lblName.setText(name);
+        }
     }
 
     public void rdHalfOnAction(ActionEvent actionEvent) {

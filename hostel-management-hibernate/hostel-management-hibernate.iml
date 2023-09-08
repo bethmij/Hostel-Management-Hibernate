@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="hostel-management-hibernate" />
+          <factory-entry name="hostel-management-hibernate" value="c364d802-8595-4c9f-8bc9-0f02ec287444" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -55,5 +55,22 @@
     <orderEntry type="library" name="Maven: de.svenkubiak:jBCrypt:0.4.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.6.2" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.controlsfx:controlsfx:11.1.2" level="project" />
+    <orderEntry type="library" name="Maven: twilio:twilio:0.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.clojure:clojure:1.5.1" level="project" />
+    <orderEntry type="library" name="Maven: clj-http:clj-http:0.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.2.3" level="project" />
+    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.2.3" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.7" level="project" />
+    <orderEntry type="library" name="Maven: slingshot:slingshot:0.10.3" level="project" />
+    <orderEntry type="library" name="Maven: crouton:crouton:0.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.clojure:tools.reader:0.7.3" level="project" />
+    <orderEntry type="library" name="Maven: cheshire:cheshire:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-smile:2.1.1" level="project" />
+    <orderEntry type="library" name="Twilio" level="project" />
   </component>
 </module>

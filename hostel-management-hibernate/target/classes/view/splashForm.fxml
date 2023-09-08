@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="777.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SplashFormController">
+<AnchorPane prefHeight="777.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SplashFormController">
    <children>
       <ImageView fitHeight="786.0" fitWidth="1398.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -23,21 +26,75 @@
             <ColorAdjust brightness="-0.37" contrast="0.47" saturation="0.3" />
          </effect>
       </ImageView>
-      <ImageView fitHeight="693.0" fitWidth="1166.0" layoutX="99.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="592.0" fitWidth="952.0" layoutX="247.0" layoutY="140.0" opacity="0.21" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assests/output-onlinegiftools%20(7).gif" />
+            <Image url="@../assests/abstract-blue-black-colorful-geometric-light-triangle-line-shape-with-futuristic-concept-presentation-background_181182-34640.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3c6586" height="535.0" layoutX="249.0" layoutY="140.0" opacity="0.29" stroke="#d5dee7" strokeType="INSIDE" width="952.0">
+         <effect>
+            <DropShadow height="40.35" radius="14.8375">
+               <input>
+                  <InnerShadow />
+               </input>
+               <color>
+                  <Color red="0.23157894611358643" green="0.23157894611358643" blue="0.23157894611358643" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Label layoutX="643.0" layoutY="189.0" text="WELCOME" textFill="#efefef">
+         <font>
+            <Font name="Eras Light ITC" size="34.0" />
+         </font>
+         <effect>
+            <DropShadow height="72.47" radius="33.980000000000004" spread="0.64" width="65.45" />
+         </effect>
+      </Label>
+      <ImageView fitHeight="290.0" fitWidth="782.0" layoutX="359.0" layoutY="173.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/hostel.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="601.0" layoutY="286.0" text="D24 Hostel " textFill="#efefef">
+         <font>
+            <Font name="Eras Light ITC" size="53.0" />
+         </font>
+         <effect>
+            <DropShadow height="60.77" radius="26.96" spread="0.55" width="49.07" />
+         </effect>
+      </Label>
+      <Label layoutX="493.0" layoutY="350.0" prefHeight="64.0" prefWidth="510.0" text="Management System" textFill="#efefef">
+         <font>
+            <Font name="Eras Light ITC" size="53.0" />
+         </font>
+         <effect>
+            <DropShadow height="67.79" radius="31.64" spread="0.43" width="60.77" />
+         </effect>
+      </Label>
+      <ImageView fitHeight="231.0" fitWidth="496.0" layoutX="493.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assests/output-onlinegiftools%20(18).gif" />
          </image>
          <effect>
-            <ColorAdjust brightness="0.21" contrast="1.0" hue="0.06" saturation="1.0" />
+            <ColorAdjust brightness="-0.28" contrast="1.0" hue="-0.04" saturation="0.07" />
          </effect>
       </ImageView>
-      <ImageView blendMode="SCREEN" fitHeight="222.0" fitWidth="289.0" layoutX="782.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assests/output-onlinegiftools%20(10).gif" />
-         </image>
-         <effect>
-            <ColorAdjust brightness="0.29" contrast="0.5" hue="-0.83" saturation="1.0" />
-         </effect>
-      </ImageView>
+      <Label layoutX="640.0" layoutY="610.0" text="Privacy Policy | Licence Agrement" textFill="#efefef">
+         <font>
+            <Font name="Eras Light ITC" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="621.0" layoutY="628.0" prefHeight="18.0" prefWidth="267.0" text="Terms of Service 2023 | Bethmi Jayamila" textFill="#efefef">
+         <font>
+            <Font name="Eras Light ITC" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="683.0" layoutY="646.0" prefHeight="18.0" prefWidth="112.0" text="All Right Reserved" textFill="#efefef">
+         <font>
+            <Font name="Eras Light ITC" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="296.0" fitWidth="442.0" layoutX="272.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

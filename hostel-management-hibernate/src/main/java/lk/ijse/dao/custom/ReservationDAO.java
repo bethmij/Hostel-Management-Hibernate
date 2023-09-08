@@ -13,7 +13,7 @@ public interface ReservationDAO extends SuperDAO  {
 
     boolean reserveRoom(Reservation reservation);
 
-    boolean deleteReservation(Reservation reservationDTO);
+    boolean deleteReservation(String reservationID);
 
     boolean updateRoom(Reservation reservation);
 
@@ -26,4 +26,6 @@ public interface ReservationDAO extends SuperDAO  {
     boolean updateStatus(String status, String reserveID);
 
     LocalDate getReservedDate(String reserveID);
+
+
 }

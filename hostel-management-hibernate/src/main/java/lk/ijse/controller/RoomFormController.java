@@ -13,13 +13,16 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.RoomBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
 import lk.ijse.dto.RoomDTO;
 import lk.ijse.dto.tm.RoomTM;
+import org.controlsfx.control.Notifications;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -122,9 +125,23 @@ public class RoomFormController implements Initializable {
             Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to delete?", yes, no).showAndWait();
 
             if (result.orElse(no) == yes) {
-                 RoomDTO room = roomBo.getRoom(String.valueOf(colID.getCellData(tbl.getSelectionModel().getSelectedIndex())));
+                String roomID = String.valueOf(colID.getCellData(tbl.getSelectionModel().getSelectedIndex()));
+                List<String> reservationID = roomBo.getReservebyRoomID(roomID);
 
-                boolean isDeleted = roomBo.deleteRoom(room);
+                boolean isDeleted = false;
+
+                if (!reservationID.isEmpty()) {
+                    Notification(reservationID, roomID);
+                    ButtonType yess = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                    ButtonType noo = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+                    Optional<ButtonType> results = new Alert(Alert.AlertType.INFORMATION, "This room" +
+                            " has a reservation! Do you want to delete the reservation with the room details", yess, noo).showAndWait();
+                    if (results.orElse(no) == yess) {
+                        isDeleted = roomBo.deleteRoom(roomID);
+                    }
+                } else
+                    isDeleted = roomBo.deleteRoom(roomID);
+
                 if(isDeleted) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Room Details Deleted!").show();
                     setTable();
@@ -132,6 +149,18 @@ public class RoomFormController implements Initializable {
                     new Alert(Alert.AlertType.ERROR, "Room Details Delete Failed!").show();
             }
         });
+    }
+
+    private void Notification(List<String> reservationID, String roomID) {
+        String reservations = Arrays.toString(reservationID.toArray()).replace("[", "").replace("]", "");
+        Notifications.create()
+                .title("WARNING\n")
+                //.graphic(new ImageView("assests/586f513b350e3f5a1694ec752ae2a183.jpg"))
+                .text("Reservation no: "+reservations+ " is reserved under Room ID: "+roomID+"\n" +
+                        "All the reservations will be deleted if you proceed further!"  ).
+                darkStyle()
+                .hideAfter(Duration.seconds(10))
+                .show();
     }
 
     public void IDOnAction(ActionEvent actionEvent) {

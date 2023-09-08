@@ -120,8 +120,13 @@ public class RegistrationFormController implements Initializable {
                 else if (rdOther.isSelected())
                     gender = "Other";
 
+                int tel2 = 0;
+                if (!txtTel2.getText().isEmpty()) {
+                    tel2 = Integer.parseInt(txtTel2.getText());
+                }
+
                 StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
-                        Integer.parseInt(txtTel2.getText()), txtEmail.getText(), dob.getValue(), gender);
+                        tel2, txtEmail.getText(), dob.getValue(), gender);
                 boolean isUpdated = registerBO.updateStudent(studentDTO);
 
                 if (isUpdated)

@@ -43,11 +43,12 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean deleteStudent(Student student) {
+    public boolean deleteStudent(String studentID) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         try {
+            Student student = session.get(Student.class,studentID);
             session.delete(student);
             transaction.commit();
             return true;

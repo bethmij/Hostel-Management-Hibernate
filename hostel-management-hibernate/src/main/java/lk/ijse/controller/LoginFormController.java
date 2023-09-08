@@ -1,11 +1,15 @@
 package lk.ijse.controller;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.LoginBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
@@ -15,6 +19,8 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.SQLException;
 import java.util.List;
+import org.controlsfx.control.Notifications;
+import com.twilio.type.PhoneNumber;
 
 public class LoginFormController {
     public AnchorPane logPane;
@@ -23,6 +29,8 @@ public class LoginFormController {
     public static User user;
     public TextField txtPassVisible;
     public String userEmail;
+    public ImageView imgCloseEye;
+    public ImageView imgOpenEye;
     LoginBO loginBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.LOGIN);
 
     public void logInOnAction(ActionEvent actionEvent) {
@@ -35,7 +43,7 @@ public class LoginFormController {
                     String password = loginBO.getPassword(userName);
                     if (BCrypt.checkpw(txtPassword.getText(), password)) {
                         user = loginBO.getUser(userName);
-                        OpenView.openView("dashboardForm", logPane);
+                        OpenView.openView("dashboardForm", logPane,"splash");
                     } else
                         new Alert(Alert.AlertType.ERROR, "Password mismatched").show();
                 } else
@@ -52,14 +60,27 @@ public class LoginFormController {
 
     public void passOnAction(MouseEvent mouseEvent) {
         if(txtPassword.isVisible()) {
+            imgCloseEye.setVisible(false);
+            imgOpenEye.setVisible(true);
             txtPassword.setVisible(false);
             txtPassVisible.setVisible(true);
             txtPassVisible.setText(txtPassword.getText());
             txtPassVisible.setEditable(false);
         }else{
+            imgCloseEye.setVisible(true);
+            imgOpenEye.setVisible(false);
             txtPassword.setVisible(true);
             txtPassVisible.setVisible(false);
         }
+        /*Notifications.create()
+                .title("D24 HOSTEL\n\n")
+                //.graphic(new ImageView("assests/586f513b350e3f5a1694ec752ae2a183.jpg"))
+                .text("dfsdvgvdsfbsdfbsdfgbfg ").
+                darkStyle()
+                .hideAfter(Duration.seconds(5))
+                .show();*/
+
+
     }
 
     public void forgotOnAction(MouseEvent mouseEvent) {

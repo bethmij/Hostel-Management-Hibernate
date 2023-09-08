@@ -10,7 +10,7 @@ public interface StudentDAO extends SuperDAO {
 
     Student getStudent(String text);
 
-    boolean deleteStudent(Student student);
+    boolean deleteStudent(String studentID);
 
     List<Student> getAllStudent();
 

@@ -126,7 +126,7 @@ public class DashboardFormController implements Initializable {
                 String email = dashboardBO.getEmail(list.getReserveID());
                 int dayCount = (int) DAYS.between(reserveDate, LocalDate.now() );
 //                System.out.println(dayCount );
-                if (dayCount==8) {
+                if (dayCount==7) {
                     if (!email.isEmpty()) {
                         String remain = calcRemaining(list.getStatus(), list.getKeyMoney());
                         LocalDate dueDate = reserveDate.plusDays(60);

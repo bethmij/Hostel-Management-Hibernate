@@ -11,6 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -78,23 +79,17 @@
             <Font name="Book Antiqua" size="21.0" />
          </font>
       </Text>
-      <TextField fx:id="txtName" blendMode="OVERLAY" layoutX="757.0" layoutY="264.0" prefHeight="38.0" prefWidth="354.0" promptText="User Name" style="-fx-border-color: #ffffff;">
+      <TextField fx:id="txtName" blendMode="MULTIPLY" layoutX="788.0" layoutY="258.0" prefHeight="42.0" prefWidth="315.0" promptText="User Name" style="-fx-border-color: #ffffff;">
          <font>
-            <Font size="15.0" />
+            <Font size="19.0" />
          </font>
-         <effect>
-            <InnerShadow>
-               <color>
-                  <Color red="1.0" green="1.0" blue="1.0" />
-               </color>
-            </InnerShadow>
-         </effect>
       </TextField>
-      <PasswordField fx:id="txtPassword" blendMode="OVERLAY" layoutX="758.0" layoutY="339.0" prefHeight="38.0" prefWidth="354.0" promptText="Password">
+      <PasswordField fx:id="txtPassword" blendMode="MULTIPLY" layoutX="792.0" layoutY="335.0" prefHeight="38.0" prefWidth="315.0" promptText="Password" style="-fx-border-color: #ffffff;">
          <font>
-            <Font size="15.0" />
+            <Font size="19.0" />
          </font>
       </PasswordField>
+      <JFXButton layoutX="1374.0" layoutY="267.0" prefHeight="26.0" prefWidth="0.0" />
       <JFXButton layoutX="886.0" layoutY="451.0" onAction="#logInOnAction" prefHeight="38.0" prefWidth="104.0" style="-fx-border-color: #ffffff; -fx-border-radius: 10;" text="LOG IN" textFill="WHITE">
          <font>
             <Font size="16.0" />
@@ -116,17 +111,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
-      <ImageView fitHeight="38.0" fitWidth="87.0" layoutX="714.0" layoutY="263.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="87.0" layoutX="750.0" layoutY="258.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/icons8-user-100.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="87.0" layoutX="714.0" layoutY="340.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="87.0" layoutX="750.0" layoutY="335.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assests/icons8-password-100.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="1121.0" layoutY="346.0" onMouseClicked="#passOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
+      <ImageView fx:id="imgOpenEye" fitHeight="25.0" fitWidth="24.0" layoutX="1121.0" layoutY="346.0" onMouseClicked="#passOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon" visible="false">
          <image>
             <Image url="@../assests/icon/icons8-eye-96.png" />
          </image>
@@ -134,9 +129,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <TextField fx:id="txtPassVisible" blendMode="OVERLAY" layoutX="758.0" layoutY="340.0" prefHeight="38.0" prefWidth="354.0" visible="false">
+      <TextField fx:id="txtPassVisible" blendMode="MULTIPLY" layoutX="790.0" layoutY="336.0" prefHeight="42.0" prefWidth="322.0" style="-fx-border-color: #ffffff;" visible="false">
          <font>
-            <Font size="15.0" />
+            <Font size="19.0" />
          </font></TextField>
       <ImageView fitHeight="246.0" fitWidth="553.0" layoutX="249.0" layoutY="412.0" pickOnBounds="true">
          <image>
@@ -154,5 +149,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Text>
+      <Line endX="284.800048828125" layoutX="820.0" layoutY="301.0" startX="-67.20001220703125" stroke="#bcbcbc" />
+      <Line endX="284.800048828125" layoutX="820.0" layoutY="378.0" startX="-67.20001220703125" stroke="#bcbcbc" />
+      <ImageView fx:id="imgCloseEye" fitHeight="25.0" fitWidth="24.0" layoutX="1121.0" layoutY="346.0" onMouseClicked="#passOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
+         <image>
+            <Image url="@../assests/icon/icons8-closed-eye-100.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </AnchorPane>

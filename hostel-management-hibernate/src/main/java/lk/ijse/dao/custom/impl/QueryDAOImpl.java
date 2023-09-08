@@ -6,6 +6,8 @@ import lk.ijse.entity.projection.ReserveProjection;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 public class QueryDAOImpl implements QueryDAO {
@@ -77,5 +79,25 @@ public class QueryDAOImpl implements QueryDAO {
         String email = query.uniqueResult();
         session.close();
         return email;
+    }
+
+    @Override
+    public List<String> getReserveIDbyStudentID(String stuID) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query<String> query = session.createQuery("SELECT rs.reserveID FROM Reservation rs JOIN rs.student s WHERE s.studentID = :id");
+        query.setParameter("id",stuID);
+        List<String> id = query.list();
+        session.close();
+        return id;
+    }
+
+    @Override
+    public List<String> getReserveIDbyRoomID(String roomID) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Query<String> query = session.createQuery("SELECT rs.reserveID FROM Reservation rs JOIN rs.room r WHERE r.id = :id");
+        query.setParameter("id",roomID);
+        List<String> id = query.list();
+        session.close();
+        return id;
     }
 }

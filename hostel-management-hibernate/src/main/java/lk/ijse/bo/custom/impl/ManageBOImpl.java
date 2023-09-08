@@ -2,6 +2,8 @@ package lk.ijse.bo.custom.impl;
 
 import lk.ijse.bo.custom.ManageBO;
 import lk.ijse.dao.DAOFactory;
+import lk.ijse.dao.custom.QueryDAO;
+import lk.ijse.dao.custom.ReservationDAO;
 import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.dto.StudentDTO;
 import lk.ijse.entity.Student;
@@ -11,6 +13,8 @@ import java.util.List;
 
 public class ManageBOImpl implements ManageBO {
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.STUDENT);
+    QueryDAO queryDAO = (QueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.QUERY);
+    ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.RESERVATION);
 
     @Override
     public StudentDTO getStudent(String text) {
@@ -20,10 +24,10 @@ public class ManageBOImpl implements ManageBO {
     }
 
     @Override
-    public boolean deleteStudent(StudentDTO studentDTO) {
-        Student student = new Student(studentDTO.getStudentID(),studentDTO.getName(),studentDTO.getAddress(),
-                        studentDTO.getTel1(),studentDTO.getTel2(),studentDTO.getEmail(),studentDTO.getDob(),studentDTO.getGender());
-        return studentDAO.deleteStudent(student);
+    public boolean deleteStudent(String studentID) {
+//        Student student = new Student(studentDTO.getStudentID(),studentDTO.getName(),studentDTO.getAddress(),
+//                        studentDTO.getTel1(),studentDTO.getTel2(),studentDTO.getEmail(),studentDTO.getDob(),studentDTO.getGender());
+        return studentDAO.deleteStudent(studentID);
     }
 
     @Override
@@ -41,5 +45,15 @@ public class ManageBOImpl implements ManageBO {
     @Override
     public List<String> getStudentID() {
         return studentDAO.getStudentID();
+    }
+
+    @Override
+    public List<String> getReservebyStudentID(String stuID) {
+        return queryDAO.getReserveIDbyStudentID(stuID);
+    }
+
+    @Override
+    public boolean deleteReservation(String reservationID) {
+        return reservationDAO.deleteReservation(reservationID);
     }
 }

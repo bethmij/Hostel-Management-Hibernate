@@ -6,7 +6,6 @@ import lk.ijse.dao.custom.QueryDAO;
 import lk.ijse.dao.custom.ReservationDAO;
 import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.StudentDAO;
-import lk.ijse.dto.ReservationDTO;
 import lk.ijse.entity.Reservation;
 import lk.ijse.entity.Room;
 import lk.ijse.entity.Student;
@@ -53,15 +52,8 @@ public class PaymentBOImpl implements PaymentBO {
     }
 
     @Override
-    public boolean deleteReservation(ReservationDTO reservationDTO) {
-        Room room = new Room(reservationDTO.getRoom().getTypeId());
-        Student student = new Student(reservationDTO.getStudent().getStudentID());
-        Date date = Date.from(reservationDTO.getDate().atZone(ZoneId.systemDefault()).toInstant());
-
-        Reservation reservation = new Reservation(reservationDTO.getReserveID(),room,student,
-                date,reservationDTO.getStatus());
-
-        return reservationDAO.deleteReservation(reservation);
+    public boolean deleteReservation(String reservationID) {
+        return reservationDAO.deleteReservation(reservationID);
     }
 
     @Override

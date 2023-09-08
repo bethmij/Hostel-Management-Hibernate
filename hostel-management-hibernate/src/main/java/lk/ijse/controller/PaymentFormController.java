@@ -22,6 +22,7 @@ import lk.ijse.entity.projection.ReserveProjection;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -55,6 +56,7 @@ public class PaymentFormController implements Initializable {
     public static ReserveProjection reserveProjection;
     public static ReserveProjection projection;
     public Group IDGroup;
+    public TableColumn colDate;
     PaymentBO paymentBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.PAYMENT);
     ObservableList<ReserveTM> obList = FXCollections.observableArrayList();
 
@@ -183,7 +185,8 @@ public class PaymentFormController implements Initializable {
             }
 
             ReserveTM reserveTM = new ReserveTM(list.getReserveID(), list.getStudentID(), list.getName(),list.getRoomID(),
-                                    list.getRoomType(),status,remaining,payButton,deleteButton);
+                                        list.getRoomType(),status,list.getReserveDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                                        remaining,payButton,deleteButton);
             obList.add(reserveTM);
             tbl.setItems(obList);
 
@@ -225,13 +228,8 @@ public class PaymentFormController implements Initializable {
             Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to delete?", yes, no).showAndWait();
 
             if (result.orElse(no) == yes) {
-                ReserveProjection reserve = paymentBO.getReservebyReserveID(String.valueOf(colReserveID.getCellData(tbl.getSelectionModel().getSelectedIndex())));
 
-                RoomDTO room = new RoomDTO(reserve.getRoomID());
-                StudentDTO student = new StudentDTO(reserve.getStudentID());
-                ReservationDTO reservationDTO = new ReservationDTO(reserve.getReserveID(),room,student, LocalDateTime.now(),reserve.getStatus());
-
-                boolean isDeleted = paymentBO.deleteReservation(reservationDTO);
+                boolean isDeleted = paymentBO.deleteReservation(String.valueOf(colReserveID.getCellData(tbl.getSelectionModel().getSelectedIndex())));
                 if(isDeleted) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Reservation Details Deleted!").show();
                     setTable();
@@ -288,6 +286,7 @@ public class PaymentFormController implements Initializable {
         colRoomID.setCellValueFactory(new PropertyValueFactory<>("roomID"));
         colType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colRemain.setCellValueFactory(new PropertyValueFactory<>("remaining"));
         colPayment.setCellValueFactory(new PropertyValueFactory<>("payment"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("delete"));

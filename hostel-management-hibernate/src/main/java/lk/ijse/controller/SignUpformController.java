@@ -136,6 +136,10 @@ public class SignUpformController implements Initializable {
 
 
     public void passOnAction(MouseEvent mouseEvent) {
+
+    }
+
+    public void reEnterOnAction(MouseEvent mouseEvent) {
         if(txtPass.isVisible()) {
             txtPass.setVisible(false);
             txtPassVisible.setVisible(true);
@@ -145,9 +149,6 @@ public class SignUpformController implements Initializable {
             txtPass.setVisible(true);
             txtPassVisible.setVisible(false);
         }
-    }
-
-    public void reEnterOnAction(MouseEvent mouseEvent) {
         if(txtReenter.isVisible()) {
             txtReenter.setVisible(false);
             txtReEnterVisible.setVisible(true);

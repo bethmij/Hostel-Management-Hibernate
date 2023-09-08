@@ -1,7 +1,6 @@
 package lk.ijse.bo.custom;
 
 import lk.ijse.bo.SuperBO;
-import lk.ijse.dto.ReservationDTO;
 import lk.ijse.entity.projection.ReserveProjection;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public interface PaymentBO extends SuperBO {
 
     List<ReserveProjection> getReservebyRoomID(String roomID);
 
-    boolean deleteReservation(ReservationDTO reservationDTO);
+    boolean deleteReservation(String reservationID);
 
     List<String> getStudentList();
 

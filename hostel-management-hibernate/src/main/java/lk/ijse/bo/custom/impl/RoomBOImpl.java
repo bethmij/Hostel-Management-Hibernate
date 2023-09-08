@@ -2,6 +2,7 @@ package lk.ijse.bo.custom.impl;
 
 import lk.ijse.bo.custom.RoomBO;
 import lk.ijse.dao.DAOFactory;
+import lk.ijse.dao.custom.QueryDAO;
 import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dto.RoomDTO;
 import lk.ijse.entity.Room;
@@ -11,6 +12,7 @@ import java.util.List;
 
 public class RoomBOImpl implements RoomBO {
     RoomDAO roomDAO = (RoomDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.ROOM);
+    QueryDAO queryDAO = (QueryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.QUERY);
 
     @Override
     public List<String> getRoomID() {
@@ -47,15 +49,19 @@ public class RoomBOImpl implements RoomBO {
     }
 
     @Override
-    public boolean deleteRoom(RoomDTO roomDTO) {
-        Room room = new Room(roomDTO.getTypeId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty());
-        return roomDAO.deleteRoom(room);
+    public boolean deleteRoom(String roomID) {
+        return roomDAO.deleteRoom(roomID);
     }
 
     @Override
     public boolean updateRoom(RoomDTO roomDTO) {
         Room room = new Room(roomDTO.getTypeId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty());
         return roomDAO.updateRoom(room);
+    }
+
+    @Override
+    public List<String> getReservebyRoomID(String roomID) {
+        return queryDAO.getReserveIDbyRoomID(roomID);
     }
 
 }

@@ -87,12 +87,12 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <PasswordField fx:id="txtPass" blendMode="OVERLAY" layoutX="620.0" layoutY="380.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
+      <PasswordField fx:id="txtPass" blendMode="OVERLAY" layoutX="620.0" layoutY="381.0" prefHeight="38.0" prefWidth="394.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="txtReenter" blendMode="OVERLAY" layoutX="620.0" layoutY="429.0" prefHeight="38.0" prefWidth="394.0" promptText="Re-Enter Password">
+      <PasswordField fx:id="txtReenter" blendMode="OVERLAY" layoutX="620.0" layoutY="429.0" prefHeight="38.0" prefWidth="394.0" promptText="Confirm">
          <font>
             <Font size="15.0" />
          </font>
@@ -154,24 +154,16 @@
             </InnerShadow>
          </effect>
       </TextField>
-      <TextField fx:id="txtPassVisible" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="377.0" prefHeight="38.0" prefWidth="394.0" visible="false">
+      <TextField fx:id="txtPassVisible" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="381.0" prefHeight="38.0" prefWidth="394.0" visible="false">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtReEnterVisible" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="427.0" prefHeight="38.0" prefWidth="394.0" visible="false">
+      <TextField fx:id="txtReEnterVisible" blendMode="OVERLAY" focusTraversable="false" layoutX="620.0" layoutY="431.0" prefHeight="38.0" prefWidth="394.0" visible="false">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="1021.0" layoutY="389.0" onMouseClicked="#passOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
-         <image>
-            <Image url="@../assests/icon/icons8-eye-96.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
       <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="1021.0" layoutY="440.0" onMouseClicked="#reEnterOnAction" opacity="0.81" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
          <image>
             <Image url="@../assests/icon/icons8-eye-96.png" />

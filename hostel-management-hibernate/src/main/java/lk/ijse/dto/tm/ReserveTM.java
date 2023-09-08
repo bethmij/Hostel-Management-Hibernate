@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -15,6 +17,7 @@ public class ReserveTM {
     private String roomID;
     private String roomType;
     private String status;
+    private LocalDate date;
     private String remaining;
     private Button payment;
     private Button delete;

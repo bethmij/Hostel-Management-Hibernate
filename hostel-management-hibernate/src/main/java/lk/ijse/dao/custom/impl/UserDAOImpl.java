@@ -33,7 +33,7 @@ public class UserDAOImpl implements UserDAO {
     public User getUser(String txtUserName) {
         session = SessionFactoryConfig.getInstance().getSession();
 
-        Query query = session.createQuery("SELECT u FROM User u WHERE u.userName = :userName");
+        Query query = session.createQuery("FROM User u WHERE u.userName = :userName");
         query.setParameter("userName",txtUserName);
         User user = User.class.cast(query.getSingleResult());
         session.close();

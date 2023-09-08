@@ -151,17 +151,18 @@
       <Group layoutX="180.0" layoutY="318.0">
          <children>
             <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#dcdcdc" height="441.0" layoutX="1.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="1098.0" />
-            <TableView fx:id="tbl" blendMode="OVERLAY" layoutY="1.0" prefHeight="441.0" prefWidth="1097.0">
+            <TableView fx:id="tbl" blendMode="OVERLAY" layoutY="1.0" prefHeight="441.0" prefWidth="1097.0" style="-fx-textcolor: #ffffff;">
                <columns>
                   <TableColumn fx:id="colReserveID" prefWidth="92.00003051757812" text="Reservation ID" />
                   <TableColumn fx:id="colStuID" prefWidth="99.199951171875" text="Student ID" />
-                  <TableColumn fx:id="colName" minWidth="0.0" prefWidth="199.199951171875" text="Name" />
-                  <TableColumn fx:id="colRoomID" minWidth="0.0" prefWidth="107.199951171875" text="Room ID" />
-                  <TableColumn fx:id="colType" prefWidth="154.4000244140625" text="Room Type" />
-                  <TableColumn fx:id="colStatus" prefWidth="132.0" style="-fx-alignment: CENTER;" text="Status" />
-                  <TableColumn fx:id="colRemain" prefWidth="108.79998779296875" style="-fx-alignment: CENTER;" text="Remaining" />
-                  <TableColumn fx:id="colPayment" prefWidth="85.60009765625" style="-fx-alignment: CENTER;" text="Payment" />
-                  <TableColumn fx:id="colAction" maxWidth="122.39990234375" prefWidth="122.39990234375" style="-fx-alignment: CENTER;" text="Action" />
+                  <TableColumn fx:id="colName" minWidth="0.0" prefWidth="178.39999389648438" text="Name" />
+                  <TableColumn fx:id="colRoomID" minWidth="0.0" prefWidth="96.79998779296875" text="Room ID" />
+                  <TableColumn fx:id="colType" prefWidth="137.5999755859375" text="Room Type" />
+                  <TableColumn fx:id="colStatus" prefWidth="100.7999267578125" style="-fx-alignment: CENTER;" text="Status" />
+                  <TableColumn fx:id="colDate" prefWidth="120.79998779296875" style="-fx-alignment: CENTER;" text="Date" />
+                  <TableColumn fx:id="colRemain" prefWidth="108.800048828125" style="-fx-alignment: CENTER;" text="Remaining" />
+                  <TableColumn fx:id="colPayment" prefWidth="68.800048828125" style="-fx-alignment: CENTER;" text="Payment" />
+                  <TableColumn fx:id="colAction" maxWidth="212.800048828125" prefWidth="93.60009765625" style="-fx-alignment: CENTER;" text="Action" />
                </columns>
             </TableView>
          </children>
