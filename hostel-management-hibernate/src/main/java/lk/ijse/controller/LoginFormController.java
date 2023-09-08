@@ -1,11 +1,10 @@
 package lk.ijse.controller;
 
-import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Message;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -13,14 +12,15 @@ import javafx.util.Duration;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.LoginBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
-import lk.ijse.dto.UserDTO;
 import lk.ijse.entity.User;
+import org.controlsfx.control.Notifications;
 import org.mindrot.jbcrypt.BCrypt;
 
-import java.sql.SQLException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
-import org.controlsfx.control.Notifications;
-import com.twilio.type.PhoneNumber;
 
 public class LoginFormController {
     public AnchorPane logPane;
@@ -28,7 +28,6 @@ public class LoginFormController {
     public PasswordField txtPassword;
     public static User user;
     public TextField txtPassVisible;
-    public String userEmail;
     public ImageView imgCloseEye;
     public ImageView imgOpenEye;
     LoginBO loginBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.LOGIN);
@@ -51,7 +50,6 @@ public class LoginFormController {
             }
         }else
             new Alert(Alert.AlertType.ERROR, "Please fill up all fields!").show();
-
     }
 
     public void signUpOnAction(MouseEvent mouseEvent) {
@@ -72,19 +70,9 @@ public class LoginFormController {
             txtPassword.setVisible(true);
             txtPassVisible.setVisible(false);
         }
-        /*Notifications.create()
-                .title("D24 HOSTEL\n\n")
-                //.graphic(new ImageView("assests/586f513b350e3f5a1694ec752ae2a183.jpg"))
-                .text("dfsdvgvdsfbsdfbsdfgbfg ").
-                darkStyle()
-                .hideAfter(Duration.seconds(5))
-                .show();*/
-
-
     }
 
     public void forgotOnAction(MouseEvent mouseEvent) {
-
         if(!txtName.getText().isEmpty() ){
             List<String> userNameLists = loginBO.getUserNameList();
             for (String userName : userNameLists) {
@@ -93,11 +81,21 @@ public class LoginFormController {
                     if (user.getEmail().isEmpty())
                         new Alert(Alert.AlertType.ERROR, "User doesn't have an email, This feature can't proceed further!").show();
                     else
+                        Notification();
                         OpenView.openView("forgotPassForm");
                 }else
                     new Alert(Alert.AlertType.ERROR, "User Name mismatched!").show();
             }
         }else
             new Alert(Alert.AlertType.ERROR, "Please enter your user Name!").show();
+    }
+
+    private void Notification() {
+        Notifications.create()
+                .title("SENDING MAIL\n")
+                .graphic(new ImageView("D:\\IJSE\\Working Projects\\Hostel Management\\hostel-management-hibernate\\src\\main\\resources\\assests\\output-onlinegiftools (10).gif"))
+                .text("Sending verification code to your email...."  ).darkStyle()
+                .hideAfter(Duration.seconds(3))
+                .show();
     }
 }

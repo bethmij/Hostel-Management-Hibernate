@@ -148,7 +148,7 @@ public class StudentManageFormController implements Initializable {
                     setTable();
                 } else
                     new Alert(Alert.AlertType.ERROR, "Student Details Delete Failed!").show();
-                         new Alert(Alert.AlertType.CONFIRMATION, "Reservation Details Delete Failed!").show();
+
             }
         });
     }
@@ -158,7 +158,6 @@ public class StudentManageFormController implements Initializable {
         String reservations = Arrays.toString(reservationID.toArray()).replace("[", "").replace("]", "");
         Notifications.create()
                 .title("WARNING\n")
-                //.graphic(new ImageView("assests/586f513b350e3f5a1694ec752ae2a183.jpg"))
                 .text("Reservation no: "+reservations+ " is reserved under Student ID: "+studentID+"\n" +
                         "All the reservations will be deleted if you proceed further!"  ).
                 darkStyle()

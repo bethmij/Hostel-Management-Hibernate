@@ -21,7 +21,6 @@ import lk.ijse.dao.custom.impl.util.OpenView;
 import lk.ijse.dto.ReservationDTO;
 import lk.ijse.dto.RoomDTO;
 import lk.ijse.dto.StudentDTO;
-import lk.ijse.entity.Room;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -33,7 +32,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import static lk.ijse.controller.PaymentFormController.reserveProjection;
-import static lk.ijse.controller.StudentManageFormController.studentDTO;
 import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
 import static lk.ijse.dao.custom.impl.util.SetValidation.txtKeyOnRelease;
 import static lk.ijse.dao.custom.impl.util.SetValidation.txtKeyOnType;
@@ -59,7 +57,6 @@ public class ReservationFormController implements Initializable {
     public Group payGroup;
     public ToggleGroup toggleGroup;
     public JFXButton btnSave;
-    public Label lblMoney1;
     public Label lblMoneyValidate;
     ReservationBO reservationBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.RESERVE);
 
@@ -69,18 +66,9 @@ public class ReservationFormController implements Initializable {
         setRoomID();
         setStudentID();
         setReserveID();
-        lblDate.setText(String.valueOf(LocalDate.now()));
-
-        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e ->
-                lblTime.setText(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")))
-        ),
-                new KeyFrame(Duration.seconds(1))
-        );
-        clock.setCycleCount(Animation.INDEFINITE);
-        clock.play();
+        setHeader(lblDate,lblTime,circleUser,lblUser);
 
         toggleGroup = new ToggleGroup();
-
         rdPayNow.setToggleGroup(toggleGroup);
         rdPayHalfNow.setToggleGroup(toggleGroup);
         edPayLater.setToggleGroup(toggleGroup);
@@ -89,7 +77,6 @@ public class ReservationFormController implements Initializable {
             setReserveForm();
         }
 
-        setHeader(lblDate,lblTime,circleUser,lblUser);
     }
 
     private void setReserveForm() {
@@ -123,7 +110,7 @@ public class ReservationFormController implements Initializable {
         if(numericPart.isEmpty())
             lblResID.setText("R001");
         else
-            lblResID.setText("R00"+(Integer.valueOf(numericPart)+1));
+            lblResID.setText("R00"+(Integer.parseInt(numericPart)+1));
     }
 
     private void setStudentID() {
@@ -195,20 +182,21 @@ public class ReservationFormController implements Initializable {
         if(!lblAvailable.getText().equals("Not Available") ){
             if (cmbRoomID.isPressed() && cmbStuID.isPressed() || rdPayNow.isSelected() ||
                     rdPayHalfNow.isSelected() && !txtPay.getText().isEmpty() || edPayLater.isSelected()) {
+
+                String status = "";
+
+                if (rdPayNow.isSelected())
+                    status = "Paid";
+                else if (edPayLater.isSelected())
+                    status = "Unpaid";
+                else if (rdPayHalfNow.isSelected())
+                    status = "Half Paid:" + txtPay.getText();
+
+                RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
+                StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
+                ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
+
                 if (btnSave.getText().equals("Reserve")) {
-                    String status = "";
-
-                    if (rdPayNow.isSelected())
-                        status = "Paid";
-                    else if (edPayLater.isSelected())
-                        status = "Unpaid";
-                    else if (rdPayHalfNow.isSelected())
-                        status = "Half Paid:" + txtPay.getText();
-
-                    RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
-                    StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
-                    ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student, LocalDateTime.now(), status);
-
                     boolean isSaved = reservationBO.reserveRoom(reservationDTO);
 
                     if (isSaved) {
@@ -219,22 +207,6 @@ public class ReservationFormController implements Initializable {
                         new Alert(Alert.AlertType.ERROR, "Room Reserve Failed!").show();
 
                 } else if (btnSave.getText().equals("Update")) {
-                    String status = "";
-
-                    if (rdPayNow.isSelected())
-                        status = "Paid";
-                    else if (edPayLater.isSelected())
-                        status = "Unpaid";
-                    else if (rdPayHalfNow.isSelected())
-                        status = "Half Paid:" + txtPay.getText();
-
-                    RoomDTO room = new RoomDTO(String.valueOf(cmbRoomID.getValue()));
-                    StudentDTO student = new StudentDTO(String.valueOf(cmbStuID.getValue()));
-                    ReservationDTO reservationDTO = new ReservationDTO(lblResID.getText(), room, student,
-                            reserveProjection.getReserveDate().toInstant()
-                                    .atZone(ZoneId.systemDefault())
-                                    .toLocalDateTime(), status);
-
                     boolean isUpdated = reservationBO.updateRoom(reservationDTO);
 
                     if (isUpdated) {

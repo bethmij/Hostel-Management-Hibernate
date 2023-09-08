@@ -7,21 +7,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.DashboardBO;
-import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dao.custom.impl.util.OpenView;
-import lk.ijse.entity.Reservation;
-import lk.ijse.entity.Student;
 import lk.ijse.entity.projection.ReserveProjection;
-import org.hibernate.Session;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import static java.time.temporal.ChronoUnit.DAYS;
-import static lk.ijse.controller.LoginFormController.user;
 import static lk.ijse.dao.custom.impl.util.SendMail.sendAttach;
 import static lk.ijse.dao.custom.impl.util.SetHeader.setHeader;
 
@@ -48,18 +42,10 @@ public class DashboardFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         menuPane.setVisible(false);
         setHeader(lblDate,lblTime,circleUser,lblUser);
         setDashBoard();
         sendEmail();
-    }
-
-
-
-    public DashboardFormController(){
-        Session session = SessionFactoryConfig.getInstance().getSession();
-
     }
 
     private void setDashBoard() {
@@ -77,7 +63,7 @@ public class DashboardFormController implements Initializable {
         lblAcFoodAvailable.setText(String.valueOf(dashboardBO.getTotalRoomsSep("RM-0093")-dashboardBO.getReservedRoomsSep("RM-0093")));
     }
 
-    public void dashbordOnAction(MouseEvent mouseEvent) {
+    public void dashboardOnAction(MouseEvent mouseEvent) {
         OpenView.openView("dashboardForm",dashPane);
     }
 
@@ -125,7 +111,6 @@ public class DashboardFormController implements Initializable {
                 LocalDate reserveDate = dashboardBO.getReserveDate(list.getReserveID());
                 String email = dashboardBO.getEmail(list.getReserveID());
                 int dayCount = (int) DAYS.between(reserveDate, LocalDate.now() );
-//                System.out.println(dayCount );
                 if (dayCount==7) {
                     if (!email.isEmpty()) {
                         String remain = calcRemaining(list.getStatus(), list.getKeyMoney());
@@ -140,28 +125,22 @@ public class DashboardFormController implements Initializable {
                                 "Thank you for your immediate action regarding the matter\n\n" +
                                 "Sincerely\nD24 Hostel Administration ";
                         String subject = "D24 Hotel Administration  : Payment Reminder Notice ";
-                        String to = email;
                         String from = "d24hostel@gmail.com";
-                        sendAttach(message, subject, to, from);
+                        sendAttach(message, subject, email, from);
                     }
                 }
             }
         }
-
-
-
     }
 
     private String calcRemaining(String status, String keyMoney) {
-        System.out.println("status "+status);
-        System.out.println("keymoney "+keyMoney);
         if(status.equals("Paid")) {
             return "";
         }else if(status.equals("Unpaid")) {
             return "Rs. "+keyMoney;
         }else if (status.contains("Half")){
             String numericPart = status.replaceAll("\\D+", "");
-            return ("Rs. "+(Double.valueOf(keyMoney)-Double.valueOf(numericPart)));
+            return ("Rs. "+(Double.parseDouble(keyMoney)-Double.valueOf(numericPart)));
         }else {return "";}
     }
 }

@@ -80,7 +80,9 @@ public class StudentDAOImpl implements StudentDAO {
             return true;
         }catch (Exception e){
             transaction.rollback();
+            System.out.println(e.getMessage());
             return false;
+
         }finally {
             session.close();
         }

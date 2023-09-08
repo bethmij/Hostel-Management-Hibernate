@@ -45,6 +45,7 @@ public class SettingFormController implements Initializable {
     public PasswordField txtCurrPass;
     public TextField txtCurrentPass;
     public TextField txtNewPass;
+    public TextField txtconfirmValid;
     InputStream in ;
     String path ;
     SettingBO settingBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.SETTING);
@@ -53,7 +54,6 @@ public class SettingFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         lblName.setText(user.getName());
         lblUserName.setText(user.getUserName());
-
         setImage();
         setHeader(lblDate,lblTime,circleUser,lblUser);
 
@@ -86,12 +86,15 @@ public class SettingFormController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Updated User Name Successfully!").show();
             } else
                 new Alert(Alert.AlertType.ERROR, "Update User Name Failed!").show();
-        }new Alert(Alert.AlertType.ERROR, "Please enter user name!").show();
+        }else
+            new Alert(Alert.AlertType.ERROR, "Please enter user name!").show();
     }
 
     public void passOnAction(ActionEvent actionEvent) {
+        System.out.println(txtCurrPass.getText());
+        System.out.println(user.getPassword());
         if(!txtCurrPass.getText().isEmpty() && !txtPass.getText().isEmpty() && !txtReEnter.getText().isEmpty()) {
-            if (txtCurrPass.getText().equals(user.getPassword())) {
+            if (BCrypt.checkpw(txtCurrPass.getText(), user.getPassword())) {
                 if (txtPass.getText().equals(txtReEnter.getText())) {
                     String hashed = BCrypt.hashpw(txtReEnter.getText(), BCrypt.gensalt());
                     boolean isUpdated = settingBO.updatePassword(hashed, user.getUserName());
@@ -102,7 +105,7 @@ public class SettingFormController implements Initializable {
                 } else
                     new Alert(Alert.AlertType.ERROR, "Password doesn't match! Please re-enter").show();
             } else
-                new Alert(Alert.AlertType.ERROR, "Incorrect Password").show();
+                new Alert(Alert.AlertType.ERROR, "Current Password is incorrect").show();
         }else
             new Alert(Alert.AlertType.ERROR, "Please fill up all fields!").show();
 
@@ -194,7 +197,8 @@ public class SettingFormController implements Initializable {
     }
 
 
-    public void currPassOnAction(MouseEvent mouseEvent) {
+
+    public void newPassOnAction(MouseEvent mouseEvent) {
         if(txtCurrPass.isVisible()) {
             txtCurrPass.setVisible(false);
             txtCurrentPass.setVisible(true);
@@ -204,9 +208,6 @@ public class SettingFormController implements Initializable {
             txtCurrPass.setVisible(true);
             txtCurrentPass.setVisible(false);
         }
-    }
-
-    public void newPassOnAction(MouseEvent mouseEvent) {
         if(txtPass.isVisible()) {
             txtPass.setVisible(false);
             txtNewPass.setVisible(true);
@@ -215,6 +216,15 @@ public class SettingFormController implements Initializable {
         }else{
             txtPass.setVisible(true);
             txtNewPass.setVisible(false);
+        }
+        if(txtReEnter.isVisible()) {
+            txtReEnter.setVisible(false);
+            txtconfirmValid.setVisible(true);
+            txtconfirmValid.setText(txtReEnter.getText());
+            txtconfirmValid.setEditable(false);
+        }else{
+            txtReEnter.setVisible(true);
+            txtconfirmValid.setVisible(false);
         }
     }
 }

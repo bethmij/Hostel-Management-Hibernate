@@ -54,7 +54,6 @@ public class RegistrationFormController implements Initializable {
         }
 
         toggleGroup = new ToggleGroup();
-
         rdFemale.setToggleGroup(toggleGroup);
         rdMale.setToggleGroup(toggleGroup);
         rdOther.setToggleGroup(toggleGroup);
@@ -62,10 +61,11 @@ public class RegistrationFormController implements Initializable {
 
     private void setRegisterForm() {
         txtNIC.setText(studentDTO.getStudentID());
+        txtNIC.setDisable(true);
         txtName.setText(studentDTO.getName());
         txtAddress.setText(studentDTO.getAddress());
         txtTel1.setText(String.valueOf(studentDTO.getTel1()));
-        txtTel2.setText(String.valueOf(studentDTO.getTel1()));
+        txtTel2.setText(String.valueOf(studentDTO.getTel2()));
         txtEmail.setText(studentDTO.getEmail());
         dob.setValue(studentDTO.getDob());
         switch (studentDTO.getGender()){
@@ -83,24 +83,23 @@ public class RegistrationFormController implements Initializable {
 
         if(!txtName.getText().isEmpty() && !txtNIC.getText().isEmpty() && !txtAddress.getText().isEmpty() && !txtTel1.getText().isEmpty()) {
 
+            String gender = "";
+            if (rdMale.isSelected())
+                gender = "Male";
+            else if (rdFemale.isSelected())
+                gender = "Female";
+            else if (rdOther.isSelected())
+                gender = "Other";
+
+            int tel2 = 0;
+            if (!txtTel2.getText().isEmpty()) {
+                tel2 = Integer.parseInt(txtTel2.getText());
+            }
+
+            StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
+                    tel2, txtEmail.getText(), dob.getValue(), gender);
+
             if (btnSave.getText().equals("Save")) {
-
-                String gender = "";
-
-                if (rdMale.isSelected())
-                    gender = "Male";
-                else if (rdFemale.isSelected())
-                    gender = "Female";
-                else if (rdOther.isSelected())
-                    gender = "Other";
-
-                int tel2 = 0;
-                if (!txtTel2.getText().isEmpty()) {
-                    tel2 = Integer.parseInt(txtTel2.getText());
-                }
-
-                StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
-                        tel2, txtEmail.getText(), dob.getValue(), gender);
                 boolean isSaved = registerBO.saveStudent(studentDTO);
 
                 if (isSaved) {
@@ -109,24 +108,7 @@ public class RegistrationFormController implements Initializable {
                 } else
                     new Alert(Alert.AlertType.ERROR, "Save Student Failed!").show();
 
-
             } else if (btnSave.getText().equals("Update")) {
-                String gender = "";
-
-                if (rdMale.isSelected())
-                    gender = "Male";
-                else if (rdFemale.isSelected())
-                    gender = "Female";
-                else if (rdOther.isSelected())
-                    gender = "Other";
-
-                int tel2 = 0;
-                if (!txtTel2.getText().isEmpty()) {
-                    tel2 = Integer.parseInt(txtTel2.getText());
-                }
-
-                StudentDTO studentDTO = new StudentDTO(txtNIC.getText(), txtName.getText(), txtAddress.getText(), Integer.parseInt(txtTel1.getText()),
-                        tel2, txtEmail.getText(), dob.getValue(), gender);
                 boolean isUpdated = registerBO.updateStudent(studentDTO);
 
                 if (isUpdated)

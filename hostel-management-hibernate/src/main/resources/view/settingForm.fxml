@@ -118,18 +118,6 @@
       <Group layoutX="660.0" layoutY="118.0">
          <children>
             <Circle fx:id="circleUser1" fill="#ffffff00" layoutX="66.0" layoutY="86.0" radius="58.0" stroke="#eaeaea" strokeType="INSIDE" />
-            <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="87.0" layoutY="102.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0" ripplerFill="#ffffff00" styleClass="image-icon" textFill="TRANSPARENT">
-               <graphic>
-                  <ImageView fitHeight="52.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assests/icon/icons8-add-128.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
          </children>
       </Group>
       <Label fx:id="lblName" layoutX="803.0" layoutY="169.0" prefHeight="32.0" prefWidth="256.0" textFill="#e1e1e1">
@@ -197,9 +185,15 @@
             </TextField>
          </children>
       </Group>
+      <JFXButton layoutX="1354.0" layoutY="567.0" prefHeight="26.0" prefWidth="1.0" />
       <Group layoutX="635.0" layoutY="524.0" />
       <Group layoutX="717.0" layoutY="615.0">
          <children>
+            <TextField fx:id="txtconfirmValid" blendMode="OVERLAY" focusTraversable="false" prefHeight="38.0" prefWidth="341.0" visible="false">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="36.0" layoutX="1.0" layoutY="3.0" opacity="0.29" stroke="WHITE" strokeType="INSIDE" width="341.0" />
             <PasswordField fx:id="txtReEnter" blendMode="OVERLAY" focusTraversable="false" layoutX="1.0" layoutY="2.0" prefHeight="23.0" prefWidth="343.0" promptText="Re-Enter Password">
                <font>
@@ -234,6 +228,18 @@
             <ColorAdjust brightness="-0.13" hue="0.06" />
          </effect>
       </ImageView>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" focusTraversable="false" layoutX="751.0" layoutY="219.0" onAction="#picOnAction" prefHeight="42.0" prefWidth="13.0" ripplerFill="#ffffff00" styleClass="image-icon" textFill="TRANSPARENT">
+         <graphic>
+            <ImageView fitHeight="52.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/icon/icons8-add-128.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
       <AnchorPane fx:id="menuPane" layoutX="64.0" layoutY="61.0" onMouseExited="#menuCloseOnAction" prefHeight="722.0" prefWidth="200.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bec7cf" height="722.0" layoutX="1.0" layoutY="1.0" opacity="0.31" stroke="#dcdbdb" strokeType="INSIDE" width="172.0" />
@@ -346,14 +352,6 @@
             </TextField>
          </children>
       </Group>
-      <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="1075.0" layoutY="512.0" onMouseClicked="#currPassOnAction" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
-         <image>
-            <Image url="@../assests/icon/icons8-eye-96.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
       <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="1074.0" layoutY="568.0" onMouseClicked="#newPassOnAction" pickOnBounds="true" preserveRatio="true" styleClass="image-icon">
          <image>
             <Image url="@../assests/icon/icons8-eye-96.png" />

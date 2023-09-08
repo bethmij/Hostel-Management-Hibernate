@@ -31,6 +31,7 @@ import java.util.ResourceBundle;
 
 import static lk.ijse.controller.LoginFormController.user;
 import static lk.ijse.controller.PaymentFormController.reserveProjection;
+import static lk.ijse.dao.custom.impl.util.SetValidation.*;
 
 
 public class SignUpformController implements Initializable {
@@ -60,6 +61,7 @@ public class SignUpformController implements Initializable {
 
     private void setSignUpForm() {
         txtID.setText(user.getUserID());
+        txtID.setDisable(true);
         txtName.setText(user.getName());
         txtUserName.setText(user.getUserName());
         txtPass.setDisable(true);
@@ -72,8 +74,6 @@ public class SignUpformController implements Initializable {
     private void setImage() {
 
         path = new String(user.getImage());
-
-
         try {
             if(path==null) {
                 in = new FileInputStream("D:\\IJSE\\Working Projects\\Hostel Management\\hostel-management-hibernate\\src\\main\\resources\\assests\\icons8-user-100 (1).png");
@@ -105,7 +105,7 @@ public class SignUpformController implements Initializable {
         }else if(btnSave.getText().equals("Update")) {
             byte[] imagePath = path.getBytes();
 
-            UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(), txtUserName.getText(), txtReenter.getText(), txtEmail.getText(), imagePath);
+            UserDTO userDTO = new UserDTO(txtID.getText(), txtName.getText(), txtUserName.getText(), user.getPassword(), txtEmail.getText(), imagePath);
             boolean isUpdated = userBO.updateUser(userDTO);
 
             if (isUpdated) {
@@ -134,11 +134,6 @@ public class SignUpformController implements Initializable {
 
     }
 
-
-    public void passOnAction(MouseEvent mouseEvent) {
-
-    }
-
     public void reEnterOnAction(MouseEvent mouseEvent) {
         if(txtPass.isVisible()) {
             txtPass.setVisible(false);
@@ -161,39 +156,19 @@ public class SignUpformController implements Initializable {
     }
 
     public void txtEmailOnRelease(KeyEvent keyEvent) {
-        if (!txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            txtEmail.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3);; -fx-font-size: 16px;");
-            lblEmail.setText("Invalid Email Format!");
-        }
-        if(txtEmail.getText().equals("")){
-            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblEmail.setText("");
-        }
+        txtEmailOnKeyRelease(txtEmail,lblEmail);
 
     }
 
     public void txtEmailOnType(KeyEvent keyEvent) {
-        if (txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblEmail.setText("");
-        }
-        if(txtEmail.getText().equals("")){
-            txtEmail.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblEmail.setText("");
-        }
+        txtEmailOnKeyType(txtEmail,lblEmail);
     }
 
     public void txtNameOnRelease(KeyEvent keyEvent) {
-        if (!txtName.getText().matches("^[A-Za-z\\s]*$")) {
-            txtName.setStyle(" -fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblName.setText("This filed can not contain numeric values!");
-        }
+        txtNameOnKeyRelease(txtName,lblName);
     }
 
     public void txtNameOnType(KeyEvent keyEvent) {
-        if (txtName.getText().matches("^[A-Za-z\\s]*$")) {
-            txtName.setStyle("-fx-effect: null; -fx-font-size: 16px;");
-            lblName.setText("");
-        }
+        txtNameOnKeyType(txtName,lblName);
     }
 }

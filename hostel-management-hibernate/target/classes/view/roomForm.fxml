@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -114,8 +113,8 @@
             <Image url="@../assests/icon/icons8-setting-80.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594f" height="651.0" layoutX="95.0" layoutY="90.0" stroke="#1a3a575b" strokeType="INSIDE" width="469.0" />
-      <Group fx:id="newIDGroup" layoutX="292.0" layoutY="223.0">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#1a3b594f" height="651.0" layoutX="96.0" layoutY="84.0" stroke="#1a3a575b" strokeType="INSIDE" width="469.0" />
+      <Group fx:id="newIDGroup" layoutX="292.0" layoutY="177.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="34.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="205.0" />
             <TextField fx:id="txtID" blendMode="OVERLAY" layoutX="2.0" layoutY="2.0" prefHeight="25.0" prefWidth="206.0" promptText="Add New ID" style="-fx-border-color: #ffffff;">
@@ -132,7 +131,7 @@
             </TextField>
          </children>
       </Group>
-      <Group fx:id="newTypeGroup" layoutX="291.0" layoutY="368.0">
+      <Group fx:id="newTypeGroup" layoutX="292.0" layoutY="271.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="35.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="206.0" />
             <TextField fx:id="txtType" blendMode="OVERLAY" layoutY="2.0" prefHeight="39.0" prefWidth="208.0" promptText="Add Room Type " style="-fx-border-color: #ffffff;">
@@ -149,29 +148,19 @@
             </TextField>
          </children>
       </Group>
-      <Text fill="#e1e1e1" layoutX="160.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID*">
+      <Text fill="#e1e1e1" layoutX="146.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID*">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Group layoutX="291.0" layoutY="158.0">
-         <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="32.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="206.0" />
-            <ComboBox fx:id="cmbID" blendMode="OVERLAY" layoutY="-1.0" prefHeight="34.0" prefWidth="208.0" />
-         </children>
-      </Group>
-      <Group layoutX="291.0" layoutY="308.0">
-         <children>
-            <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="32.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="206.0" />
-            <ComboBox fx:id="cmbType" blendMode="OVERLAY" layoutY="-1.0" prefHeight="34.0" prefWidth="208.0" />
-         </children>
-      </Group>
-      <Text fill="#e1e1e1" layoutX="158.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type*">
+      <Group layoutX="291.0" layoutY="158.0" />
+      <Group layoutX="291.0" layoutY="308.0" />
+      <Text fill="#e1e1e1" layoutX="146.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type*">
          <font>
             <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Group layoutX="158.0" layoutY="445.0">
+      <Group layoutX="149.0" layoutY="363.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="341.0" />
             <TextField fx:id="txtQty" blendMode="OVERLAY" layoutY="2.0" onKeyReleased="#txtQtyOnReleased" onKeyTyped="#txtQtyOnTyped" prefHeight="42.0" prefWidth="342.0" promptText="Rooms QTY*" style="-fx-border-color: #ffffff;">
@@ -188,7 +177,7 @@
             </TextField>
          </children>
       </Group>
-      <Group layoutX="160.0" layoutY="519.0">
+      <Group layoutX="149.0" layoutY="453.0">
          <children>
             <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#dcdcdc" height="42.0" layoutX="1.0" layoutY="3.0" opacity="0.2" stroke="WHITE" strokeType="INSIDE" width="341.0" />
             <TextField fx:id="txtMoney" blendMode="OVERLAY" layoutY="2.0" onKeyReleased="#txtKeyOnReleased" onKeyTyped="#txtKeyOnTyped" prefHeight="42.0" prefWidth="342.0" promptText="Key Money* (LKR)" style="-fx-border-color: #ffffff;">
@@ -205,41 +194,7 @@
             </TextField>
          </children>
       </Group>
-      <Text fill="#e1e1e1" layoutX="390.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </Text>
-      <Text fill="#e1e1e1" layoutX="389.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or">
-         <font>
-            <Font name="Calibri" size="15.0" />
-         </font>
-      </Text>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="500.0" layoutY="228.0" onAction="#IDOnAction" styleClass="image-icon">
-         <graphic>
-            <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assests/icon/icons8-add-100.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="500.0" layoutY="371.0" onAction="#typeOnAction" styleClass="image-icon">
-         <graphic>
-            <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assests/icon/icons8-add-100.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton fx:id="btnSave" layoutX="348.0" layoutY="637.0" onAction="#btnSaveOnAction" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Save" textFill="WHITE">
+      <JFXButton fx:id="btnSave" layoutX="330.0" layoutY="591.0" onAction="#btnSaveOnAction" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: #5cfdff; -fx-border-radius: 10;" text="Save" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
@@ -247,7 +202,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="btnClear" layoutX="203.0" layoutY="638.0" onAction="#btnClearOnAction" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: #ff5e82; -fx-border-radius: 10;" text="Clear" textFill="WHITE">
+      <JFXButton fx:id="btnClear" layoutX="186.0" layoutY="591.0" onAction="#btnClearOnAction" prefHeight="18.0" prefWidth="110.0" style="-fx-border-color: #ff5e82; -fx-border-radius: 10;" text="Clear" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
@@ -367,7 +322,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <Label fx:id="lblQty" layoutX="163.0" layoutY="489.0" prefHeight="20.0" prefWidth="342.0" textFill="#a91515">
+      <Label fx:id="lblQty" layoutX="149.0" layoutY="406.0" prefHeight="20.0" prefWidth="342.0" textFill="#a91515">
          <font>
             <Font size="13.0" />
          </font>
@@ -387,7 +342,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label fx:id="lblMoney" layoutX="163.0" layoutY="563.0" prefHeight="20.0" prefWidth="342.0" textFill="#a91515">
+      <Label fx:id="lblMoney" layoutX="149.0" layoutY="499.0" prefHeight="20.0" prefWidth="342.0" textFill="#a91515">
          <font>
             <Font size="13.0" />
          </font>

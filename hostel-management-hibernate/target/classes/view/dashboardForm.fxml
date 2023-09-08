@@ -291,7 +291,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Text>
-            <Text fill="#5cfdff" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashbordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Dashboard">
+            <Text fill="#5cfdff" layoutX="18.0" layoutY="95.0" onMouseClicked="#dashboardOnAction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Dashboard">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>

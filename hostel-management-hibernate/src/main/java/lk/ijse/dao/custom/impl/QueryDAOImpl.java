@@ -53,7 +53,7 @@ public class QueryDAOImpl implements QueryDAO {
         return reserveProjections;
     }
 
-    @Override 
+    @Override
     public boolean delete(String s) {
         throw new UnsupportedOperationException("This feature yet to be developed");
     }

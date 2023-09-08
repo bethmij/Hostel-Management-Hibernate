@@ -39,8 +39,6 @@ public class RoomFormController implements Initializable {
     public AnchorPane menuPane;
     public TextField txtID;
     public TextField txtType;
-    public ComboBox cmbID;
-    public ComboBox cmbType;
     public TextField txtQty;
     public TextField txtMoney;
     public TableView tbl;
@@ -49,8 +47,6 @@ public class RoomFormController implements Initializable {
     public TableColumn colQty;
     public TableColumn colMonet;
     public TableColumn colAction;
-    public Group newIDGroup;
-    public Group newTypeGroup;
     public JFXButton btnSave;
     public TextField txtSearch;
     public Label lblQty;
@@ -60,10 +56,6 @@ public class RoomFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setIDList();
-        setTypeList();
-        newIDGroup.setDisable(true);
-        newTypeGroup.setDisable(true);
         setCellValueFactory();
         setTable();
         setHeader(lblDate,lblTime,circleUser,lblUser);
@@ -76,30 +68,6 @@ public class RoomFormController implements Initializable {
         colMonet.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("button"));
-    }
-
-    private void setTypeList() {
-        List<String> typeList = roomBo.getRoomType();
-        ObservableList<String> dataList = FXCollections.observableArrayList();
-
-        if(typeList!=null) {
-            for (String ids : typeList) {
-                dataList.add(ids);
-            }
-            cmbType.setItems(dataList);
-        }
-
-    }
-
-    private void setIDList() {
-        List<String> idList = roomBo.getRoomID();
-        ObservableList<String> dataList = FXCollections.observableArrayList();
-         if(idList!=null) {
-            for (String ids : idList) {
-                dataList.add(ids);
-            }
-            cmbID.setItems(dataList);
-        }
     }
 
     private void setTable() {
@@ -155,7 +123,6 @@ public class RoomFormController implements Initializable {
         String reservations = Arrays.toString(reservationID.toArray()).replace("[", "").replace("]", "");
         Notifications.create()
                 .title("WARNING\n")
-                //.graphic(new ImageView("assests/586f513b350e3f5a1694ec752ae2a183.jpg"))
                 .text("Reservation no: "+reservations+ " is reserved under Room ID: "+roomID+"\n" +
                         "All the reservations will be deleted if you proceed further!"  ).
                 darkStyle()
@@ -163,29 +130,14 @@ public class RoomFormController implements Initializable {
                 .show();
     }
 
-    public void IDOnAction(ActionEvent actionEvent) {
-        if(newIDGroup.isDisable())
-            newIDGroup.setDisable(false);
-
-        cmbID.setValue(txtID.getText());
-        txtID.clear();
-
-    }
-
-    public void typeOnAction(ActionEvent actionEvent) {
-        if(newTypeGroup.isDisable())
-            newTypeGroup.setDisable(false);
-
-        cmbType.setValue(txtType.getText());
-        txtType.clear();
-    }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
 
-        if(!cmbID.isPressed() && !cmbType.isPressed() && !txtQty.getText().isEmpty() && !txtMoney.getText().isEmpty()) {
+        if( !txtQty.getText().isEmpty() && !txtMoney.getText().isEmpty()) {
+
+            RoomDTO roomDTO = new RoomDTO(txtID.getText(), txtType.getText(),txtMoney.getText(), Integer.parseInt(txtQty.getText()));
+
             if (btnSave.getText().equals("Save")) {
-                RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
-                        txtMoney.getText(), Integer.parseInt(txtQty.getText()));
                 boolean isSaved = roomBo.saveRoom(roomDTO);
 
                 if (isSaved) {
@@ -194,9 +146,8 @@ public class RoomFormController implements Initializable {
                     getClear();
                 } else
                     new Alert(Alert.AlertType.ERROR, "Room Detail Save Failed!").show();
+
             } else if (btnSave.getText().equals("Update")) {
-                RoomDTO roomDTO = new RoomDTO(String.valueOf(cmbID.getValue()), String.valueOf(cmbType.getValue()),
-                        txtMoney.getText(), Integer.parseInt(txtQty.getText()));
                 boolean isUpdated = roomBo.updateRoom(roomDTO);
 
                 if (isUpdated) {
@@ -215,10 +166,6 @@ public class RoomFormController implements Initializable {
     }
 
     private void getClear() {
-        cmbID.setValue("");
-        cmbType.setValue("");
-        newIDGroup.setDisable(true);
-        newTypeGroup.setDisable(true);
         txtID.clear();
         txtType.clear();
         txtMoney.clear();
@@ -274,8 +221,9 @@ public class RoomFormController implements Initializable {
 
             if(roomID!=null){
                 RoomTM roomTM = (RoomTM) tbl.getSelectionModel().getSelectedItem();
-                cmbID.setValue(roomTM.getTypeId());
-                cmbType.setValue(roomTM.getType());
+                txtID.setText(roomTM.getTypeId());
+                txtID.setDisable(true);
+                txtType.setText(roomTM.getType());
                 txtMoney.setText(roomTM.getKeyMoney());
                 txtQty.setText(String.valueOf(roomTM.getQty()));
                 btnSave.setText("Update");
@@ -284,15 +232,24 @@ public class RoomFormController implements Initializable {
     }
 
     public void searchOnAction(ActionEvent actionEvent) {
-        tbl.getItems().clear();
-        RoomDTO room = roomBo.getRoom(txtSearch.getText());
-        Button deleteButton = new Button("Delete");
-        deleteButton.setCursor(Cursor.HAND);
-        setDeleteBtnOnAction(deleteButton);
+        List<String> roomList = roomBo.getRoomID();
+        boolean isValid = false;
+        for (String id:roomList) {
+            if(txtSearch.getText().equals(id))
+                isValid = true;
+        }
+        if(isValid) {
+            tbl.getItems().clear();
+            RoomDTO room = roomBo.getRoom(txtSearch.getText());
+            Button deleteButton = new Button("Delete");
+            deleteButton.setCursor(Cursor.HAND);
+            setDeleteBtnOnAction(deleteButton);
 
-        RoomTM roomTM = new RoomTM(room.getTypeId(),room.getType(),room.getKeyMoney(),room.getQty(), deleteButton);
-        obList.add(roomTM);
-        tbl.setItems(obList);
+            RoomTM roomTM = new RoomTM(room.getTypeId(), room.getType(), room.getKeyMoney(), room.getQty(), deleteButton);
+            obList.add(roomTM);
+            tbl.setItems(obList);
+        }else
+            new Alert(Alert.AlertType.ERROR, "Room ID mismatched!").show();
     }
 
     public void refreshOnAction(ActionEvent actionEvent) {

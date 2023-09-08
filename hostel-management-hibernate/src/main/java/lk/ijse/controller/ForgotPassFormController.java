@@ -11,11 +11,9 @@ import javafx.scene.input.MouseEvent;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.ForgotPassBO;
 import org.mindrot.jbcrypt.BCrypt;
-
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
-
 import static lk.ijse.controller.LoginFormController.user;
 import static lk.ijse.dao.custom.impl.util.SendMail.sendAttach;
 
@@ -73,7 +71,6 @@ public class ForgotPassFormController implements Initializable {
 
 
     public void sendEmail (){
-
         Random random = new Random();
         code = random.nextInt(99999-11111) + 11111;
 

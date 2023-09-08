@@ -14,14 +14,10 @@ import javafx.scene.shape.Circle;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PaymentBO;
 import lk.ijse.dao.custom.impl.util.OpenView;
-import lk.ijse.dto.ReservationDTO;
-import lk.ijse.dto.RoomDTO;
-import lk.ijse.dto.StudentDTO;
 import lk.ijse.dto.tm.ReserveTM;
 import lk.ijse.entity.projection.ReserveProjection;
 
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +46,6 @@ public class PaymentFormController implements Initializable {
     public TableColumn colStatus;
     public TableColumn colRemain;
     public TableColumn colAction;
-    public TableColumn colAction1;
     public TableColumn colPayment;
     public ComboBox cbSelect;
     public static ReserveProjection reserveProjection;
@@ -74,8 +69,8 @@ public class PaymentFormController implements Initializable {
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
         tbl.getItems().clear();
-        List<ReserveProjection> reserve = null;
-        ReserveProjection reserveProjection =  null;
+        List<ReserveProjection> reserve;
+        ReserveProjection reserveProjection;
 
         if(cbSelect.getValue().equals("Reservation ID")) {
             List<String> reserveList = paymentBO.getreserveList();
@@ -200,7 +195,7 @@ public class PaymentFormController implements Initializable {
             return "Rs. "+keyMoney;
         }else if (status.contains("Half")){
             String numericPart = status.replaceAll("\\D+", "");
-            return ("Rs. "+(Double.valueOf(keyMoney)-Double.valueOf(numericPart)));
+            return ("Rs. "+(Double.parseDouble(keyMoney)-Double.valueOf(numericPart)));
         }else {return "";}
     }
 

@@ -13,7 +13,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static lk.ijse.controller.PaymentFormController.projection;
-import static org.hibernate.boot.model.source.internal.hbm.CommaSeparatedStringHelper.split;
+import static lk.ijse.dao.custom.impl.util.SetValidation.txtKeyOnRelease;
+import static lk.ijse.dao.custom.impl.util.SetValidation.txtKeyOnType;
 
 public class PayFormController implements Initializable {
     public TextField txtEAmount;
@@ -29,6 +30,10 @@ public class PayFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setPayForm();
+    }
+
+    private void setPayForm() {
         lblReserve.setText(projection.getReserveID() );
         lblStuID.setText(projection.getStudentID());
         lblStuName.setText(projection.getName());
@@ -70,22 +75,16 @@ public class PayFormController implements Initializable {
             return "Rs. "+keyMoney;
         }else if (status.contains("Half")){
             String numericPart = status.replaceAll("\\D+", "");
-            return ("Rs. "+(Double.valueOf(keyMoney)-Double.valueOf(numericPart)));
+            return ("Rs. "+(Double.parseDouble(keyMoney)-Double.valueOf(numericPart)));
         }else {return "";}
     }
 
 
     public void txtAmountOnRelease(KeyEvent keyEvent) {
-        if (txtEAmount.getText().matches("^(([0-9.]?)*)+$")) {
-            txtEAmount.setStyle("-fx-effect:  null; -fx-font-size: 16px;");
-            lblMoney.setText("");
-        }
+        txtKeyOnRelease(txtEAmount,lblMoney);
     }
 
     public void txtAmountOnType(KeyEvent keyEvent) {
-        if (!txtEAmount.getText().matches("^(([0-9.]?)*)+$")) {
-            txtEAmount.setStyle("-fx-effect: innershadow(gaussian, #ac0a2d, 20, 0, 3, 3); -fx-font-size: 16px;");
-            lblMoney.setText("Should only contains numeric values!");
-        }
+        txtKeyOnType(txtEAmount,lblMoney);
     }
 }
