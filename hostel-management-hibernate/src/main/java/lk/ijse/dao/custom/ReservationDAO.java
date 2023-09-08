@@ -1,21 +1,15 @@
 package lk.ijse.dao.custom;
 
-import lk.ijse.dao.SuperDAO;
+import lk.ijse.dao.CrudDAO;
 import lk.ijse.entity.Reservation;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public interface ReservationDAO extends SuperDAO  {
+public interface ReservationDAO extends CrudDAO<Reservation, String> {
     int getUsedRoomCount(String roomID);
 
     String getNextID();
-
-    boolean reserveRoom(Reservation reservation);
-
-    boolean deleteReservation(String reservationID);
-
-    boolean updateRoom(Reservation reservation);
 
     int getReservedCount();
 

@@ -12,12 +12,12 @@ public class UserBOImpl implements UserBO {
     @Override
     public boolean saveUser(UserDTO userDTO) {
         User user = new User(userDTO.getUserID(),userDTO.getName(),userDTO.getUserName(),userDTO.getPassword(),userDTO.getEmail(), userDTO.getProfilePic());
-        return userDAO.saveUser(user);
+        return userDAO.save(user);
     }
 
     @Override
     public boolean updateUser(UserDTO userDTO) {
         User user = new User(userDTO.getUserID(),userDTO.getName(),userDTO.getUserName(),userDTO.getPassword(),userDTO.getEmail(), userDTO.getProfilePic());
-        return userDAO.updateUser(user);
+        return userDAO.update(user);
     }
 }

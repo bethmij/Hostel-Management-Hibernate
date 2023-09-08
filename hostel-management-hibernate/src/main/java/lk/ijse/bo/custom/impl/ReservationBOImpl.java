@@ -35,7 +35,7 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public RoomDTO getRoombyID(String roomID) {
-        Room room =  roomDAO.getRoom(roomID);
+        Room room =  roomDAO.search(roomID);
         return new RoomDTO(room.getTypeId(),room.getType(),room.getKeyMoney(),room.getQty());
     }
 
@@ -64,7 +64,7 @@ public class ReservationBOImpl implements ReservationBO {
         Reservation reservation = new Reservation(reservationDTO.getReserveID(),room,student,
                 date,reservationDTO.getStatus());
 
-        return reserveDAO.reserveRoom(reservation);
+        return reserveDAO.save(reservation);
     }
 
     @Override
@@ -76,6 +76,6 @@ public class ReservationBOImpl implements ReservationBO {
         Reservation reservation = new Reservation(reservationDTO.getReserveID(),room,student,
                 date,reservationDTO.getStatus());
 
-        return reserveDAO.updateRoom(reservation);
+        return reserveDAO.update(reservation);
     }
 }

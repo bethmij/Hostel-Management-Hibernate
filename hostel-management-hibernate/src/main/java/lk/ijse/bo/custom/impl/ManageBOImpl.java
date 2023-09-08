@@ -18,7 +18,7 @@ public class ManageBOImpl implements ManageBO {
 
     @Override
     public StudentDTO getStudent(String text) {
-        Student student = studentDAO.getStudent(text);
+        Student student = studentDAO.search(text);
         return new StudentDTO(student.getStudentID(),student.getName(),student.getAddress(),
                         student.getTel1(),student.getTel2(),student.getEmail(),student.getDob(),student.getGender());
     }
@@ -27,12 +27,12 @@ public class ManageBOImpl implements ManageBO {
     public boolean deleteStudent(String studentID) {
 //        Student student = new Student(studentDTO.getStudentID(),studentDTO.getName(),studentDTO.getAddress(),
 //                        studentDTO.getTel1(),studentDTO.getTel2(),studentDTO.getEmail(),studentDTO.getDob(),studentDTO.getGender());
-        return studentDAO.deleteStudent(studentID);
+        return studentDAO.delete(studentID);
     }
 
     @Override
     public List<StudentDTO> getStudentl() {
-        List<Student> students = studentDAO.getAllStudent();
+        List<Student> students = studentDAO.getAll();
         List<StudentDTO> studentDTOS = new ArrayList<>();
 
         for (Student studentList:students) {
@@ -54,6 +54,6 @@ public class ManageBOImpl implements ManageBO {
 
     @Override
     public boolean deleteReservation(String reservationID) {
-        return reservationDAO.deleteReservation(reservationID);
+        return reservationDAO.delete(reservationID);
     }
 }

@@ -13,13 +13,13 @@ public class RegisterBOImpl implements RegisterBO {
     public boolean saveStudent(StudentDTO studentDTO) {
         Student student = new Student(studentDTO.getStudentID(), studentDTO.getName(), studentDTO.getAddress(),
                 studentDTO.getTel1(), studentDTO.getTel2(), studentDTO.getEmail(), studentDTO.getDob(), studentDTO.getGender());
-        return studentDAO.saveStudent(student);
+        return studentDAO.save(student);
     }
 
     @Override
     public boolean updateStudent(StudentDTO studentDTO) {
         Student student = new Student(studentDTO.getStudentID(), studentDTO.getName(), studentDTO.getAddress(),
                 studentDTO.getTel1(), studentDTO.getTel2(), studentDTO.getEmail(), studentDTO.getDob(), studentDTO.getGender());
-        return studentDAO.updateStudent(student);
+        return studentDAO.update(student);
     }
 }

@@ -44,7 +44,7 @@ public class DashboardBOImpl implements DashboardBO {
 
     @Override
     public List<ReserveProjection> getReservation() {
-        return queryDAO.getReserveDetail();
+        return queryDAO.getAll();
     }
 
     @Override

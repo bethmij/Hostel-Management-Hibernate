@@ -3,7 +3,6 @@ package lk.ijse.bo.custom.impl;
 import lk.ijse.bo.custom.SettingBO;
 import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.UserDAO;
-import lk.ijse.entity.User;
 
 public class SettingBOImpl implements SettingBO {
     UserDAO userDAO = (UserDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOType.USER);
@@ -24,7 +23,7 @@ public class SettingBOImpl implements SettingBO {
     }
 
     @Override
-    public boolean deleteUser(User user) {
-        return userDAO.deleteUser(user);
+    public boolean deleteUser(String userID) {
+        return userDAO.delete(userID);
     }
 }

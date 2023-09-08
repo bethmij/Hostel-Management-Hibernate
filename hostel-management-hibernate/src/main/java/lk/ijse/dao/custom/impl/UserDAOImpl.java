@@ -7,13 +7,14 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
     Session session;
 
     @Override
-    public boolean saveUser(User user) {
+    public boolean save(User user) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -30,7 +31,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getUser(String txtUserName) {
+    public User search(String txtUserName) {
         session = SessionFactoryConfig.getInstance().getSession();
 
         Query query = session.createQuery("FROM User u WHERE u.userName = :userName");
@@ -101,7 +102,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean updateUser(User user) {
+    public List<User> getAll()  {
+        throw new UnsupportedOperationException("This feature yet to be developed");
+    }
+
+    @Override
+    public boolean update(User user) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -118,11 +124,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean deleteUser(User user) {
+    public boolean delete(String userID) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         try {
+            User user = session.get(User.class,userID);
             session.delete(user);
             transaction.commit();
             return true;

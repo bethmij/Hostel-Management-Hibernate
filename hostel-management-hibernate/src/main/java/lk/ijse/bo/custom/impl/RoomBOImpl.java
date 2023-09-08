@@ -27,12 +27,12 @@ public class RoomBOImpl implements RoomBO {
     @Override
     public boolean saveRoom(RoomDTO roomDTO) {
         Room room = new Room(roomDTO.getTypeId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty());
-        return roomDAO.saveRoom(room);
+        return roomDAO.save(room);
     }
 
     @Override
     public List<RoomDTO> getRoomDetail() {
-        List<Room> room = roomDAO.getRoomDetails();
+        List<Room> room = roomDAO.getAll();
         List<RoomDTO> roomDTOS = new ArrayList<>();
 
         for (Room roomList:room) {
@@ -44,19 +44,19 @@ public class RoomBOImpl implements RoomBO {
 
     @Override
     public RoomDTO getRoom(String roomID) {
-         Room room = roomDAO.getRoom(roomID);
+         Room room = roomDAO.search(roomID);
          return new RoomDTO(room.getTypeId(),room.getType(),room.getKeyMoney(),room.getQty());
     }
 
     @Override
     public boolean deleteRoom(String roomID) {
-        return roomDAO.deleteRoom(roomID);
+        return roomDAO.delete(roomID);
     }
 
     @Override
     public boolean updateRoom(RoomDTO roomDTO) {
         Room room = new Room(roomDTO.getTypeId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty());
-        return roomDAO.updateRoom(room);
+        return roomDAO.update(room);
     }
 
     @Override

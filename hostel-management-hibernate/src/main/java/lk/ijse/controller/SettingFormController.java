@@ -183,7 +183,7 @@ public class SettingFormController implements Initializable {
         Optional<ButtonType> result = new Alert(Alert.AlertType.INFORMATION, "Are you sure to delete?", yes, no).showAndWait();
 
         if (result.orElse(no) == yes) {
-            boolean isDeleted = settingBO.deleteUser(user);
+            boolean isDeleted = settingBO.deleteUser(user.getUserID());
             if(isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "User Account Details Deleted!").show();
                 user=null;

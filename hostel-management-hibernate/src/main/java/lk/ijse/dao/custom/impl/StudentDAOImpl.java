@@ -17,7 +17,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean saveStudent(Student student){
+    public boolean save(Student student){
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -35,7 +35,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student getStudent(String id) {
+    public Student search(String id) {
         session = SessionFactoryConfig.getInstance().getSession();
         Student student = session.get(Student.class,id);
         session.close();
@@ -43,7 +43,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean deleteStudent(String studentID) {
+    public boolean delete(String studentID) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -61,7 +61,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public List<Student> getAllStudent() {
+    public List<Student> getAll() {
         session = SessionFactoryConfig.getInstance().getSession();
         Query query = session.createQuery(" FROM Student ");
         List<Student> studentList = query.list();
@@ -70,7 +70,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean updateStudent(Student student) {
+    public boolean update(Student student) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

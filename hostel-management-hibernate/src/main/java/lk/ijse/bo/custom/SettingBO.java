@@ -1,7 +1,6 @@
 package lk.ijse.bo.custom;
 
 import lk.ijse.bo.SuperBO;
-import lk.ijse.entity.User;
 
 public interface SettingBO extends SuperBO {
     boolean updatePic(byte[] imagePath, String userName);
@@ -10,5 +9,5 @@ public interface SettingBO extends SuperBO {
 
     boolean updatePassword(String text, String userName);
 
-    boolean deleteUser(User user);
+    boolean deleteUser(String userID);
 }

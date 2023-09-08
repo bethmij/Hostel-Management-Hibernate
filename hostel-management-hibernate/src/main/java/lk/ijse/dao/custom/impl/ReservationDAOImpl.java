@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -37,7 +38,12 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
     @Override
-    public boolean reserveRoom(Reservation reservation) {
+    public List<Reservation> getAll() {
+        throw new UnsupportedOperationException("This feature yet to be developed");
+    }
+
+    @Override
+    public boolean save(Reservation reservation) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -54,7 +60,7 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
     @Override
-    public boolean deleteReservation(String reservationID) {
+    public boolean delete(String reservationID) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -72,7 +78,12 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
     @Override
-    public boolean updateRoom(Reservation reservation) {
+    public Reservation search(String id) {
+        throw new UnsupportedOperationException("This feature yet to be developed");
+    }
+
+    @Override
+    public boolean update(Reservation reservation) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

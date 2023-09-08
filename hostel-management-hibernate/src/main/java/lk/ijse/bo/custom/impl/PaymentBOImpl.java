@@ -6,13 +6,8 @@ import lk.ijse.dao.custom.QueryDAO;
 import lk.ijse.dao.custom.ReservationDAO;
 import lk.ijse.dao.custom.RoomDAO;
 import lk.ijse.dao.custom.StudentDAO;
-import lk.ijse.entity.Reservation;
-import lk.ijse.entity.Room;
-import lk.ijse.entity.Student;
 import lk.ijse.entity.projection.ReserveProjection;
 
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 
 public class PaymentBOImpl implements PaymentBO {
@@ -23,7 +18,7 @@ public class PaymentBOImpl implements PaymentBO {
 
     @Override
     public List<ReserveProjection> getReserveDetail() {
-        return queryDAO.getReserveDetail();
+        return queryDAO.getAll();
     }
 
     @Override
@@ -43,7 +38,7 @@ public class PaymentBOImpl implements PaymentBO {
 
     @Override
     public ReserveProjection getReservebyReserveID(String reserveID) {
-        return queryDAO.getReserveByPayResID(reserveID);
+        return queryDAO.search(reserveID);
     }
 
     @Override
@@ -53,7 +48,7 @@ public class PaymentBOImpl implements PaymentBO {
 
     @Override
     public boolean deleteReservation(String reservationID) {
-        return reservationDAO.deleteReservation(reservationID);
+        return reservationDAO.delete(reservationID);
     }
 
     @Override

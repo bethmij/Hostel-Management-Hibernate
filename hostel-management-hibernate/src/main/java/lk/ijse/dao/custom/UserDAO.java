@@ -1,14 +1,11 @@
 package lk.ijse.dao.custom;
 
-import lk.ijse.dao.SuperDAO;
+import lk.ijse.dao.CrudDAO;
 import lk.ijse.entity.User;
 
 import java.util.List;
 
-public interface UserDAO extends SuperDAO {
-    boolean saveUser(User user);
-
-    User getUser(String txtUserName);
+public interface UserDAO extends CrudDAO<User, String> {
 
     boolean updatePic(byte[] imagePath, String userName);
 
@@ -16,9 +13,7 @@ public interface UserDAO extends SuperDAO {
 
     boolean updatePassword(String text, String userName);
 
-    boolean updateUser(User user);
-
-    boolean deleteUser(User user);
+    boolean delete(String userID);
 
     List<String> getUserNameList();
 

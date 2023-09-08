@@ -1,6 +1,5 @@
 package lk.ijse.bo.custom.impl;
 
-import javafx.scene.control.TextField;
 import lk.ijse.bo.custom.LoginBO;
 import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.UserDAO;
@@ -13,7 +12,7 @@ public class LoginBOImpl implements LoginBO {
 
     @Override
     public User getUser(String txtUserName) {
-        return userDAO.getUser(txtUserName);
+        return userDAO.search(txtUserName);
     }
 
     @Override
