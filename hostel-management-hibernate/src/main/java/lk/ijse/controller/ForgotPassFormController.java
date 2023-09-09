@@ -14,7 +14,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
-import static lk.ijse.controller.LoginFormController.user;
+
+import static lk.ijse.controller.LoginFormController.loginUser;;
 import static lk.ijse.dao.custom.impl.util.SendMail.sendAttach;
 
 public class ForgotPassFormController implements Initializable {
@@ -61,7 +62,7 @@ public class ForgotPassFormController implements Initializable {
     public void btnSetPassOnAction(ActionEvent actionEvent) {
 
             String hashed = BCrypt.hashpw(txtPassword.getText(), BCrypt.gensalt());
-            boolean isSaved = forgotPassBO.updatePassword(hashed,user.getUserName());
+            boolean isSaved = forgotPassBO.updatePassword(hashed,loginUser.getUserName());
             if (isSaved)
                 new Alert(Alert.AlertType.CONFIRMATION,"Password has been reset successfully!").show();
             else
@@ -74,11 +75,11 @@ public class ForgotPassFormController implements Initializable {
         Random random = new Random();
         code = random.nextInt(99999-11111) + 11111;
 
-        String message =  "User ID  -  "+user.getUserID()+"\n" +
-                "Username      -  "+user.getUserName()+"\n" +
+        String message =  "User ID  -  "+loginUser.getUserID()+"\n" +
+                "Username      -  "+loginUser.getUserName()+"\n" +
                 "Verification Code  -  "+code;
         String subject = "D24 Hotel Administration  : Email verification";
-        String to = user.getEmail();
+        String to = loginUser.getEmail();
         String from = "d24hostel@gmail.com";
         sendAttach(message,subject,to,from);
 

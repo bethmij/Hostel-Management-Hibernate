@@ -24,11 +24,11 @@ public class Reservation {
     private String reserveID;
 
     @ManyToOne
-    @JoinColumn(name = "room_id", referencedColumnName = "room_type_id")
+    @JoinColumn(name = "room_id", referencedColumnName = "room_type_id", nullable = false)
     private Room room;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName = "stu_id")
+    @JoinColumn(name = "student_id", referencedColumnName = "stu_id", nullable = false)
     private Student student;
 
     @Column (name = "date")

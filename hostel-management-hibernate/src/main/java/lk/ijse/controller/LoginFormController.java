@@ -30,6 +30,7 @@ public class LoginFormController {
     public TextField txtPassVisible;
     public ImageView imgCloseEye;
     public ImageView imgOpenEye;
+    public static User loginUser;
     LoginBO loginBO = BOFactory.getBoFactory().getBO(BOFactory.BOType.LOGIN);
 
     public void logInOnAction(ActionEvent actionEvent) {
@@ -77,8 +78,8 @@ public class LoginFormController {
             List<String> userNameLists = loginBO.getUserNameList();
             for (String userName : userNameLists) {
                 if (txtName.getText().equals(userName)) {
-                    user = loginBO.getUser(userName);
-                    if (user.getEmail().isEmpty())
+                    loginUser = loginBO.getUser(userName);
+                    if (loginUser.getEmail().isEmpty())
                         new Alert(Alert.AlertType.ERROR, "User doesn't have an email, This feature can't proceed further!").show();
                     else
                         Notification();
