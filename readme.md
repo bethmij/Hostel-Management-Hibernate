@@ -2,7 +2,7 @@
 
 The Hostel Management System offers a range of features to enhance the reservation process with real-time room check availability.
 
-🎗️𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆 𝘀𝘁𝗮𝗰𝗸
+## 🎗️𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆 𝘀𝘁𝗮𝗰𝗸
 ☑️Java
 ☑️JavaFx
 ☑️CSS
@@ -27,7 +27,7 @@ The Hostel Management System offers a range of features to enhance the reservati
 
 ![image](./Screenshot/Screenshot%20(464).png)
 
--While login to the system this will search for students, whose key money payment is due in one week as they will get 2 month period for their total payment.And send them a remider email
+- While login to the system this will search for students, whose key money payment is due in one week as they will get 2 month period for their total payment.And send them a remider email
 
 ![image](./Screenshot/Screenshot%20(476).png)
 
@@ -35,7 +35,7 @@ The Hostel Management System offers a range of features to enhance the reservati
 
 ![image](./Screenshot/Screenshot%20(478).png)
 
--Here you can register a new student 
+- Here you can register a new student 
 
 ![image](./Screenshot/Screenshot%20(466).png)
 
@@ -53,7 +53,7 @@ The Hostel Management System offers a range of features to enhance the reservati
 
 ![image](./Screenshot/Screenshot%20(481).png)
 
--Here you can manage all user details
+- Here you can manage all user details
 
 ![image](./Screenshot/Screenshot%20(475).png)
 
