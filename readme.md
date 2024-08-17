@@ -5,6 +5,7 @@ The Hostel Management System offers a range of features to enhance the reservati
 ## 🎗️𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆 𝘀𝘁𝗮𝗰𝗸
 ☑️Java
 ☑️JavaFx
+☑️MySQL
 ☑️CSS
 ☑️Layeered Architecture 
 ☑️Hibernate
